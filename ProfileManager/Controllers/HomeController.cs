@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using ProfileManager.Models;
+using ProfileManager.ViewModels;
 using System.Diagnostics;
 
 namespace ProfileManager.Controllers
@@ -15,7 +17,16 @@ namespace ProfileManager.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            List<ProfileViewModel> partners = new List<ProfileViewModel>()
+            {
+                new ProfileViewModel { Id= new Guid(), Age = 19, City = "Balangoda", Distirct = "Ratnapura", FirstName = "Athula", Gender = "Male", LastName = "Chandrawansah" },
+                new ProfileViewModel { Id= new Guid(), Age = 27, City = "Ratnapura", Distirct = "Ratnapura", FirstName = "Anil", Gender = "Male", LastName = "Jayantha" },
+                new ProfileViewModel { Id= new Guid(), Age = 30, City = "Kandy", Distirct = "Kandy", FirstName = "Anura", Gender = "Male", LastName = "Sampath" },
+                new ProfileViewModel { Id= new Guid(), Age = 45, City = "Hambanthota", Distirct = "Hambanthota", FirstName = "Kusumi", Gender = "Feale", LastName = "Gmalath" },
+                new ProfileViewModel { Id= new Guid(), Age = 50, City = "Balangoda", Distirct = "Ratnapura", FirstName = "Amila", Gender = "Feale", LastName = "Nadeesha" },
+            };
+
+            return View(partners);
         }
 
         public IActionResult Privacy()

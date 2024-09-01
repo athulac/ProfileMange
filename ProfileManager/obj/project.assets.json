@@ -3878,6 +3878,20 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
+      },
+      "ProfileManager.Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "6.0.29",
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.29"
+        },
+        "compile": {
+          "bin/placeholder/ProfileManager.Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ProfileManager.Data.dll": {}
+        }
       }
     }
   },
@@ -11081,6 +11095,11 @@
         "system.xml.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xdocument.nuspec"
       ]
+    },
+    "ProfileManager.Data/1.0.0": {
+      "type": "project",
+      "path": "../ProfileManager.Data/ProfileManager.Data.csproj",
+      "msbuildProject": "../ProfileManager.Data/ProfileManager.Data.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -11089,7 +11108,8 @@
       "Microsoft.AspNetCore.Identity.UI >= 6.0.29",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.29",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.29",
-      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.16"
+      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.16",
+      "ProfileManager.Data >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -11119,7 +11139,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Athula\\Documents\\Projects\\ProfileMange\\ProfileManager.Data\\ProfileManager.Data.csproj": {
+              "projectPath": "C:\\Users\\Athula\\Documents\\Projects\\ProfileMange\\ProfileManager.Data\\ProfileManager.Data.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

@@ -1,8 +1,43 @@
-﻿@{
+﻿@using ProfileManager.ViewModels;
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@model List<ProfileViewModel>
+
+@foreach (ProfileViewModel item in Model)
+{
+
+
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+
+                <img class="card-img m-3 rounded-circle shadow-4-strong" src="~/images/png-transparent-female-avatar-girl-face-woman-user-flat-classy-users-icon.png" />
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">@item.FirstName @item.LastName</h5>
+
+                    <small>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">@item.FirstName @item.LastName</li>
+                        <li class="list-group-item">@item.Gender</li>
+                        <li class="list-group-item">@item.Age</li>
+                        <li class="list-group-item">@item.City @item.Distirct</li>
+                    </ul>
+                    </small>      
+
+                </div>
+                <div class="card-body">
+                    @*<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>*@
+                    <a href="#" class="btn btn-success">See Details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+                        
