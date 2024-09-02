@@ -42,7 +42,7 @@ namespace ProfileManager.Repository
         }
 
 
-        public virtual IQueryable<T> GetAllAsync(params Expression<Func<T, Object>>[] includes)
+        public virtual IQueryable<T> GetAll(params Expression<Func<T, Object>>[] includes)
         {
             if (includes.Length > 0)
             {

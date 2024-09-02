@@ -5,5 +5,6 @@ namespace ProfileManager.Services
     public interface IProfileServcie
     {
         Task<int> CreateAsync(ProfileViewModel profileViewModel);
+        Task<List<ProfileViewModel>> GetAllAsync();
     }
 }

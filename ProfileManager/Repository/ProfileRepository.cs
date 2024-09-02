@@ -20,6 +20,14 @@ namespace ProfileManager.Repository
             return res;
         }
 
+        public async Task<IQueryable<Profile>> GetAllAsync()
+
+        {
+            IQueryable<Profile> res;
+            res = GetAll();
+            return res;
+        }
+
         //public async Task<IQueryable<Profile>> GetByGrade(Profile grade)
         //{
         //    var res = Find(x => x.Id == grade.Id);

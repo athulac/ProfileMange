@@ -3,30 +3,20 @@ using ProfileManager.Repository;
 using ProfileManager.Services;
 using ProfileManager.ViewModels;
 using System.Diagnostics;
+using System.Xml.Linq;
 
 namespace ProfileManager.Services
 {
     public class ProfileServcie : IProfileServcie
     {
-        private readonly IProfileRepository studentRepository;
+        private readonly IProfileRepository profileRepository;
 
         public ProfileServcie(IProfileRepository studentRepository)
         {
-            this.studentRepository = studentRepository;
+            this.profileRepository = studentRepository;
         }
 
-        //public async Task<List<Student>> GetByGrade(Grade grade)
-        //{
-        //    var res = await studentRepository.GetByGrade(grade);
-        //    if (!res.Any())
-        //    {
-        //        return new List<Student> { };
-        //    }
-
-        //    return res.ToList();
-        //}
-
-
+   
         public async Task<int> CreateAsync(ProfileViewModel profileViewModel)
         {
             int res = 0;
@@ -42,10 +32,30 @@ namespace ProfileManager.Services
                 Gender = profileViewModel.Gender,
                 UserId = profileViewModel.UserId,
             };
-            res = await studentRepository.CreateAsync(profile);
+            res = await profileRepository.CreateAsync(profile);
 
             return res;
         }
+
+
+        public async Task<List<ProfileViewModel>> GetAllAsync()
+        {
+            var res = await profileRepository.GetAllAsync();
+            var resMapped = res.Select(x => new ProfileViewModel
+            {
+                Id = x.Id,
+                FirstName = x.FirstName,
+                LastName = x.LastName,
+                Distirct = x.Distirct,
+                City = x.City,
+                Gender = x.Gender,
+                UserId = x.UserId
+            }).ToList();
+
+            return resMapped;
+        }
+
+
     }
 
 }
