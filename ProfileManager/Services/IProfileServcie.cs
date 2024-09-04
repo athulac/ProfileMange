@@ -6,5 +6,6 @@ namespace ProfileManager.Services
     {
         Task<int> CreateAsync(ProfileViewModel profileViewModel);
         Task<List<ProfileViewModel>> GetAllAsync();
+        Task<ProfileViewModel> GetAsync(Guid id);
     }
 }

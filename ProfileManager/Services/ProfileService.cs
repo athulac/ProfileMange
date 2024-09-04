@@ -55,7 +55,22 @@ namespace ProfileManager.Services
             return resMapped;
         }
 
+        public async Task<ProfileViewModel> GetAsync(Guid id)
+        {
+            var res = await profileRepository.GetAsync(id);
+            var resMapped = new ProfileViewModel
+            {
+                Id = res.Id,
+                FirstName = res.FirstName,
+                LastName = res.LastName,
+                Distirct = res.Distirct,
+                City = res.City,
+                Gender = res.Gender,
+                UserId = res.UserId
+            };
 
+            return resMapped;
+        }
     }
 
 }

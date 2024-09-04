@@ -35,6 +35,14 @@ namespace ProfileManager.Controllers
             return View(profiles);
         }
 
+        public async Task<IActionResult> Details(Guid id)
+        {  
+
+            var profile = await _profileServcie.GetAsync(id);
+
+            return View(profile);
+        }
+
         public IActionResult Privacy()
         {
             return View();

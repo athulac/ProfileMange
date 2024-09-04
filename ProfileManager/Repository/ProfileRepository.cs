@@ -21,10 +21,16 @@ namespace ProfileManager.Repository
         }
 
         public async Task<IQueryable<Profile>> GetAllAsync()
-
         {
             IQueryable<Profile> res;
             res = GetAll();
+            return res;
+        }
+
+        public async Task<Profile> GetAsync(Guid id)
+        {
+            Profile res;
+            res = GetById(id);
             return res;
         }
 

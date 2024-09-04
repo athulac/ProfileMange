@@ -9,5 +9,6 @@ namespace ProfileManager.Repository
 
         Task<int> CreateAsync(Profile profile);
         Task<IQueryable<Profile>> GetAllAsync();
+        Task<Profile> GetAsync(Guid id);
     }
 }
