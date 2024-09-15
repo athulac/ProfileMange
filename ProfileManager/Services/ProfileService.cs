@@ -28,9 +28,9 @@ namespace ProfileManager.Services
                 LastName = profileViewModel.LastName,
                 City = profileViewModel.City,
                 Distirct = profileViewModel.Distirct,
-                //BirthDate = profileViewModel.BirthDate,
+                BirthDate = profileViewModel.BirthDateTime,
                 Gender = profileViewModel.Gender,
-                UserId = profileViewModel.UserId,
+                UserId = profileViewModel.UserId,               
             };
             res = await profileRepository.CreateAsync(profile);
 
@@ -49,7 +49,8 @@ namespace ProfileManager.Services
                 Distirct = x.Distirct,
                 City = x.City,
                 Gender = x.Gender,
-                UserId = x.UserId
+                UserId = x.UserId,
+                BirthDateTime = x.BirthDate,
             }).ToList();
 
             return resMapped;
@@ -66,7 +67,56 @@ namespace ProfileManager.Services
                 Distirct = res.Distirct,
                 City = res.City,
                 Gender = res.Gender,
-                UserId = res.UserId
+                UserId = res.UserId,
+                BirthDateTime = res.BirthDate,
+            };
+
+            return resMapped;
+        }
+
+        public async Task<ProfileViewModel> GetByIdentityIdAsync(Guid id)
+        {
+            var res = await profileRepository.GetByIdentityIdAsync(id);
+            var resMapped = new ProfileViewModel
+            {
+                Id = res.Id,
+                FirstName = res.FirstName,
+                LastName = res.LastName,
+                Distirct = res.Distirct,
+                City = res.City,
+                Gender = res.Gender,
+                UserId = res.UserId,
+                BirthDateTime = res.BirthDate,
+            };
+
+            return resMapped;
+        }
+
+        public async Task<ProfileViewModel> ModifyAsync(ProfileViewModel profile)
+        {
+            var profileMapped = new Profile
+            {
+                Id = profile.Id,
+                FirstName = profile.FirstName,
+                LastName = profile.LastName,
+                Distirct = profile.Distirct,
+                City = profile.City,
+                Gender = profile.Gender,
+                UserId = profile.UserId,
+                BirthDate = profile.BirthDateTime,
+            };
+
+            var res = await profileRepository.ModifyAsync(profileMapped);
+            var resMapped = new ProfileViewModel
+            {
+                Id = res.Id,
+                FirstName = res.FirstName,
+                LastName = res.LastName,
+                Distirct = res.Distirct,
+                City = res.City,
+                Gender = res.Gender,
+                UserId = res.UserId,
+                BirthDateTime = res.BirthDate,
             };
 
             return resMapped;

@@ -18,18 +18,8 @@ namespace ProfileManager.Controllers
             _profileServcie = profileServcie;
         }
 
-        public async Task<IActionResult> Index()
-        
+        public async Task<IActionResult> Index()        
         {
-            //List<ProfileViewModel> partners = new List<ProfileViewModel>()
-            //{
-            //    new ProfileViewModel { Id= new Guid(), Age = 19, City = "Balangoda", Distirct = "Ratnapura", FirstName = "Athula", Gender = "Male", LastName = "Chandrawansah" },
-            //    new ProfileViewModel { Id= new Guid(), Age = 27, City = "Ratnapura", Distirct = "Ratnapura", FirstName = "Anil", Gender = "Male", LastName = "Jayantha" },
-            //    new ProfileViewModel { Id= new Guid(), Age = 30, City = "Kandy", Distirct = "Kandy", FirstName = "Anura", Gender = "Male", LastName = "Sampath" },
-            //    new ProfileViewModel { Id= new Guid(), Age = 45, City = "Hambanthota", Distirct = "Hambanthota", FirstName = "Kusumi", Gender = "Feale", LastName = "Gmalath" },
-            //    new ProfileViewModel { Id= new Guid(), Age = 50, City = "Balangoda", Distirct = "Ratnapura", FirstName = "Amila", Gender = "Feale", LastName = "Nadeesha" },
-            //};
-
             var profiles = await _profileServcie.GetAllAsync();
 
             return View(profiles);
@@ -54,6 +44,13 @@ namespace ProfileManager.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
+        public async Task<IActionResult> Edit(Guid id)
+        {
+
+            var profile = await _profileServcie.GetAsync(id);
+
+            return View(profile);
+        }
 
     }
 }

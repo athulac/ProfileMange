@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using ProfileManager.Data;
 using System.Linq.Expressions;
 
@@ -7,9 +8,12 @@ namespace ProfileManager.Repository
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         protected readonly ProfileManagerDataDbContext _context;
+        private DbSet<T> table = null;
+
         public GenericRepository(ProfileManagerDataDbContext context)
         {
             _context = context;
+            table = _context.Set<T>();
         }
 
         public async Task<int> AddAsync(T entity)
@@ -23,6 +27,7 @@ namespace ProfileManager.Repository
         {
             _context.Set<T>().AddRange(entities);
         }
+
 
         public IQueryable<T> Find(Expression<Func<T, bool>> expression, params Expression<Func<T, Object>>[] includes)
         {
@@ -73,5 +78,16 @@ namespace ProfileManager.Repository
         {
             _context.Set<T>().RemoveRange(entities);
         }
+
+        public void Update(T obj)
+        {
+            table.Attach(obj);
+            _context.Entry(obj).State = EntityState.Modified;            
+        }
+        public void Save()
+        {
+            _context.SaveChanges();
+        }
+
     }
 }

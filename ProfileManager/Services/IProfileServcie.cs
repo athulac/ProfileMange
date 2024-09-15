@@ -7,5 +7,7 @@ namespace ProfileManager.Services
         Task<int> CreateAsync(ProfileViewModel profileViewModel);
         Task<List<ProfileViewModel>> GetAllAsync();
         Task<ProfileViewModel> GetAsync(Guid id);
+        Task<ProfileViewModel> GetByIdentityIdAsync(Guid id);
+        Task<ProfileViewModel> ModifyAsync(ProfileViewModel profile);
     }
 }

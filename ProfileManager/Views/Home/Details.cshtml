@@ -3,7 +3,48 @@
 <div class="panel panel-default">
     <ul class="list-inline">
         <li class="list-inline-item">@Model.FirstName</li>
-        <li class="list-inline-item">@Model.FirstName</li>
+        <li class="list-inline-item">@Model.LastName</li>
 
     </ul>
+
+
+    <div class="mb-3 row">
+        @Html.LabelFor(model => model.FullName, htmlAttributes: new { @class = "col-sm-2 col-form-label" })
+        <div class="col-sm-10">
+            @Html.DisplayFor(model => model.FullName, new { htmlAttributes = new { @class = "form-control-plaintext" } })
+          @*  @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })*@
+        </div>
+    </div>
+    <div class="mb-3 row">
+        @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "col-sm-2 col-form-label" })
+        <div class="col-sm-10">
+            @Html.DisplayFor(model => model.Gender, new { htmlAttributes = new { @class = "form-control-plaintext" } })
+        </div>
+    </div>
+    <div class="mb-3 row">
+        @Html.LabelFor(model => model.Age, htmlAttributes: new { @class = "col-sm-2 col-form-label" })
+        <div class="col-sm-10">
+            @Html.DisplayFor(model => model.Age, new { htmlAttributes = new { @class = "form-control-plaintext" } })
+        </div>
+    </div>
+    <div class="mb-3 row">
+        @Html.LabelFor(model => model.BirthDate, htmlAttributes: new { @class = "col-sm-2 col-form-label" })
+        <div class="col-sm-10">
+            @Html.DisplayFor(model => model.BirthDate, new { htmlAttributes = new { @class = "form-control-plaintext" } })
+        </div>
+    </div>
+    <div class="mb-3 row">
+        @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "col-sm-2 col-form-label" })
+        <div class="col-sm-10">
+            @Html.DisplayFor(model => model.City, new { htmlAttributes = new { @class = "form-control-plaintext" } })
+        </div>
+    </div>
+    <div class="mb-3 row">
+        @Html.LabelFor(model => model.Distirct, htmlAttributes: new { @class = "col-sm-2 col-form-label" })
+        <div class="col-sm-10">
+            @Html.DisplayFor(model => model.Distirct, new { htmlAttributes = new { @class = "form-control-plaintext" } })
+        </div>
+    </div>
+
+
 </div>

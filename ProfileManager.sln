@@ -5,7 +5,7 @@ VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProfileManager", "ProfileManager\ProfileManager.csproj", "{F8FA2C80-548F-4D88-808E-3225BA0EC908}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProfileManager.Data", "ProfileManager.Data\ProfileManager.Data.csproj", "{49E21BE8-6E25-47B2-91AD-BB6C7929740D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProfileManager.Data", "ProfileManager.Data\ProfileManager.Data.csproj", "{49E21BE8-6E25-47B2-91AD-BB6C7929740D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
