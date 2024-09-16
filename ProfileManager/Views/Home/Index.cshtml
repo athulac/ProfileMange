@@ -10,31 +10,43 @@
 {
 
 
-    <div class="card mb-3" style="max-width: 540px;">
+    <div class="col-7 card mb-3" @*style="max-width: 540px;"*@>
         <div class="row no-gutters">
-            <div class="col-md-4">
-
-                <img class="card-img m-3 rounded-circle shadow-4-strong" src="~/images/png-transparent-female-avatar-girl-face-woman-user-flat-classy-users-icon.png" />
+            <div class="col-md-2">
+                @if (item.Gender == "Male")
+                {
+                     <img class="card-img m-3 rounded-circle shadow-4-strong" src="~/images/man.png" />
+                }else{
+                    <img class="card-img m-3 rounded-circle shadow-4-strong" src="~/images/woman.png" />
+                }
             </div>
-            <div class="col-md-8">
+            <div class="col-md-10">
+               
                 <div class="card-body">
                     <h5 class="card-title">@item.FirstName @item.LastName</h5>
-
-                    <small>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">@item.FirstName @item.LastName</li>
-                        <li class="list-group-item">@item.Gender</li>
-                        <li class="list-group-item">@item.Age</li>
-                        <li class="list-group-item">@item.City @item.Distirct</li>
+                    <hr/>
+                    <ul class="list-group list-group-horizontal list-group-flush">
+                        <li class="col-6 list-group-item"><h5><span class="col-4 badge rounded-pill bg-secondary">Civil Status</span> <span class="badge bg-light text-dark">@item.FirstName @item.LastName</span></h5></li>
+                        <li class="col-6 list-group-item"><h5><span class="col-4 badge rounded-pill bg-secondary">Gender</span> <span class="badge bg-light text-dark">@item.Gender</span></h5></li>
                     </ul>
-                    </small>      
-
+                    <ul class="list-group list-group-horizontal list-group-flush">
+                        <li class="col-6 list-group-item"><h5><span class="col-4 badge rounded-pill bg-secondary">Age</span> <span class="badge bg-light text-dark">@item.Age</span></h5></li>
+                        <li class="col-6 list-group-item"><h5><span class="col-4 badge rounded-pill bg-secondary">Job</span> <span class="badge bg-light text-dark">@item.FirstName @item.LastName</span></h5></li>
+                    </ul>
+                    <ul class="list-group list-group-horizontal list-group-flush">
+                        <li class="col-6 list-group-item"><h5><span class="col-4 badge rounded-pill bg-secondary">Cast</span> <span class="badge bg-light text-dark">@item.FirstName @item.LastName</span></h5></li>
+                        <li class="col-6 list-group-item"><h5><span class="col-4 badge rounded-pill bg-secondary">City</span> <span class="badge bg-light text-dark">@item.City</span></h5></li>
+                    </ul>
+                    <ul class="list-group list-group-horizontal list-group-flush">
+                        <li class="col-6 list-group-item"><h5><span class="col-4 badge rounded-pill bg-secondary">Published</span> <span class="badge bg-light text-dark">@item.FirstName @item.LastName</span></h5></li>
+                        <li class="col-6 list-group-item"><h5><span class="col-4 badge rounded-pill bg-secondary">Country</span> <span class="badge bg-light text-dark">@item.FirstName @item.LastName</span></h5></li>
+                    </ul>
                 </div>
                 <div class="card-body">
                     @*<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>*@
 
-                    <a href="@Url.Action("Details", "Home",new{id=item.Id})" class="btn btn-success">See Details</a>
-                    <a href="#" class="btn btn-success">Send Request</a>
+                    <a href="@Url.Action("Details", "Home",new{id=item.Id})" class="btn btn-sm btn-success">See Details</a>
+                    <a href="#" class="btn btn-sm btn-success">Send Request</a>
                 </div>
             </div>
         </div>

@@ -5,6 +5,8 @@ using ProfileManager.Areas.Identity.Data;
 using Microsoft.AspNetCore.Builder;
 using ProfileManager.Repository;
 using ProfileManager.Services;
+using ProfileManager.ViewModels;
+using Microsoft.AspNetCore.Identity.UI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("ProfileManagerContextConnection") ?? throw new InvalidOperationException("Connection string 'ProfileManagerContextConnection' not found.");
@@ -27,6 +29,10 @@ builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepositor
 builder.Services.AddScoped<IProfileRepository, ProfileRepository>();
 builder.Services.AddScoped<IProfileServcie, ProfileServcie>();
 
+//mail
+//builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailSettings"));
+//builder.Services.AddScoped<IEmailSender, EmailSender>();
+builder.Services.AddScoped<IEmailService, EmailService>();
 
 
 var app = builder.Build();
