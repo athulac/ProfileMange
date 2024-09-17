@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProfileManager.Data;
 
@@ -11,9 +12,10 @@ using ProfileManager.Data;
 namespace ProfileManager.Data.Migrations
 {
     [DbContext(typeof(ProfileManagerDataDbContext))]
-    partial class ProfileManagerDataDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240916175501_modifyProfileOptional")]
+    partial class modifyProfileOptional
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -65,15 +67,6 @@ namespace ProfileManager.Data.Migrations
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MemberId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("Race")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("Religion")
-                        .HasColumnType("int");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");

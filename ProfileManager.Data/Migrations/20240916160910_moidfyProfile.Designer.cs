@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProfileManager.Data;
 
@@ -11,9 +12,10 @@ using ProfileManager.Data;
 namespace ProfileManager.Data.Migrations
 {
     [DbContext(typeof(ProfileManagerDataDbContext))]
-    partial class ProfileManagerDataDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240916160910_moidfyProfile")]
+    partial class moidfyProfile
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -31,7 +33,7 @@ namespace ProfileManager.Data.Migrations
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("Cast")
+                    b.Property<int>("Cast")
                         .HasColumnType("int");
 
                     b.Property<int>("City")
@@ -40,13 +42,13 @@ namespace ProfileManager.Data.Migrations
                     b.Property<int>("CivilStatus")
                         .HasColumnType("int");
 
-                    b.Property<int?>("Country")
+                    b.Property<int>("Country")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("Distirct")
+                    b.Property<int>("Distirct")
                         .HasColumnType("int");
 
                     b.Property<string>("FirstName")
@@ -57,23 +59,15 @@ namespace ProfileManager.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Introduction")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("Job")
+                    b.Property<int>("Job")
                         .HasColumnType("int");
 
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MemberId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("Race")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("Religion")
-                        .HasColumnType("int");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");

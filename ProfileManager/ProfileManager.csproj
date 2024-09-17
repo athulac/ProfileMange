@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ProfileManager.Common\ProfileManager.Common.csproj" />
     <ProjectReference Include="..\ProfileManager.Data\ProfileManager.Data.csproj" />
   </ItemGroup>
 

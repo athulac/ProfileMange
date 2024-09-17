@@ -11,21 +11,25 @@
         <section>
             <form id="account" method="post">                
                 <hr />
-                    <br />
+
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class="form-floating">
-                    <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
-                    <label asp-for="Input.Email" class="form-label"></label>
-                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+
+                <div class="form-group mt-3"> 
+                    <label asp-for="Input.Email" class="control-label col-md-2 mb-1"></label>
+                    <div class="col-md-10">
+                        <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
+                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    </div>
                 </div>
-                <br />
-                <div class="form-floating">
-                    <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" />
-                    <label asp-for="Input.Password" class="form-label"></label>
-                    <span asp-validation-for="Input.Password" class="text-danger"></span>
-                </div>
-                <br />
-                <div>
+                <div class="form-group mt-3">
+                    <label asp-for="Input.Password" class="control-label col-md-2 mb-1"></label>
+                    <div class="col-md-10">
+                        <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" />
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    </div>
+                </div>        
+              
+                <div class="form-group mt-3">
                     <div class="checkbox">
                         <label asp-for="Input.RememberMe" class="form-label">
                             <input class="form-check-input" asp-for="Input.RememberMe" />
@@ -33,23 +37,15 @@
                         </label>
                     </div>
                 </div>
-                <br />
-                <div>
-                    <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Log in</button>
-                </div>
-                <br />
-                <div>
-                    <p>
-                        <a class="btn btn-danger" id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
-                    </p>
-                    <br />
-                    <p>
-                        <a class="btn btn-primary" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
-                    </p>
-                    <br />
-                    <p>
-                        <a class="btn btn-success" id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
-                    </p>
+
+ 
+                <div class="form-group mt-3">
+                    <button id="login-submit" type="submit" class="w-50 btn btn-md btn-primary">Log in</button>
+                </div>                
+                <div class="form-group mt-5 btn-group" role="group" aria-label="Basic mixed styles example">
+                    <a class="btn btn-sm btn-danger" id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>                  
+                    <a class="btn btn-sm btn-primary" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                    <a class="btn btn-sm btn-success" id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
                 </div>
             </form>
         </section>

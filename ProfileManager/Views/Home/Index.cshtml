@@ -1,4 +1,5 @@
 ﻿@using ProfileManager.ViewModels;
+@using ProfileManager.Common.Helpers;
 
 @{
     ViewData["Title"] = "Home Page";
@@ -6,52 +7,65 @@
 
 @model List<ProfileViewModel>
 
-@foreach (ProfileViewModel item in Model)
-{
+<div class="row">
+    <div class="col-7">
+        @foreach (ProfileViewModel item in Model)
+        {
+            <div class="col-12 card mb-3" @*style="max-width: 540px;"*@>
+                <div class="row no-gutters">
+                    <div class="col-md-2">
+                        @if (item.GenderName == "Male")
+                        {
+                            <img class="card-img m-3 rounded-circle shadow-4-strong" src="~/images/man.png" />
+                        }
+                        else
+                        {
+                            <img class="card-img m-3 rounded-circle shadow-4-strong" src="~/images/woman.png" />
+                        }
+                    </div>
+                    <div class="col-md-10">
 
+                        <div class="card-body">
+                            <h6 class="card-title">@item.FirstName @item.LastName</h6>
+                            <hr />
+                            <ul class="list-group list-group-horizontal list-group-flush">
+                                <li class="col-6 list-group-item"><h6><span class="col-4 badge rounded-pill bg-secondary">Civil Status</span> <span class="badge bg-light text-dark">@EnumExtensions.GetDisplayName(item.CivilStatus)</span></h6></li>
+                                <li class="col-6 list-group-item"><h6><span class="col-4 badge rounded-pill bg-secondary">Gender</span> <span class="badge bg-light text-dark">@EnumExtensions.GetDisplayName(item.Gender)</span></h6></li>
+                            </ul>
+                            <ul class="list-group list-group-horizontal list-group-flush">
+                                <li class="col-6 list-group-item"><h6><span class="col-4 badge rounded-pill bg-secondary">Age</span> <span class="badge bg-light text-dark">@item.Age</span></h6></li>
+                                <li class="col-6 list-group-item"><h6><span class="col-4 badge rounded-pill bg-secondary">Job</span> <span class="badge bg-light text-dark">@EnumExtensions.GetDisplayName(item.Job)</span></h6></li>
+                            </ul>
+                            <ul class="list-group list-group-horizontal list-group-flush">
+                                <li class="col-6 list-group-item"><h6><span class="col-4 badge rounded-pill bg-secondary">Race</span> <span class="badge bg-light text-dark">@EnumExtensions.GetDisplayName(item.Race)</span></h6></li>
+                                <li class="col-6 list-group-item"><h6><span class="col-4 badge rounded-pill bg-secondary">Religion</span> <span class="badge bg-light text-dark">@EnumExtensions.GetDisplayName(item.Religion)</span></h6></li>
+                            </ul>
+                            <ul class="list-group list-group-horizontal list-group-flush">
+                                <li class="col-6 list-group-item"><h6><span class="col-4 badge rounded-pill bg-secondary">Cast</span> <span class="badge bg-light text-dark">@EnumExtensions.GetDisplayName(item.Cast)</span></h6></li>
+                                <li class="col-6 list-group-item"><h6><span class="col-4 badge rounded-pill bg-secondary">City</span> <span class="badge bg-light text-dark">@EnumExtensions.GetDisplayName(item.City)</span></h6></li>
+                            </ul>
+                            <ul class="list-group list-group-horizontal list-group-flush">
+                                <li class="col-6 list-group-item"><h6><span class="col-4 badge rounded-pill bg-secondary">Published</span> <span class="badge bg-light text-dark">@item.CreatedOn</span></h6></li>
+                                <li class="col-6 list-group-item"><h6><span class="col-4 badge rounded-pill bg-secondary">Country</span> <span class="badge bg-light text-dark">@EnumExtensions.GetDisplayName(item.Country)</span></h6></li>
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                            @*<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>*@
 
-    <div class="col-7 card mb-3" @*style="max-width: 540px;"*@>
-        <div class="row no-gutters">
-            <div class="col-md-2">
-                @if (item.Gender == "Male")
-                {
-                     <img class="card-img m-3 rounded-circle shadow-4-strong" src="~/images/man.png" />
-                }else{
-                    <img class="card-img m-3 rounded-circle shadow-4-strong" src="~/images/woman.png" />
-                }
-            </div>
-            <div class="col-md-10">
-               
-                <div class="card-body">
-                    <h5 class="card-title">@item.FirstName @item.LastName</h5>
-                    <hr/>
-                    <ul class="list-group list-group-horizontal list-group-flush">
-                        <li class="col-6 list-group-item"><h5><span class="col-4 badge rounded-pill bg-secondary">Civil Status</span> <span class="badge bg-light text-dark">@item.FirstName @item.LastName</span></h5></li>
-                        <li class="col-6 list-group-item"><h5><span class="col-4 badge rounded-pill bg-secondary">Gender</span> <span class="badge bg-light text-dark">@item.Gender</span></h5></li>
-                    </ul>
-                    <ul class="list-group list-group-horizontal list-group-flush">
-                        <li class="col-6 list-group-item"><h5><span class="col-4 badge rounded-pill bg-secondary">Age</span> <span class="badge bg-light text-dark">@item.Age</span></h5></li>
-                        <li class="col-6 list-group-item"><h5><span class="col-4 badge rounded-pill bg-secondary">Job</span> <span class="badge bg-light text-dark">@item.FirstName @item.LastName</span></h5></li>
-                    </ul>
-                    <ul class="list-group list-group-horizontal list-group-flush">
-                        <li class="col-6 list-group-item"><h5><span class="col-4 badge rounded-pill bg-secondary">Cast</span> <span class="badge bg-light text-dark">@item.FirstName @item.LastName</span></h5></li>
-                        <li class="col-6 list-group-item"><h5><span class="col-4 badge rounded-pill bg-secondary">City</span> <span class="badge bg-light text-dark">@item.City</span></h5></li>
-                    </ul>
-                    <ul class="list-group list-group-horizontal list-group-flush">
-                        <li class="col-6 list-group-item"><h5><span class="col-4 badge rounded-pill bg-secondary">Published</span> <span class="badge bg-light text-dark">@item.FirstName @item.LastName</span></h5></li>
-                        <li class="col-6 list-group-item"><h5><span class="col-4 badge rounded-pill bg-secondary">Country</span> <span class="badge bg-light text-dark">@item.FirstName @item.LastName</span></h5></li>
-                    </ul>
+                            <a href="@Url.Action("Details", "Home",new{id=item.Id})" class="btn btn-sm btn-success">See Details</a>
+                            <a href="#" class="btn btn-sm btn-success">Send Request</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-body">
-                    @*<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>*@
-
-                    <a href="@Url.Action("Details", "Home",new{id=item.Id})" class="btn btn-sm btn-success">See Details</a>
-                    <a href="#" class="btn btn-sm btn-success">Send Request</a>
-                </div>
             </div>
-        </div>
+        }
     </div>
-}
+   
+    <div class="col-5"><h6>Side Bar</h6></div>
+</div>
+
+
+
 
 
                         

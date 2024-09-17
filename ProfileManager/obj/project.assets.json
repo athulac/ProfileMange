@@ -3765,12 +3765,23 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
+      "ProfileManager.Common/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/ProfileManager.Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ProfileManager.Common.dll": {}
+        }
+      },
       "ProfileManager.Data/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "6.0.29",
-          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.29"
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.29",
+          "ProfileManager.Common": "1.0.0"
         },
         "compile": {
           "bin/placeholder/ProfileManager.Data.dll": {}
@@ -10889,6 +10900,11 @@
         "system.xml.xdocument.nuspec"
       ]
     },
+    "ProfileManager.Common/1.0.0": {
+      "type": "project",
+      "path": "../ProfileManager.Common/ProfileManager.Common.csproj",
+      "msbuildProject": "../ProfileManager.Common/ProfileManager.Common.csproj"
+    },
     "ProfileManager.Data/1.0.0": {
       "type": "project",
       "path": "../ProfileManager.Data/ProfileManager.Data.csproj",
@@ -10904,6 +10920,7 @@
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.33",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.17",
       "MimeKit >= 4.7.1",
+      "ProfileManager.Common >= 1.0.0",
       "ProfileManager.Data >= 1.0.0"
     ]
   },
@@ -10935,6 +10952,9 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
+            "C:\\Users\\Athula\\Documents\\Projects\\ProfileMange\\ProfileManager.Common\\ProfileManager.Common.csproj": {
+              "projectPath": "C:\\Users\\Athula\\Documents\\Projects\\ProfileMange\\ProfileManager.Common\\ProfileManager.Common.csproj"
+            },
             "C:\\Users\\Athula\\Documents\\Projects\\ProfileMange\\ProfileManager.Data\\ProfileManager.Data.csproj": {
               "projectPath": "C:\\Users\\Athula\\Documents\\Projects\\ProfileMange\\ProfileManager.Data\\ProfileManager.Data.csproj"
             }

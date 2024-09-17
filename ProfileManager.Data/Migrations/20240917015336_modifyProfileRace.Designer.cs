@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProfileManager.Data;
 
@@ -11,9 +12,10 @@ using ProfileManager.Data;
 namespace ProfileManager.Data.Migrations
 {
     [DbContext(typeof(ProfileManagerDataDbContext))]
-    partial class ProfileManagerDataDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240917015336_modifyProfileRace")]
+    partial class modifyProfileRace
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

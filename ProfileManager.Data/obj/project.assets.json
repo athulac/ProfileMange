@@ -782,6 +782,16 @@
             "rid": "win"
           }
         }
+      },
+      "ProfileManager.Common/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/ProfileManager.Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ProfileManager.Common.dll": {}
+        }
       }
     }
   },
@@ -2003,13 +2013,19 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "ProfileManager.Common/1.0.0": {
+      "type": "project",
+      "path": "../ProfileManager.Common/ProfileManager.Common.csproj",
+      "msbuildProject": "../ProfileManager.Common/ProfileManager.Common.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "Microsoft.EntityFrameworkCore >= 6.0.29",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.29",
-      "Microsoft.EntityFrameworkCore.Tools >= 6.0.29"
+      "Microsoft.EntityFrameworkCore.Tools >= 6.0.29",
+      "ProfileManager.Common >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -2038,7 +2054,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Athula\\Documents\\Projects\\ProfileMange\\ProfileManager.Common\\ProfileManager.Common.csproj": {
+              "projectPath": "C:\\Users\\Athula\\Documents\\Projects\\ProfileMange\\ProfileManager.Common\\ProfileManager.Common.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
