@@ -1,0 +1,12 @@
+C:\Users\Athula\Documents\Projects\ProfileMange\ProfileManager.Common\bin\Debug\net6.0\ProfileManager.Common.deps.json
+C:\Users\Athula\Documents\Projects\ProfileMange\ProfileManager.Common\bin\Debug\net6.0\ProfileManager.Common.dll
+C:\Users\Athula\Documents\Projects\ProfileMange\ProfileManager.Common\bin\Debug\net6.0\ProfileManager.Common.pdb
+C:\Users\Athula\Documents\Projects\ProfileMange\ProfileManager.Common\obj\Debug\net6.0\ProfileManager.Common.csproj.AssemblyReference.cache
+C:\Users\Athula\Documents\Projects\ProfileMange\ProfileManager.Common\obj\Debug\net6.0\ProfileManager.Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Athula\Documents\Projects\ProfileMange\ProfileManager.Common\obj\Debug\net6.0\ProfileManager.Common.AssemblyInfoInputs.cache
+C:\Users\Athula\Documents\Projects\ProfileMange\ProfileManager.Common\obj\Debug\net6.0\ProfileManager.Common.AssemblyInfo.cs
+C:\Users\Athula\Documents\Projects\ProfileMange\ProfileManager.Common\obj\Debug\net6.0\ProfileManager.Common.csproj.CoreCompileInputs.cache
+C:\Users\Athula\Documents\Projects\ProfileMange\ProfileManager.Common\obj\Debug\net6.0\ProfileManager.Common.dll
+C:\Users\Athula\Documents\Projects\ProfileMange\ProfileManager.Common\obj\Debug\net6.0\refint\ProfileManager.Common.dll
+C:\Users\Athula\Documents\Projects\ProfileMange\ProfileManager.Common\obj\Debug\net6.0\ProfileManager.Common.pdb
+C:\Users\Athula\Documents\Projects\ProfileMange\ProfileManager.Common\obj\Debug\net6.0\ref\ProfileManager.Common.dll

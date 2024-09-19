@@ -1,0 +1,17 @@
+C:\Users\Athula\Documents\Projects\ProfileMange\ProfileManager.Data\bin\Debug\net6.0\ProfileManager.Data.deps.json
+C:\Users\Athula\Documents\Projects\ProfileMange\ProfileManager.Data\bin\Debug\net6.0\ProfileManager.Data.runtimeconfig.json
+C:\Users\Athula\Documents\Projects\ProfileMange\ProfileManager.Data\bin\Debug\net6.0\ProfileManager.Data.dll
+C:\Users\Athula\Documents\Projects\ProfileMange\ProfileManager.Data\bin\Debug\net6.0\ProfileManager.Data.pdb
+C:\Users\Athula\Documents\Projects\ProfileMange\ProfileManager.Data\bin\Debug\net6.0\ProfileManager.Common.dll
+C:\Users\Athula\Documents\Projects\ProfileMange\ProfileManager.Data\bin\Debug\net6.0\ProfileManager.Common.pdb
+C:\Users\Athula\Documents\Projects\ProfileMange\ProfileManager.Data\obj\Debug\net6.0\ProfileManager.Data.csproj.AssemblyReference.cache
+C:\Users\Athula\Documents\Projects\ProfileMange\ProfileManager.Data\obj\Debug\net6.0\ProfileManager.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Athula\Documents\Projects\ProfileMange\ProfileManager.Data\obj\Debug\net6.0\ProfileManager.Data.AssemblyInfoInputs.cache
+C:\Users\Athula\Documents\Projects\ProfileMange\ProfileManager.Data\obj\Debug\net6.0\ProfileManager.Data.AssemblyInfo.cs
+C:\Users\Athula\Documents\Projects\ProfileMange\ProfileManager.Data\obj\Debug\net6.0\ProfileManager.Data.csproj.CoreCompileInputs.cache
+C:\Users\Athula\Documents\Projects\ProfileMange\ProfileManager.Data\obj\Debug\net6.0\ProfileManager.Data.csproj.CopyComplete
+C:\Users\Athula\Documents\Projects\ProfileMange\ProfileManager.Data\obj\Debug\net6.0\ProfileManager.Data.dll
+C:\Users\Athula\Documents\Projects\ProfileMange\ProfileManager.Data\obj\Debug\net6.0\refint\ProfileManager.Data.dll
+C:\Users\Athula\Documents\Projects\ProfileMange\ProfileManager.Data\obj\Debug\net6.0\ProfileManager.Data.pdb
+C:\Users\Athula\Documents\Projects\ProfileMange\ProfileManager.Data\obj\Debug\net6.0\ProfileManager.Data.genruntimeconfig.cache
+C:\Users\Athula\Documents\Projects\ProfileMange\ProfileManager.Data\obj\Debug\net6.0\ref\ProfileManager.Data.dll
