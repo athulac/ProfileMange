@@ -15,7 +15,6 @@ namespace ProfileManager.Services
         {
             this.profileRepository = studentRepository;
         }
-
    
         public async Task<int> CreateAsync(ProfileViewModel profileViewModel)
         {
@@ -47,7 +46,6 @@ namespace ProfileManager.Services
 
             return res;
         }
-
 
         public async Task<List<ProfileViewModel>> GetAllAsync()
         {

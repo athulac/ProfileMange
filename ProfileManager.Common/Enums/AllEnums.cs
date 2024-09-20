@@ -86,4 +86,11 @@ namespace ProfileManager.Common.Enums
         Christian = 3,
     }
 
+    public enum FamilyTypeEnum
+    {
+        Sister = 1,
+        Brother = 2,
+        Father = 3,
+        Mother = 3,
+    }
 }
