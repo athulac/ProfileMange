@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using ProfileManager.Common.Enums;
 using ProfileManager.Models;
 using ProfileManager.Services;
 using ProfileManager.ViewModels;
@@ -11,10 +12,13 @@ namespace ProfileManager.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IProfileServcie _profileServcie;
+        private readonly IFamilyService _familyService;
 
-        public HomeController(ILogger<HomeController> logger, IProfileServcie profileServcie)
+        public HomeController(ILogger<HomeController> logger, IProfileServcie profileServcie,
+            IFamilyService familyService)
         {
             _logger = logger;
+            _familyService = familyService;
             _profileServcie = profileServcie;
         }
 
@@ -29,6 +33,38 @@ namespace ProfileManager.Controllers
         {  
 
             var profile = await _profileServcie.GetAsync(id);
+
+    
+            List<FamilyViewModel> families = await _familyService.GetAllByIdentityIdAsync(profile.UserId);
+            if (families.Any(x => x.FamilyType == FamilyTypeEnum.Father))
+            {
+                profile.Father = families.FirstOrDefault(x => x.FamilyType == FamilyTypeEnum.Father);
+            }
+            if (families.Any(x => x.FamilyType == FamilyTypeEnum.Mother))
+            {
+                profile.Mother = families.FirstOrDefault(x => x.FamilyType == FamilyTypeEnum.Mother);
+            }
+
+
+            int len = families.Where(x => x.FamilyType == FamilyTypeEnum.YoungerSister || x.FamilyType == FamilyTypeEnum.ElderSister ||
+                                          x.FamilyType == FamilyTypeEnum.YoungerBrother || x.FamilyType == FamilyTypeEnum.ElderBrother).Count();
+            if (len > 0)
+            {
+                profile.SiblingOne = families.Where(x => x.FamilyType == FamilyTypeEnum.YoungerSister || x.FamilyType == FamilyTypeEnum.ElderSister ||
+                                                         x.FamilyType == FamilyTypeEnum.YoungerBrother || x.FamilyType == FamilyTypeEnum.ElderBrother).ToList()?[0];
+            }
+            if (len > 1)
+            {
+                profile.SiblingTwo = families.Where(x => x.FamilyType == FamilyTypeEnum.YoungerSister || x.FamilyType == FamilyTypeEnum.ElderSister ||
+                                                         x.FamilyType == FamilyTypeEnum.YoungerBrother || x.FamilyType == FamilyTypeEnum.ElderBrother).ToList()?[1];
+            }
+            if (len > 2)
+            {
+                profile.SiblingThree = families.Where(x => x.FamilyType == FamilyTypeEnum.YoungerSister || x.FamilyType == FamilyTypeEnum.ElderSister ||
+                                                           x.FamilyType == FamilyTypeEnum.YoungerBrother || x.FamilyType == FamilyTypeEnum.ElderBrother).ToList()?[2];
+            }
+
+
 
             return View(profile);
         }

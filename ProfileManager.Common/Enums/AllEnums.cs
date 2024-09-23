@@ -88,9 +88,22 @@ namespace ProfileManager.Common.Enums
 
     public enum FamilyTypeEnum
     {
-        Sister = 1,
-        Brother = 2,
-        Father = 3,
-        Mother = 3,
+        Father = 1,
+        Mother = 2,
+        ElderSister = 3,
+        ElderBrother = 4,
+        YoungerSister = 5,
+        YoungerBrother = 6,
+        Twin = 7,
+
+    }
+
+    public enum SiblingTypeEnum
+    {
+        ElderSister = 3,
+        ElderBrother = 4,
+        YoungerSister = 5,
+        YoungerBrother = 6,
+        Twin = 7,
     }
 }

@@ -57,5 +57,13 @@ namespace ProfileManager.ViewModels
         {
             get { return FirstName + " " + LastName; }
         }
+
+
+
+        public FamilyViewModel Father { get; set; }
+        public FamilyViewModel Mother { get; set; }
+        public FamilyViewModel SiblingOne { get; set; }
+        public FamilyViewModel SiblingTwo { get; set; }
+        public FamilyViewModel SiblingThree { get; set; }
     }
 }

@@ -27,7 +27,10 @@ builder.Services.AddRazorPages();
 //di
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 builder.Services.AddScoped<IProfileRepository, ProfileRepository>();
+builder.Services.AddScoped<IFamilyRepository, FamilyRepository>();
+
 builder.Services.AddScoped<IProfileServcie, ProfileServcie>();
+builder.Services.AddScoped<IFamilyService, FamilyService>();
 
 //mail
 //builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailSettings"));

@@ -14,5 +14,9 @@ namespace ProfileManager.ViewModels
         public CastEnum Cast { get; set; }
 
         public string OtherDetails { get; set; }
+
+        public SiblingTypeEnum SiblingType { get; set; }
     }
 }
+
+

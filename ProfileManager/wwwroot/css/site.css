@@ -32,3 +32,12 @@ body {
 .badge {
     font-weight: 400 !important;
 }
+
+.cus-bg-blue {
+    background-color: #0069ff29;
+}
+
+.cus-bg-orange {
+    background-color: #ff8a003b;
+}
+

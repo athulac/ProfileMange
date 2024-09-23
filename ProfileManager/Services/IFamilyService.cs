@@ -9,5 +9,6 @@ namespace ProfileManager.Services
         Task<FamilyViewModel> GetAsync(Guid id);
         Task<FamilyViewModel> GetByIdentityIdAsync(Guid id);
         Task<FamilyViewModel> ModifyAsync(FamilyViewModel familyViewModel);
+        Task<List<FamilyViewModel>> GetAllByIdentityIdAsync(Guid id);
     }
 }

@@ -9,5 +9,6 @@ namespace ProfileManager.Repository
         Task<Family> GetAsync(Guid id);
         Task<Family> GetByIdentityIdAsync(Guid id);
         Task<Family> ModifyAsync(Family family);
+        Task<IQueryable<Family>> GetAllByIdentityIdAsync(Guid identityId);
     }
 }

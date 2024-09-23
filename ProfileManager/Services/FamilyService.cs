@@ -124,5 +124,25 @@ namespace ProfileManager.Services
 
             return resMapped;
         }
+
+
+        public async Task<List<FamilyViewModel>> GetAllByIdentityIdAsync(Guid id)
+        {
+            var result = await familyRepository.GetAllByIdentityIdAsync(id);
+            var resMapped = result.Select(res => new FamilyViewModel
+            {
+                Id = res.Id,
+                UserId = res.UserId,
+                FamilyType = res.FamilyType,
+                Job = res.Job,
+                OtherDetails = res.OtherDetails,
+
+                Religion = res.Religion,
+                Cast = res.Cast,
+                Race = res.Race,
+            });
+
+            return resMapped.ToList();
+        }
     }
 }

@@ -50,5 +50,12 @@ namespace ProfileManager.Repository
             return family;
         }
 
+
+        public async Task<IQueryable<Family>> GetAllByIdentityIdAsync(Guid identityId)
+        {
+            var res = Find(x => x.UserId == identityId);
+
+            return res;
+        }
     }
 }

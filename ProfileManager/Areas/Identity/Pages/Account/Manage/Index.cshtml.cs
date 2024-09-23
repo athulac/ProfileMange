@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ProfileManager.Areas.Identity.Data;
+using ProfileManager.Common.Enums;
 using ProfileManager.Services;
 using ProfileManager.ViewModels;
 using System.Security.Claims;
@@ -23,7 +24,7 @@ namespace ProfileManager.Areas.Identity.Pages.Account.Manage
         [BindProperty]
         public ProfileViewModel Profile { get; set; }
 
-        public async void OnGet()
+        public async Task OnGet()
         {
             ClaimsPrincipal currentUser = this.User;
             Guid currUserId = Guid.Parse(currentUser.FindFirst(ClaimTypes.NameIdentifier).Value);
@@ -33,11 +34,21 @@ namespace ProfileManager.Areas.Identity.Pages.Account.Manage
 
         }
 
-        public async void OnPost()
+        public async Task<IActionResult> OnPost()
         {
             var profile = this.Profile;
+
+            //profile.Father.FamilyType = FamilyTypeEnum.Father;
+            //profile.Mother.FamilyType = FamilyTypeEnum.Mother;
+            //profile.SiblingOne.FamilyType = (FamilyTypeEnum)profile.SiblingOne.SiblingType;
+            //profile.SiblingTwo.FamilyType = (FamilyTypeEnum)profile.SiblingTwo.SiblingType;
+            //profile.SiblingThree.FamilyType = (FamilyTypeEnum)profile.SiblingThree.SiblingType;
+
             var res = await _profileServcie.ModifyAsync(profile);
             this.Profile = res;
+
+
+            return Redirect("~/Family");
         }
 
     }

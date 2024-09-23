@@ -1,26 +1,45 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using ProfileManager.Areas.Identity.Data
+@using ProfileManager.Services
 
 @inject SignInManager<ProfileManagerUser> SignInManager
 @inject UserManager<ProfileManagerUser> UserManager
+@inject IProfileServcie prfileService
+
+@{
+    var userId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier).Value;
+    var profile = (prfileService.GetByIdentityIdAsync(Guid.Parse(userId))).Result;
+    var email = @UserManager.GetUserName(User);
+}
 
 <ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))
 {
-    <li class="nav-item">
-            <b>
-        <a id="manage" class="nav-link text-dark cir" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
-            </b>
+        @*<a href="#" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle user-action"><img src="~/images/man.png" style="height:40px" class="avatar" alt="Avatar"> Antonio Moreno</a>*@
+        @*<a href="#" class="nav-item nav-link"><img src="~/images/man.png" style="height:40px" class="avatar" alt="Avatar"> Antonio Moreno</a>*@
+
+        <li class="nav-item">
+            <a asp-area="Identity" asp-page="/Account/Manage/Index" style="" class="nav-link text-dark"><img src="~/images/man.png" style="height:24px" class="avatar rounded-circle" alt="Avatar"> <b>Hi @string.Concat(profile.FirstName, " ", profile.LastName)</b></a>
+        </li>
+
+@*    <li class="nav-item">          
+
+        <form class="form-inline">
+            <img src="~/images/man.png" alt="Avatar" style="height:40px" class="avatar rounded-circle">
+            <a id="manage" class="nav-link text-dark cir" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hi @string.Concat(profile.FirstName)</a>
+        </form>
     </li>
+    <li class="nav-item">
+        <b>
+            <a id="manage" class="nav-link text-dark cir" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hi @string.Concat(profile.FirstName)</a>
+        </b>
+    </li>  *@     
 
     <li class="nav-item">
         <form type="hidden"></form>
-
             <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
                 <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
-            </form>
-
-           
+            </form>           
     </li>
 
 
