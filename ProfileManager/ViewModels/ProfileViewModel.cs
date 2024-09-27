@@ -60,10 +60,10 @@ namespace ProfileManager.ViewModels
 
 
 
-        public FamilyViewModel Father { get; set; }
-        public FamilyViewModel Mother { get; set; }
-        public FamilyViewModel SiblingOne { get; set; }
-        public FamilyViewModel SiblingTwo { get; set; }
-        public FamilyViewModel SiblingThree { get; set; }
+        public FamilyViewModel Father { get; set; } = new FamilyViewModel();
+        public FamilyViewModel Mother { get; set; } = new FamilyViewModel();
+        public FamilyViewModel SiblingOne { get; set; } = new FamilyViewModel();
+        public FamilyViewModel SiblingTwo { get; set; } = new FamilyViewModel();
+        public FamilyViewModel SiblingThree { get; set; } = new FamilyViewModel();
     }
 }

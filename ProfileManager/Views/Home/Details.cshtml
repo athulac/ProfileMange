@@ -1,243 +1,280 @@
 ﻿@model ProfileManager.ViewModels.ProfileViewModel
 @using ProfileManager.Common.Helpers;
 
-<div class="panel panel-default">
-    <div>
-        <nav class="navbar navbar-light bg-light">
-            <form class="container-fluid justify-content-start">
-                 <a class="btn btn-outline-success me-2" href="~/Home/Index">Back to List</a>
-            </form>
-        </nav>
-    </div>
-    <h4>Personal Details</h4>
-    <div class="row">
-        <div class="col-6">
-            <ul class="list-group list-group-horizontal">
-                <li class="cus-bg-blue col-6 list-group-item"><label asp-for="FullName"></label></li>
-                <li class="cus-bg-blue col-6 list-group-item">@Model.FullName</li>
-            </ul>
-            <ul class="list-group list-group-horizontal">
-                <li class="col-6 list-group-item"><label asp-for="Age"></label></li>
-                <li class="col-6 list-group-item">@Model.Age</li>
-            </ul>
-            <ul class="list-group list-group-horizontal">
-                <li class="cus-bg-blue col-6 list-group-item"><label asp-for="Gender"></label></li>
-                <li class="cus-bg-blue col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.Gender)</li>
-            </ul>
-            <ul class="list-group list-group-horizontal">
-                <li class="col-6 list-group-item"><label asp-for="CivilStatus"></label></li>
-                <li class="col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.CivilStatus)</li>
-            </ul>
 
-            <ul class="list-group list-group-horizontal">
-                <li class="cus-bg-blue col-6 list-group-item"><label asp-for="Race"></label></li>
-                <li class="cus-bg-blue col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.Race)</li>
-            </ul>
-            <ul class="list-group list-group-horizontal">
-                <li class="col-6 list-group-item"><label asp-for="Religion"></label></li>
-                <li class="col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.Religion)</li>
-            </ul>
-            <ul class="list-group list-group-horizontal">
-                <li class="cus-bg-blue col-6 list-group-item"><label asp-for="Cast"></label></li>
-                <li class="cus-bg-blue col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.Cast)</li>
-            </ul>
-            <ul class="list-group list-group-horizontal">
-                <li class="col-6 list-group-item"><label asp-for="Job"></label></li>
-                <li class="col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.Job)</li>
-            </ul>
-            <ul class="list-group list-group-horizontal">
-                <li class="cus-bg-blue col-6 list-group-item"><label asp-for="CivilStatus"></label></li>
-                <li class="cus-bg-blue col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.CivilStatus)</li>
-            </ul>
+<section class="h-100 gradient-custom-2">
+    <div class="container h-100">
+        <div class="row d-flex justify-content-center">
+            <div class="col col-lg-9 col-xl-8">
+                <div class="card">
+                    <div class="rounded-top text-white d-flex flex-row" style="background-color: #000; height:200px;">
+                        <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
+                            @if(Model.Gender == ProfileManager.Common.Enums.GenderEnum.Female){
+                                 <img src="~/images/woman.png"
+                                 alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2"
+                                 style="width: 150px; z-index: 1">
+                            }else{
+                                 <img src="~/images/man.png"
+                                 alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2"
+                                 style="width: 150px; z-index: 1">
+                            }
+                           
+                            <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-dark text-body" data-mdb-ripple-color="dark" style="z-index: 1;">
+                                Edit profile
+                            </button>
+                        </div>
+                        <div class="ms-3" style="margin-top: 130px;">
+                            <h5>Andy Horwitz</h5>
+                            <p>New York</p>
+                        </div>
+                    </div>
+                    <div class="p-4 text-black bg-body-tertiary">
+                        <div class="d-flex justify-content-end text-center py-1 text-body">
+                            <div>
+                                <p class="mb-1 h5">253</p>
+                                <p class="small text-muted mb-0">Photos</p>
+                            </div>
+                            <div class="px-3">
+                                <p class="mb-1 h5">1026</p>
+                                <p class="small text-muted mb-0">Followers</p>
+                            </div>
+                            <div>
+                                <p class="mb-1 h5">478</p>
+                                <p class="small text-muted mb-0">Following</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-4 text-black">
+                        <div class="mb-5  text-body">
+                            <p class="lead fw-normal mb-1">About</p>
+                            <div class="p-4 bg-body-tertiary">
+                                <p class="font-italic mb-1">@Model.Introduction</p>
 
-            <ul class="list-group list-group-horizontal">
-                <li class="col-6 list-group-item"><label asp-for="City"></label></li>
-                <li class="col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.City)</li>
-            </ul>
-            <ul class="list-group list-group-horizontal">
-                <li class="cus-bg-blue col-6 list-group-item"><label asp-for="District"></label></li>
-                <li class="cus-bg-blue col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.District)</li>
-            </ul>
-            <ul class="list-group list-group-horizontal">
-                <li class="col-6 list-group-item"><label asp-for="Country"></label></li>
-                <li class="col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.Country)</li>
-            </ul>
-        </div>
-        <div class="col-6"></div>
-    </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mb-4 text-body">
+                            <p class="lead fw-normal mb-0">Personal Details</p>
+                        </div>
+                        <div class="row">
+                            <div class="col mb-2">
+                                <div class="col-12">
+                                    <ul class="list-group list-group-horizontal">
+                                        <li class="cus-bg-blue col-6 list-group-item"><label asp-for="FullName"></label></li>
+                                        <li class="cus-bg-blue col-6 list-group-item">@Model.FullName</li>
+                                    </ul>
+                                    <ul class="list-group list-group-horizontal">
+                                        <li class="col-6 list-group-item"><label asp-for="Age"></label></li>
+                                        <li class="col-6 list-group-item">@Model.Age</li>
+                                    </ul>
+                                    <ul class="list-group list-group-horizontal">
+                                        <li class="cus-bg-blue col-6 list-group-item"><label asp-for="Gender"></label></li>
+                                        <li class="cus-bg-blue col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.Gender)</li>
+                                    </ul>
+                                    <ul class="list-group list-group-horizontal">
+                                        <li class="col-6 list-group-item"><label asp-for="CivilStatus"></label></li>
+                                        <li class="col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.CivilStatus)</li>
+                                    </ul>
 
+                                    <ul class="list-group list-group-horizontal">
+                                        <li class="cus-bg-blue col-6 list-group-item"><label asp-for="Race"></label></li>
+                                        <li class="cus-bg-blue col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.Race)</li>
+                                    </ul>
+                                    <ul class="list-group list-group-horizontal">
+                                        <li class="col-6 list-group-item"><label asp-for="Religion"></label></li>
+                                        <li class="col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.Religion)</li>
+                                    </ul>
+                                    <ul class="list-group list-group-horizontal">
+                                        <li class="cus-bg-blue col-6 list-group-item"><label asp-for="Cast"></label></li>
+                                        <li class="cus-bg-blue col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.Cast)</li>
+                                    </ul>
+                                    <ul class="list-group list-group-horizontal">
+                                        <li class="col-6 list-group-item"><label asp-for="Job"></label></li>
+                                        <li class="col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.Job)</li>
+                                    </ul>
+                                    <ul class="list-group list-group-horizontal">
+                                        <li class="cus-bg-blue col-6 list-group-item"><label asp-for="CivilStatus"></label></li>
+                                        <li class="cus-bg-blue col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.CivilStatus)</li>
+                                    </ul>
 
-    <hr />
-    <h4>Parents Details</h4>
-    <h5>Father Details</h5>    
-    <div class="row">
-        <div class="col-6">
-            <ul class="list-group list-group-horizontal">
-                <li class="cus-bg-blue col-6 list-group-item"><label asp-for="Father.Religion"></label></li>
-                <li class="cus-bg-blue col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.Father.Religion)</li>
-            </ul>
-            <ul class="list-group list-group-horizontal">
-                <li class="col-6 list-group-item"><label asp-for="Father.Race"></label></li>
-                <li class="col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.Father.Race)</li>
-            </ul>
-            <ul class="list-group list-group-horizontal">
-                <li class="cus-bg-blue col-6 list-group-item"><label asp-for="Father.Cast"></label></li>
-                <li class="cus-bg-blue col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.Father.Cast)</li>
-            </ul>
-            <ul class="list-group list-group-horizontal">
-                <li class="col-6 list-group-item"><label asp-for="Father.Job"></label></li>
-                <li class="col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.Father.Job)</li>
-            </ul>
-            <ul class="list-group list-group-horizontal">
-                <li class="cus-bg-blue col-6 list-group-item"><label asp-for="Father.OtherDetails"></label></li>
-                <li class="cus-bg-blue col-6 list-group-item">@Model.Father.OtherDetails</li>
-            </ul>
-        </div>
-        <div class="col-6"></div>
-    </div>
-
-    <h5>Mother Details</h5>
-    <div class="row">
-        <div class="col-6">
-            <ul class="list-group list-group-horizontal">
-                <li class="cus-bg-blue col-6 list-group-item"><label asp-for="Mother.Religion"></label></li>
-                <li class="cus-bg-blue col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.Mother.Religion)</li>
-            </ul>
-            <ul class="list-group list-group-horizontal">
-                <li class="col-6 list-group-item"><label asp-for="Mother.Race"></label></li>
-                <li class="col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.Mother.Race)</li>
-            </ul>
-            <ul class="list-group list-group-horizontal">
-                <li class="cus-bg-blue col-6 list-group-item"><label asp-for="Mother.Cast"></label></li>
-                <li class="cus-bg-blue col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.Mother.Cast)</li>
-            </ul>
-            <ul class="list-group list-group-horizontal">
-                <li class="col-6 list-group-item"><label asp-for="Mother.Job"></label></li>
-                <li class="col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.Mother.Job)</li>
-            </ul>
-            <ul class="list-group list-group-horizontal">
-                <li class="cus-bg-blue col-6 list-group-item"><label asp-for="Mother.OtherDetails"></label></li>
-                <li class="cus-bg-blue col-6 list-group-item">@Model.Mother.OtherDetails</li>
-            </ul>
-        </div>
-        <div class="col-6"></div>
-    </div>
+                                    <ul class="list-group list-group-horizontal">
+                                        <li class="col-6 list-group-item"><label asp-for="City"></label></li>
+                                        <li class="col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.City)</li>
+                                    </ul>
+                                    <ul class="list-group list-group-horizontal">
+                                        <li class="cus-bg-blue col-6 list-group-item"><label asp-for="District"></label></li>
+                                        <li class="cus-bg-blue col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.District)</li>
+                                    </ul>
+                                    <ul class="list-group list-group-horizontal">
+                                        <li class="col-6 list-group-item"><label asp-for="Country"></label></li>
+                                        <li class="col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.Country)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
 
 
-    <hr />
-    <h4>Siblings Details</h4>
-    @if (Model.SiblingOne != null)
-    {
-        <br />
-        <div class="row">
-            <div class="col-6">
-                <ul class="list-group list-group-horizontal">
-                    <li class="cus-bg-blue col-6 list-group-item"><label asp-for="SiblingOne.SiblingType"></label></li>
-                    <li class="cus-bg-blue col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.SiblingOne.FamilyType)</li>
-                </ul>
-                <ul class="list-group list-group-horizontal">
-                    <li class="col-6 list-group-item"><label asp-for="SiblingOne.Religion"></label></li>
-                    <li class="col-6 list-group-item"> @Model.SiblingOne.Religion</li>
-                </ul>
-                <ul class="list-group list-group-horizontal">
-                    <li class="cus-bg-blue col-6 list-group-item"><label asp-for="SiblingOne.Race"></label></li>
-                    <li class="cus-bg-blue col-6 list-group-item">@Model.SiblingOne.Race</li>
-                </ul>
-                <ul class="list-group list-group-horizontal">
-                    <li class="col-6 list-group-item"><label asp-for="SiblingOne.Cast"></label></li>
-                    <li class="col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.SiblingOne.Cast)</li>
-                </ul>
-                <ul class="list-group list-group-horizontal">
-                    <li class="cus-bg-blue col-6 list-group-item"><label asp-for="SiblingOne.Job"></label></li>
-                    <li class="cus-bg-blue col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.SiblingOne.Job)</li>
-                </ul>
-                <ul class="list-group list-group-horizontal">
-                    <li class="col-6 list-group-item"><label asp-for="SiblingOne.OtherDetails"></label></li>
-                    <li class="col-6 list-group-item">@Model.SiblingOne.OtherDetails</li>
-                </ul>
+
+                        <hr />
+                        <div class="d-flex justify-content-between align-items-center mb-4 text-body">
+                            <p class="lead fw-normal mb-0">Parents Details</p>
+                        </div>
+
+                        <div class="row mb-2">
+                            <div class="col-6">
+                                <div class="d-flex justify-content-between align-items-center mb-4 text-body">
+                                    <p class="lead fw-normal mb-0">Father Details</p>
+                                </div>
+                                <ul class="list-group list-group-horizontal">
+                                    <li class="cus-bg-blue col-6 list-group-item"><label asp-for="Father.Religion"></label></li>
+                                    <li class="cus-bg-blue col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.Father.Religion)</li>
+                                </ul>
+                                <ul class="list-group list-group-horizontal">
+                                    <li class="col-6 list-group-item"><label asp-for="Father.Race"></label></li>
+                                    <li class="col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.Father.Race)</li>
+                                </ul>
+                                <ul class="list-group list-group-horizontal">
+                                    <li class="cus-bg-blue col-6 list-group-item"><label asp-for="Father.Cast"></label></li>
+                                    <li class="cus-bg-blue col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.Father.Cast)</li>
+                                </ul>
+                                <ul class="list-group list-group-horizontal">
+                                    <li class="col-6 list-group-item"><label asp-for="Father.Job"></label></li>
+                                    <li class="col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.Father.Job)</li>
+                                </ul>
+                                <ul class="list-group list-group-horizontal">
+                                    <li class="cus-bg-blue col-6 list-group-item"><label asp-for="Father.OtherDetails"></label></li>
+                                    <li class="cus-bg-blue col-6 list-group-item">@Model.Father.OtherDetails</li>
+                                </ul>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="d-flex justify-content-between align-items-center mb-4 text-body">
+                                    <p class="lead fw-normal mb-0">Mother Details</p>
+                                </div>
+                                <ul class="list-group list-group-horizontal">
+                                    <li class="cus-bg-blue col-6 list-group-item"><label asp-for="Mother.Religion"></label></li>
+                                    <li class="cus-bg-blue col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.Mother.Religion)</li>
+                                </ul>
+                                <ul class="list-group list-group-horizontal">
+                                    <li class="col-6 list-group-item"><label asp-for="Mother.Race"></label></li>
+                                    <li class="col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.Mother.Race)</li>
+                                </ul>
+                                <ul class="list-group list-group-horizontal">
+                                    <li class="cus-bg-blue col-6 list-group-item"><label asp-for="Mother.Cast"></label></li>
+                                    <li class="cus-bg-blue col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.Mother.Cast)</li>
+                                </ul>
+                                <ul class="list-group list-group-horizontal">
+                                    <li class="col-6 list-group-item"><label asp-for="Mother.Job"></label></li>
+                                    <li class="col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.Mother.Job)</li>
+                                </ul>
+                                <ul class="list-group list-group-horizontal">
+                                    <li class="cus-bg-blue col-6 list-group-item"><label asp-for="Mother.OtherDetails"></label></li>
+                                    <li class="cus-bg-blue col-6 list-group-item">@Model.Mother.OtherDetails</li>
+                                </ul>
+                            </div>
+                        </div>
+
+
+                        <hr />
+                        <div class="d-flex justify-content-between align-items-center mb-4 text-body">
+                            <p class="lead fw-normal mb-0">Siblings Details</p>
+                        </div>
+
+                        <div class="row mb-2">
+                            @if (Model.SiblingOne != null)
+                            {
+                                <div class="col-6">
+                                    <ul class="list-group list-group-horizontal">
+                                        <li class="cus-bg-blue col-6 list-group-item"><label asp-for="SiblingOne.SiblingType"></label></li>
+                                        <li class="cus-bg-blue col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.SiblingOne.FamilyType)</li>
+                                    </ul>
+                                    <ul class="list-group list-group-horizontal">
+                                        <li class="col-6 list-group-item"><label asp-for="SiblingOne.Religion"></label></li>
+                                        <li class="col-6 list-group-item"> @Model.SiblingOne.Religion</li>
+                                    </ul>
+                                    <ul class="list-group list-group-horizontal">
+                                        <li class="cus-bg-blue col-6 list-group-item"><label asp-for="SiblingOne.Race"></label></li>
+                                        <li class="cus-bg-blue col-6 list-group-item">@Model.SiblingOne.Race</li>
+                                    </ul>
+                                    <ul class="list-group list-group-horizontal">
+                                        <li class="col-6 list-group-item"><label asp-for="SiblingOne.Cast"></label></li>
+                                        <li class="col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.SiblingOne.Cast)</li>
+                                    </ul>
+                                    <ul class="list-group list-group-horizontal">
+                                        <li class="cus-bg-blue col-6 list-group-item"><label asp-for="SiblingOne.Job"></label></li>
+                                        <li class="cus-bg-blue col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.SiblingOne.Job)</li>
+                                    </ul>
+                                    <ul class="list-group list-group-horizontal">
+                                        <li class="col-6 list-group-item"><label asp-for="SiblingOne.OtherDetails"></label></li>
+                                        <li class="col-6 list-group-item">@Model.SiblingOne.OtherDetails</li>
+                                    </ul>
+                                </div>
+                            }
+                            @if (Model.SiblingTwo != null)
+                            {
+                                <div class="col-6">
+                                    <ul class="list-group list-group-horizontal">
+                                        <li class="cus-bg-blue col-6 list-group-item"><label asp-for="SiblingTwo.SiblingType"></label></li>
+                                        <li class="cus-bg-blue col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.SiblingTwo.FamilyType)</li>
+                                    </ul>
+                                    <ul class="list-group list-group-horizontal">
+                                        <li class="col-6 list-group-item"><label asp-for="SiblingTwo.Religion"></label></li>
+                                        <li class="col-6 list-group-item"> @Model.SiblingTwo.Religion</li>
+                                    </ul>
+                                    <ul class="list-group list-group-horizontal">
+                                        <li class="cus-bg-blue col-6 list-group-item"><label asp-for="SiblingTwo.Race"></label></li>
+                                        <li class="cus-bg-blue col-6 list-group-item">@Model.SiblingTwo.Race</li>
+                                    </ul>
+                                    <ul class="list-group list-group-horizontal">
+                                        <li class="col-6 list-group-item"><label asp-for="SiblingTwo.Cast"></label></li>
+                                        <li class="col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.SiblingTwo.Cast)</li>
+                                    </ul>
+                                    <ul class="list-group list-group-horizontal">
+                                        <li class="cus-bg-blue col-6 list-group-item"><label asp-for="SiblingTwo.Job"></label></li>
+                                        <li class="cus-bg-blue col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.SiblingTwo.Job)</li>
+                                    </ul>
+                                    <ul class="list-group list-group-horizontal">
+                                        <li class="col-6 list-group-item"><label asp-for="SiblingTwo.OtherDetails"></label></li>
+                                        <li class="col-6 list-group-item">@Model.SiblingTwo.OtherDetails</li>
+                                    </ul>
+                                </div>
+                            }
+                            @if (Model.SiblingThree != null)
+                            {
+                                <div class="col-6 mt-5">
+                                    <ul class="list-group list-group-horizontal">
+                                        <li class="cus-bg-blue col-6 list-group-item"><label asp-for="SiblingThree.SiblingType"></label></li>
+                                        <li class="cus-bg-blue col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.SiblingThree.FamilyType)</li>
+                                    </ul>
+                                    <ul class="list-group list-group-horizontal">
+                                        <li class="col-6 list-group-item"><label asp-for="SiblingThree.Religion"></label></li>
+                                        <li class="col-6 list-group-item"> @Model.SiblingThree.Religion</li>
+                                    </ul>
+                                    <ul class="list-group list-group-horizontal">
+                                        <li class="cus-bg-blue col-6 list-group-item"><label asp-for="SiblingThree.Race"></label></li>
+                                        <li class="cus-bg-blue col-6 list-group-item">@Model.SiblingThree.Race</li>
+                                    </ul>
+                                    <ul class="list-group list-group-horizontal">
+                                        <li class="col-6 list-group-item"><label asp-for="SiblingThree.Cast"></label></li>
+                                        <li class="col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.SiblingThree.Cast)</li>
+                                    </ul>
+                                    <ul class="list-group list-group-horizontal">
+                                        <li class="cus-bg-blue col-6 list-group-item"><label asp-for="SiblingThree.Job"></label></li>
+                                        <li class="cus-bg-blue col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.SiblingThree.Job)</li>
+                                    </ul>
+                                    <ul class="list-group list-group-horizontal">
+                                        <li class="col-6 list-group-item"><label asp-for="SiblingThree.OtherDetails"></label></li>
+                                        <li class="col-6 list-group-item">@Model.SiblingThree.OtherDetails</li>
+                                    </ul>
+                                </div>
+                            }
+
+
+                        </div>
+                        
+
+                    </div>
+                </div>
             </div>
-            <div class="col-6"></div>
         </div>
-       
-    }
-
-    @if (Model.SiblingTwo != null)
-    {
-        <br />
-        <div class="row">
-            <div class="col-6">
-                <ul class="list-group list-group-horizontal">
-                    <li class="cus-bg-blue col-6 list-group-item"><label asp-for="SiblingTwo.SiblingType"></label></li>
-                    <li class="cus-bg-blue col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.SiblingTwo.FamilyType)</li>
-                </ul>
-                <ul class="list-group list-group-horizontal">
-                    <li class="col-6 list-group-item"><label asp-for="SiblingTwo.Religion"></label></li>
-                    <li class="col-6 list-group-item"> @Model.SiblingTwo.Religion</li>
-                </ul>
-                <ul class="list-group list-group-horizontal">
-                    <li class="cus-bg-blue col-6 list-group-item"><label asp-for="SiblingTwo.Race"></label></li>
-                    <li class="cus-bg-blue col-6 list-group-item">@Model.SiblingTwo.Race</li>
-                </ul>
-                <ul class="list-group list-group-horizontal">
-                    <li class="col-6 list-group-item"><label asp-for="SiblingTwo.Cast"></label></li>
-                    <li class="col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.SiblingTwo.Cast)</li>
-                </ul>
-                <ul class="list-group list-group-horizontal">
-                    <li class="cus-bg-blue col-6 list-group-item"><label asp-for="SiblingTwo.Job"></label></li>
-                    <li class="cus-bg-blue col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.SiblingTwo.Job)</li>
-                </ul>
-                <ul class="list-group list-group-horizontal">
-                    <li class="col-6 list-group-item"><label asp-for="SiblingTwo.OtherDetails"></label></li>
-                    <li class="col-6 list-group-item">@Model.SiblingTwo.OtherDetails</li>
-                </ul>               
-            </div>
-            <div class="col-6"></div>
-        </div>
-        
-    }
-
-    @if (Model.SiblingThree != null)
-    {
-        <br />
-        <div class="row">
-            <div class="col-6">
-                <ul class="list-group list-group-horizontal">
-                    <li class="cus-bg-blue col-6 list-group-item"><label asp-for="SiblingThree.SiblingType"></label></li>
-                    <li class="cus-bg-blue col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.SiblingThree.FamilyType)</li>
-                </ul>
-                <ul class="list-group list-group-horizontal">
-                    <li class="col-6 list-group-item"><label asp-for="SiblingThree.Religion"></label></li>
-                    <li class="col-6 list-group-item"> @Model.SiblingThree.Religion</li>
-                </ul>
-                <ul class="list-group list-group-horizontal">
-                    <li class="cus-bg-blue col-6 list-group-item"><label asp-for="SiblingThree.Race"></label></li>
-                    <li class="cus-bg-blue col-6 list-group-item">@Model.SiblingThree.Race</li>
-                </ul>
-                <ul class="list-group list-group-horizontal">
-                    <li class="col-6 list-group-item"><label asp-for="SiblingThree.Cast"></label></li>
-                    <li class="col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.SiblingThree.Cast)</li>
-                </ul>
-                <ul class="list-group list-group-horizontal">
-                    <li class="cus-bg-blue col-6 list-group-item"><label asp-for="SiblingThree.Job"></label></li>
-                    <li class="cus-bg-blue col-6 list-group-item">@EnumExtensions.GetDisplayName(Model.SiblingThree.Job)</li>
-                </ul>
-                <ul class="list-group list-group-horizontal">
-                    <li class="col-6 list-group-item"><label asp-for="SiblingThree.OtherDetails"></label></li>
-                    <li class="col-6 list-group-item">@Model.SiblingThree.OtherDetails</li>
-                </ul>                              
-            </div>
-            <div class="col-6"></div>
-        </div>
-       
-    }
-   
-
-    <div>
-        <nav class="navbar navbar-light bg-light">
-            <form class="container-fluid justify-content-start">
-                <a class="btn btn-outline-success me-2" href="~/Home/Index">Back to List</a>
-            </form>
-        </nav>
     </div>
-
-</div>
+</section>

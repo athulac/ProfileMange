@@ -19,7 +19,15 @@
         @*<a href="#" class="nav-item nav-link"><img src="~/images/man.png" style="height:40px" class="avatar" alt="Avatar"> Antonio Moreno</a>*@
 
         <li class="nav-item">
-            <a asp-area="Identity" asp-page="/Account/Manage/Index" style="" class="nav-link text-dark"><img src="~/images/man.png" style="height:24px" class="avatar rounded-circle" alt="Avatar"> <b>Hi @string.Concat(profile.FirstName, " ", profile.LastName)</b></a>
+            <a asp-area="Identity" asp-page="/Account/Manage/Index" style="" class="nav-link text-dark">
+                @if (profile.Gender == ProfileManager.Common.Enums.GenderEnum.Female)
+                {
+                     <img src="~/images/woman.png" style="height:24px" class="avatar rounded-circle" alt="Avatar">
+                }else
+                {
+                     <img src="~/images/man.png" style="height:24px" class="avatar rounded-circle" alt="Avatar">  
+                }
+                <b>Hi @string.Concat(profile.FirstName, " ", profile.LastName)</b></a>
         </li>
 
 @*    <li class="nav-item">          
