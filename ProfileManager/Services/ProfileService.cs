@@ -1,4 +1,5 @@
 ﻿using ProfileManager.Data.Models;
+using ProfileManager.Paginate;
 using ProfileManager.Repository;
 using ProfileManager.Services;
 using ProfileManager.ViewModels;
@@ -47,7 +48,7 @@ namespace ProfileManager.Services
             return res;
         }
 
-        public async Task<List<ProfileViewModel>> GetAllAsync()
+        public async Task<Paginate<ProfileViewModel>> GetAllAsync(UserParams userParams)
         {
             var res = await profileRepository.GetAllAsync();
             var resMapped = res.Select(x => new ProfileViewModel
@@ -71,9 +72,11 @@ namespace ProfileManager.Services
                 Job = x.Job,
                 Introduction = x.Introduction,
                 CreatedOn = x.CreatedOn,
-            }).ToList();
+            });
 
-            return resMapped;
+            var resMappedPaged = await PagedList<ProfileViewModel>.CreateAsync(resMapped, userParams.PageNumber, userParams.PageSize);
+
+            return resMappedPaged;
         }
 
         public async Task<ProfileViewModel> GetAsync(Guid id)

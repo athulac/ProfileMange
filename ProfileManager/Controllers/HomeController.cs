@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using ProfileManager.Common.Enums;
 using ProfileManager.Models;
+using ProfileManager.Paginate;
 using ProfileManager.Services;
 using ProfileManager.ViewModels;
 using System.Diagnostics;
@@ -19,12 +21,12 @@ namespace ProfileManager.Controllers
         {
             _logger = logger;
             _familyService = familyService;
-            _profileServcie = profileServcie;
+            _profileServcie = profileServcie;           
         }
 
-        public async Task<IActionResult> Index()        
+        public async Task<IActionResult> Index(UserParams userParams)        
         {
-            var profiles = await _profileServcie.GetAllAsync();
+            var profiles = await _profileServcie.GetAllAsync(userParams);
 
             return View(profiles);
         }
