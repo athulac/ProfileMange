@@ -1,6 +1,7 @@
 ﻿@using ProfileManager.ViewModels;
 @using ProfileManager.Common.Helpers;
 @using ProfileManager.Paginate;
+@using Newtonsoft.Json;
 
 @{
     ViewData["Title"] = "Home Page";
@@ -16,6 +17,54 @@
 <section class="h-100 gradient-custom-2">
     <div class="container h-100">
         <div class="row d-flex justify-content-center">
+
+            <div class="col col-lg-3 col-xl-4">
+                <section class="my-2" style="p-2 border-radius: .5rem .5rem 0 0;">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-12 col-md-12">
+                            <div class="card" style="border-radius: 15px;">
+                                <div class="card-body p-3">
+                                  <h3>Filter</h3>
+                                  <hr />
+
+
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Gender </label>
+                                        
+                                            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                                <input type="radio" class="btn-check" name="btnGender" id="btnradio1" autocomplete="off" value="1" checked>
+                                                <label class="btn btn-outline-primary" for="btnradio1">Male</label>
+
+                                                <input type="radio" class="btn-check" name="btnGender" id="btnradio3" autocomplete="off" value="2">
+                                                <label class="btn btn-outline-primary" for="btnradio3">Female</label>
+                                            </div>
+                                                                   
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">District</label>
+                                     
+                                            <select class="form-select" aria-label="Select District">
+                                                <option selected>Open this select menu</option>
+                                                <option value="1">One</option>
+                                                <option value="2">Two</option>
+                                                <option value="3">Three</option>
+                                            </select>
+                   
+                                    </div>
+                                    <div class="mb-3">
+                                        <button id="btnFilter" class="btn btn-primary">Filter</button>
+
+
+                                    </div>
+                              
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
             <div class="col col-lg-9 col-xl-8">
                 <div class="row">
                     <div class="col-md-12 col-sm-12">
@@ -168,4 +217,38 @@
 
 
 
-                        
+
+
+@section Scripts{
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btnFilter").click(function () {
+                var gender = $('input[name="btnGender"]:checked').val();
+                console.log('ss', gender);
+
+                filter();
+               
+            });
+        });
+
+
+        function filter(){
+            
+
+
+            axios.post('/Home/Add',{id: 1, name: 'sss'})
+                .then(function (response) {
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }
+
+       
+    </script>
+}
+
+
+ 

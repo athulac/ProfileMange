@@ -10,6 +10,7 @@ using System.Diagnostics;
 
 namespace ProfileManager.Controllers
 {
+
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -24,12 +25,29 @@ namespace ProfileManager.Controllers
             _profileServcie = profileServcie;           
         }
 
-        public async Task<IActionResult> Index(UserParams userParams)        
+        //public async Task<IActionResult> Index(UserParams userParams)        
+        //{
+        //    var profiles = await _profileServcie.GetAllAsync(userParams);
+
+        //    return View(profiles);
+        //}
+
+
+        public async Task<IActionResult> Index(UserParams userParams, ProfileViewModel filter = null)
         {
             var profiles = await _profileServcie.GetAllAsync(userParams);
 
             return View(profiles);
         }
+
+
+        [HttpPost]
+        public SomeClass Add([FromBody]SomeClass parm)
+        {
+            return new SomeClass { };
+            //do your stuff...
+        }
+
 
         public async Task<IActionResult> Details(Guid id)
         {  
@@ -91,4 +109,11 @@ namespace ProfileManager.Controllers
         }
 
     }
+
+    public class SomeClass
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+    }
+
 }
