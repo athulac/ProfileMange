@@ -1,10 +1,8 @@
-﻿using ProfileManager.Data.Models;
-using ProfileManager.Paginate;
+﻿using ProfileManager.Common.Enums;
+using ProfileManager.Common.Paginate;
+using ProfileManager.Data.Models;
 using ProfileManager.Repository;
-using ProfileManager.Services;
 using ProfileManager.ViewModels;
-using System.Diagnostics;
-using System.Xml.Linq;
 
 namespace ProfileManager.Services
 {
@@ -48,7 +46,7 @@ namespace ProfileManager.Services
             return res;
         }
 
-        public async Task<Paginate<ProfileViewModel>> GetAllAsync(UserParams userParams)
+        public async Task<Paginate<ProfileViewModel>> GetAllAsync(PageData userParams)
         {
             var res = await profileRepository.GetAllAsync();
             var resMapped = res.Select(x => new ProfileViewModel
@@ -186,6 +184,46 @@ namespace ProfileManager.Services
             };
 
             return resMapped;
+        }
+
+        public async Task<Paginate<ProfileViewModel>> FilterAsync(FilterViewModel filter)
+        {
+            var res = await profileRepository.FilterAsync(filter.Page, x => x.Gender == GenderEnum.Male);
+            //res = await profileRepository.FilterAsync(filter.Page, x => (filter.Gender != null ? (x.Gender == filter.Gender) : x.Gender == GenderEnum.Male));
+
+            var resMapped = new Paginate<ProfileViewModel>()
+            {
+                CurrentPage = res.CurrentPage,
+                PageSize = res.PageSize,
+                TotalCount = res.TotalCount,
+                TotalPages = res.TotalPages,
+                Data = res.Data.Select(x => new ProfileViewModel
+                {
+                    Id = x.Id,
+                    UserId = x.UserId,
+                    MemberId = x.MemberId,
+                    FirstName = x.FirstName,
+                    LastName = x.LastName,
+                    BirthDateTime = x.BirthDate,
+
+                    City = x.City,
+                    District = x.Distirct,
+                    Country = x.Country,
+
+                    Gender = x.Gender,
+                    CivilStatus = x.CivilStatus,
+                    Cast = x.Cast,
+                    Race = x.Race,
+                    Religion = x.Religion,
+                    Job = x.Job,
+                    Introduction = x.Introduction,
+                    CreatedOn = x.CreatedOn,
+                }).ToList(),
+            };
+
+
+            return resMapped;
+
         }
     }
 

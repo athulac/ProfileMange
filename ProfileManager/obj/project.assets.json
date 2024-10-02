@@ -3768,6 +3768,9 @@
       "ProfileManager.Common/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "6.0.29"
+        },
         "compile": {
           "bin/placeholder/ProfileManager.Common.dll": {}
         },

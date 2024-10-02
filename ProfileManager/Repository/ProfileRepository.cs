@@ -1,5 +1,8 @@
-﻿using ProfileManager.Data;
+﻿using ProfileManager.Common.Enums;
+using ProfileManager.Common.Paginate;
+using ProfileManager.Data;
 using ProfileManager.Data.Models;
+using ProfileManager.ViewModels;
 using System.Diagnostics;
 using System.Runtime.ExceptionServices;
 
@@ -53,6 +56,16 @@ namespace ProfileManager.Repository
             Update(profile);
             Save();
             return profile;
+        }
+
+        public async Task<Paginate<Profile>> FilterAsync(PageData page, Func<Profile, bool>? exp)
+        {
+            
+           var res = Find(x => x.Gender == GenderEnum.Male);
+          
+            var resPaged = await PagedList<Profile>.CreateAsync(res, page.PageNumber, page.PageSize);
+
+            return resPaged;
         }
 
 

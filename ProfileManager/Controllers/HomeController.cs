@@ -2,11 +2,12 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using ProfileManager.Common.Enums;
+using ProfileManager.Common.Paginate;
 using ProfileManager.Models;
-using ProfileManager.Paginate;
 using ProfileManager.Services;
 using ProfileManager.ViewModels;
 using System.Diagnostics;
+using System.Security.AccessControl;
 
 namespace ProfileManager.Controllers
 {
@@ -33,7 +34,7 @@ namespace ProfileManager.Controllers
         //}
 
 
-        public async Task<IActionResult> Index(UserParams userParams, ProfileViewModel filter = null)
+        public async Task<IActionResult> Index(PageData userParams)
         {
             var profiles = await _profileServcie.GetAllAsync(userParams);
 
@@ -42,9 +43,21 @@ namespace ProfileManager.Controllers
 
 
         [HttpPost]
-        public SomeClass Add([FromBody]SomeClass parm)
+        public async Task<IActionResult> Filter([FromBody] FilterViewModel filter)
         {
-            return new SomeClass { };
+            FilterViewModel fm = new FilterViewModel { 
+                Page = new PageData
+                {
+                    PageNumber = 1, PageSize = 3
+                },
+
+                Gender = GenderEnum.Female
+            };
+
+            var res = await _profileServcie.FilterAsync(fm);
+
+
+            return new JsonResult(res);
             //do your stuff...
         }
 

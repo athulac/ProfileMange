@@ -1,6 +1,6 @@
 ﻿@using ProfileManager.ViewModels;
 @using ProfileManager.Common.Helpers;
-@using ProfileManager.Paginate;
+@using ProfileManager.Common.Paginate;
 @using Newtonsoft.Json;
 
 @{
@@ -214,6 +214,9 @@
 
 
 
+<div id="filter-list"></div>
+
+
 
 
 
@@ -234,16 +237,37 @@
 
 
         function filter(){
-            
 
+            var filter = {
+                page: {
+                    pagenumber: 50, pagesize: 50
+                },
+                
+                gender: 2
+               
+               
+            }
 
-            axios.post('/Home/Add',{id: 1, name: 'sss'})
+            axios.post('/Home/Filter', filter)
                 .then(function (response) {
                     console.log(response);
+                    bind(response);
                 })
                 .catch(function (error) {
                     console.log(error);
                 });
+
+            
+        }
+
+        function bind(response){
+            var data = '';
+            $.each(response.data.data, function (key, value) {
+                data = data + '<p>aaaaa</p>';
+             
+            });
+
+            $('#filter-list').append(data);
         }
 
        

@@ -1,6 +1,12 @@
-﻿namespace ProfileManager.Paginate
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProfileManager.Common.Paginate
 {
-    public class UserParams
+    public class PageData
     {
         private const int MaxPageSize = 50;
         public int PageNumber { get; set; } = 1;
