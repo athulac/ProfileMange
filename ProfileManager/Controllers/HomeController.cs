@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using ProfileManager.Common.Enums;
+using ProfileManager.Common.Helpers;
 using ProfileManager.Common.Paginate;
 using ProfileManager.Models;
 using ProfileManager.Services;
@@ -48,14 +49,29 @@ namespace ProfileManager.Controllers
             FilterViewModel fm = new FilterViewModel { 
                 Page = new PageData
                 {
-                    PageNumber = 1, PageSize = 3
+                    PageNumber = 1, PageSize = 2
                 },
 
-                Gender = GenderEnum.Female
+                Gender = filter.Gender,
             };
 
             var res = await _profileServcie.FilterAsync(fm);
 
+            res.Data.ForEach(x => x.EnumNames = new ProfileEnumNames
+            {
+                Gender = EnumExtensions.GetDisplayName(x.Gender),
+                Cast = EnumExtensions.GetDisplayName(x.Cast),
+                CivilStatus = EnumExtensions.GetDisplayName(x.CivilStatus),
+                Race = EnumExtensions.GetDisplayName(x.Race),
+                Religion = EnumExtensions.GetDisplayName(x.Religion),
+                Job = EnumExtensions.GetDisplayName(x.Job),
+
+                City = EnumExtensions.GetDisplayName(x.City),
+                District = EnumExtensions.GetDisplayName(x.District),
+                Country = EnumExtensions.GetDisplayName(x.Country),
+            });
+            res.Data.ForEach(x => x.CreatedTimeAgo = TimeCal.AsTimeAgo(x.CreatedOn));
+                        
 
             return new JsonResult(res);
             //do your stuff...

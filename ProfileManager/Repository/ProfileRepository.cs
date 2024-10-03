@@ -58,10 +58,10 @@ namespace ProfileManager.Repository
             return profile;
         }
 
-        public async Task<Paginate<Profile>> FilterAsync(PageData page, Func<Profile, bool>? exp)
+        public async Task<Paginate<Profile>> FilterAsync(PageData page, Func<Profile, bool> exp)
         {
             
-           var res = Find(x => x.Gender == GenderEnum.Male);
+           var res = Find(exp);
           
             var resPaged = await PagedList<Profile>.CreateAsync(res, page.PageNumber, page.PageSize);
 

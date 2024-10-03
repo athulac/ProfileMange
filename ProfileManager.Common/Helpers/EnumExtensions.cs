@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProfileManager.Common.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -57,6 +58,17 @@ namespace ProfileManager.Common.Helpers
                   ?.Name;
         }
 
+
+
+        public static string GetEnumJs(string enumVal)
+        {
+            int eval = 1;
+            var en = (GenderEnum)1;
+
+            var name = GetDisplayName(en);
+
+            return name;
+        }
       
     }
 }

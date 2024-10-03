@@ -150,10 +150,7 @@
 
                         }
                     </div>
-
-
                 </div>
-
 
             </div>
         </div>
@@ -214,7 +211,26 @@
 
 
 
-<div id="filter-list"></div>
+
+<section class="h-100 gradient-custom-2">
+    <div class="container h-100">
+        <div class="row d-flex justify-content-center">
+
+            <div class="col col-lg-9 col-xl-8">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+
+                        <div id="filter-list"></div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<div id="paginage"></div>
 
 
 
@@ -240,7 +256,7 @@
 
             var filter = {
                 page: {
-                    pagenumber: 50, pagesize: 50
+                    pagenumber: 1, pagesize: 2
                 },
                 
                 gender: 2
@@ -252,6 +268,7 @@
                 .then(function (response) {
                     console.log(response);
                     bind(response);
+                    
                 })
                 .catch(function (error) {
                     console.log(error);
@@ -260,14 +277,142 @@
             
         }
 
-        function bind(response){
+
+
+        function bind(response){           
             var data = '';
             $.each(response.data.data, function (key, value) {
-                data = data + '<p>aaaaa</p>';
-             
+                var dataRow = 
+                    '<section class="my-2" style="p-2 border-radius: .5rem .5rem 0 0;">'+
+                    '<div class="row d-flex justify-content-center">'+
+                    '<div class="col-12 col-md-12">'+
+                    '<div class="card" style="border-radius: 15px;">'+
+                    '<div class="card-body p-3">'+
+                    '<div class="d-flex">'+
+                    '<div class="flex-shrink-1">'+
+                    (value.enumNames.gender == 'Male' ? 
+                        '<img src="/images/man.png" alt = "Generic placeholder image" class="img-fluid" style = "width: 180px; border-radius: 10px;" >':
+                        '<img src="/images/woman.png" alt = "Generic placeholder image" class="img-fluid" style = "width: 180px; border-radius: 10px;" >'
+                    )+
+                    '</div>'+
+                
+                    '<div class="flex-grow-1 ms-3">'+
+                    '<h5 class="mb-1">'+value.firstName+' '+value.lastName+'</h5>'+
+                    '<p class="mb-2 pb-1">' + value.enumNames.job + '</p>'+
+                    '<hr />'+
+
+                    '<div class="d-flex flex-wrap justify-content-start rounded-3 p-2 mb-2 bg-body-tertiary">'+
+                    '<div class="px-1 pb-2">'+
+                    '<p class="small text-muted mb-1">Gender</p>'+
+                    '<p class="small mb-0 w-100">' + value.enumNames.gender + '</p>' +
+                    '</div>'+
+                    '<div class="px-1 pb-2">' +
+                    '<p class="small text-muted mb-1">Gender</p>' +
+                    '<p class="small mb-0 w-100">' + value.enumNames.civilStatus + '</p>' +
+                    '</div>' +
+                    '<div class="px-1 pb-2">' +
+                    '<p class="small text-muted mb-1">Gender</p>' +
+                    '<p class="small mb-0 w-100">' + value.age + '</p>' +
+                    '</div>' +
+                    '<div class="px-1 pb-2">' +
+                    '<p class="small text-muted mb-1">Gender</p>' +
+                    '<p class="small mb-0 w-100">' + value.enumNames.race + '</p>' +
+                    '</div>' +
+                    '<div class="px-1 pb-2">' +
+                    '<p class="small text-muted mb-1">Gender</p>' +
+                    '<p class="small mb-0 w-100">' + value.enumNames.religion + '</p>' +
+                    '</div>' +
+                    '<div class="px-1 pb-2">' +
+                    '<p class="small text-muted mb-1">Gender</p>' +
+                    '<p class="small mb-0 w-100">' + value.enumNames.cast + '</p>' +
+                    '</div>' +
+                    '<div class="px-1 pb-2">' +
+                    '<p class="small text-muted mb-1">Gender</p>' +
+                    '<p class="small mb-0 w-100">' + value.enumNames.city + '</p>' +
+                    '</div>' +
+                    '<div class="px-1 pb-2">' +
+                    '<p class="small text-muted mb-1">Gender</p>' +
+                    '<p class="small mb-0 w-100">' + value.enumNames.country + '</p>' +
+                    '</div>' +
+                    '<div class="px-1 pb-2">' +
+                    '<p class="small text-muted mb-1">Gender</p>' +
+                    '<p class="small mb-0 w-100">' + value.createdTimeAgo + '</p>' +
+                    '</div>' +
+
+                    '<div class="col-4 col-xs-12 d-flex pt-1">'+
+                    '<a href="#" data-mdb-button-init data-mdb-ripple-init class="btn btn-sm btn-outline-primary me-1 flex-grow-1">Details</a>'+
+                    '<a href="#" data-mdb-button-init data-mdb-ripple-init class="btn btn-sm btn-primary flex-grow-1">Connect</a>'+                 
+                    '</div>' +
+
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '</section>';
+                    data = data+dataRow;
+
             });
 
             $('#filter-list').append(data);
+            page(response);
+        }
+
+        function page(response) {
+            var pageNos = '';
+            for (var i = 1; i <= response.data.totalPages; i++) {
+                if (i == response.data.currentPage) {
+                    pageNos = pageNos +
+                        '<li class="page-item active">' +
+                        '<a class="page-link" href="#">' + i + '</a>' +
+                        '</li>';
+                } else {
+                    pageNos = pageNos +
+                        '<li class="page-item">' +
+                        '<a class="page-link" href="#">' + i + '</a>' +
+                        '</li>';
+                }
+            }
+
+            var data = '';
+            data =
+                '<nav aria-label="Page navigation example">' +
+                '<ul class="pagination justify-content-center">' +
+                '<li class="page-item">' +
+                '<a class="page-link" href="#">' +
+                '<span aria-hidden="true">&laquo;</span>' +
+                '</a>' +
+                '</li>' +
+
+                (response.data.currentPage > 1 ?
+                    '<li class="page-item">' +
+                    '<a class="page-link" href="">' +
+                    '<span aria-hidden="true">&lsaquo;</span>' +
+                    '</a>' +
+                    '</li>' : ''
+                ) +
+
+                (pageNos) +                                       
+          
+                (response.data.currentPage > response.data.totalPages ?
+                    '<li class="page-item">' +
+                    '<a class="page-link" href="">' +
+                    '<span aria-hidden="true">&rsaquo;</span>' +
+                    '</a>' +
+                    '</li>' : ''
+                ) +
+
+
+                '<li class="page-item">' +
+                '<a class="page-link" href="#">' +
+                '<span aria-hidden="true">&raquo;</span>' +
+                '</a>' +
+                '</li>' +
+                '</ul>' +
+                '</nav>';
+
+            $('#paginage').append(data);
         }
 
        

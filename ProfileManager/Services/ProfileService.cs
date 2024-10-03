@@ -188,7 +188,7 @@ namespace ProfileManager.Services
 
         public async Task<Paginate<ProfileViewModel>> FilterAsync(FilterViewModel filter)
         {
-            var res = await profileRepository.FilterAsync(filter.Page, x => x.Gender == GenderEnum.Male);
+            var res = await profileRepository.FilterAsync(filter.Page, x => x.Gender == filter.Gender);
             //res = await profileRepository.FilterAsync(filter.Page, x => (filter.Gender != null ? (x.Gender == filter.Gender) : x.Gender == GenderEnum.Male));
 
             var resMapped = new Paginate<ProfileViewModel>()

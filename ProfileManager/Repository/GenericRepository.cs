@@ -29,7 +29,7 @@ namespace ProfileManager.Repository
         }
 
 
-        public IQueryable<T> Find(Expression<Func<T, bool>> expression, params Expression<Func<T, Object>>[] includes)
+        public IQueryable<T> Find(Expression<Func<T, bool>> expression, params Expression<Func<T, Object>>[]? includes)
         {
             if (includes.Length > 0)
             {
