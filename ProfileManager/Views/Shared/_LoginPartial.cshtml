@@ -7,9 +7,8 @@
 @inject IProfileServcie prfileService
 
 @{
-    var userId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier).Value;
-    var profile = (prfileService.GetByIdentityIdAsync(Guid.Parse(userId))).Result;
-    var email = @UserManager.GetUserName(User);
+   
+    
 }
 
 <ul class="navbar-nav">
@@ -20,14 +19,24 @@
 
         <li class="nav-item">
             <a asp-area="Identity" asp-page="/Account/Manage/Index" style="" class="nav-link text-dark">
-                @if (profile.Gender == ProfileManager.Common.Enums.GenderEnum.Female)
+                @if (User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value != null)
                 {
-                     <img src="~/images/woman.png" style="height:24px" class="avatar rounded-circle" alt="Avatar">
-                }else
-                {
-                     <img src="~/images/man.png" style="height:24px" class="avatar rounded-circle" alt="Avatar">  
+                    var userId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier).Value;
+                    var profile = (prfileService.GetByIdentityIdAsync(Guid.Parse(userId))).Result;
+                    var email = @UserManager.GetUserName(User);
+
+                    @if (profile.Gender == ProfileManager.Common.Enums.GenderEnum.Female)
+                    {
+                        <img src="~/images/woman.png" style="height:24px" class="avatar rounded-circle" alt="Avatar">
+                    }
+                    else
+                    {
+                        <img src="~/images/man.png" style="height:24px" class="avatar rounded-circle" alt="Avatar">
+                    }
+                    <b>Hi @string.Concat(profile.FirstName, " ", profile.LastName)</b>           
                 }
-                <b>Hi @string.Concat(profile.FirstName, " ", profile.LastName)</b></a>
+            </a>
+                
         </li>
 
 @*    <li class="nav-item">          
