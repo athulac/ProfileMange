@@ -1,4 +1,5 @@
-﻿using ProfileManager.Common.Enums;
+﻿using Microsoft.CodeAnalysis;
+using ProfileManager.Common.Enums;
 using ProfileManager.Common.Paginate;
 using ProfileManager.Data.Models;
 using ProfileManager.Repository;
@@ -188,7 +189,12 @@ namespace ProfileManager.Services
 
         public async Task<Paginate<ProfileViewModel>> FilterAsync(FilterViewModel filter)
         {
-            var res = await profileRepository.FilterAsync(filter.Page, x => x.Gender == filter.Gender);
+            var res = await profileRepository.GetAllAsync(filter.Page);
+            if (filter.Gender != null && filter.Gender != GenderEnum.All)
+            {
+                res = await profileRepository.FilterAsync(filter.Page, x => x.Gender == filter.Gender);
+            }
+
             //res = await profileRepository.FilterAsync(filter.Page, x => (filter.Gender != null ? (x.Gender == filter.Gender) : x.Gender == GenderEnum.Male));
 
             var resMapped = new Paginate<ProfileViewModel>()

@@ -32,6 +32,8 @@ namespace ProfileManager.Repository
             return res;
         }
 
+   
+
         public async Task<Profile> GetAsync(Guid id)
         {
             Profile res;
@@ -69,6 +71,15 @@ namespace ProfileManager.Repository
             return resPaged;
         }
 
+        public async Task<Paginate<Profile>> GetAllAsync(PageData page)
+        {
+            IQueryable<Profile> res;
+            res = GetAll();
+
+            var resPaged = await PagedList<Profile>.CreateAsync(res, page.PageNumber, page.PageSize);
+
+            return resPaged;
+        }
 
         //public async Task<IQueryable<Profile>> GetByGrade(Profile grade)
         //{

@@ -18,5 +18,7 @@ namespace ProfileManager.Repository
         Task<Profile> ModifyAsync(Profile profile);
 
         Task<Paginate<Profile>> FilterAsync(PageData page, Expression<Func<Profile, bool>> expression);
+        Task<Paginate<Profile>> GetAllAsync(PageData page);
+
     }
 }
