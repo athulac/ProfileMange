@@ -19,6 +19,7 @@ namespace ProfileManager.Common.Enums
         [Display(Name = "Female")]
         Female = 2,
         Other = 3,
+        All = 4,
     }
 
     public enum CivilStatusEnum

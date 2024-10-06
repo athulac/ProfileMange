@@ -3,6 +3,7 @@ using ProfileManager.Common.Paginate;
 using ProfileManager.Data.Models;
 using ProfileManager.ViewModels;
 using System.Diagnostics;
+using System.Linq.Expressions;
 
 namespace ProfileManager.Repository
 {
@@ -16,6 +17,8 @@ namespace ProfileManager.Repository
         Task<Profile> GetByIdentityIdAsync(Guid id);
         Task<Profile> ModifyAsync(Profile profile);
 
-        Task<Paginate<Profile>> FilterAsync(PageData page, Func<Profile, bool>? exp);
+        Task<Paginate<Profile>> FilterAsync(PageData page, Expression<Func<Profile, bool>> expression);
+        Task<Paginate<Profile>> GetAllAsync(PageData page);
+
     }
 }

@@ -10933,11 +10933,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Athula\\Documents\\Projects\\ProfileMange\\ProfileManager\\ProfileManager.csproj",
+      "projectUniqueName": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager\\ProfileManager.csproj",
       "projectName": "ProfileManager",
-      "projectPath": "C:\\Users\\Athula\\Documents\\Projects\\ProfileMange\\ProfileManager\\ProfileManager.csproj",
+      "projectPath": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager\\ProfileManager.csproj",
       "packagesPath": "C:\\Users\\Athula\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Athula\\Documents\\Projects\\ProfileMange\\ProfileManager\\obj\\",
+      "outputPath": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Athula\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -10948,18 +10948,18 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\sdk\\7.0.305\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Athula\\Documents\\Projects\\ProfileMange\\ProfileManager.Common\\ProfileManager.Common.csproj": {
-              "projectPath": "C:\\Users\\Athula\\Documents\\Projects\\ProfileMange\\ProfileManager.Common\\ProfileManager.Common.csproj"
+            "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager.Common\\ProfileManager.Common.csproj": {
+              "projectPath": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager.Common\\ProfileManager.Common.csproj"
             },
-            "C:\\Users\\Athula\\Documents\\Projects\\ProfileMange\\ProfileManager.Data\\ProfileManager.Data.csproj": {
-              "projectPath": "C:\\Users\\Athula\\Documents\\Projects\\ProfileMange\\ProfileManager.Data\\ProfileManager.Data.csproj"
+            "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager.Data\\ProfileManager.Data.csproj": {
+              "projectPath": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager.Data\\ProfileManager.Data.csproj"
             }
           }
         }
@@ -10968,6 +10968,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -11016,6 +11021,24 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[6.0.33, 6.0.33]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[6.0.33, 6.0.33]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[6.0.33, 6.0.33]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[6.0.33, 6.0.33]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -11024,7 +11047,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.305\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

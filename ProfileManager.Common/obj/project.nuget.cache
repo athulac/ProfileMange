@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ariT8N3BARIcAtGkAlxrcIKjGTju63mY1z+n2hNDqlVIQGfGKZCliX5l7+ghhMbHuHprerS9pMIRzxHWtnH6DQ==",
+  "dgSpecHash": "9O9N90LFQm4=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Athula\\Documents\\Projects\\ProfileMange\\ProfileManager.Common\\ProfileManager.Common.csproj",
+  "projectFilePath": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager.Common\\ProfileManager.Common.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Athula\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.29\\microsoft.entityframeworkcore.6.0.29.nupkg.sha512",
     "C:\\Users\\Athula\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.29\\microsoft.entityframeworkcore.abstractions.6.0.29.nupkg.sha512",
@@ -17,7 +17,10 @@
     "C:\\Users\\Athula\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
     "C:\\Users\\Athula\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
     "C:\\Users\\Athula\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.1\\system.diagnostics.diagnosticsource.6.0.1.nupkg.sha512",
-    "C:\\Users\\Athula\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+    "C:\\Users\\Athula\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\Athula\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.33\\microsoft.windowsdesktop.app.ref.6.0.33.nupkg.sha512",
+    "C:\\Users\\Athula\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.33\\microsoft.netcore.app.ref.6.0.33.nupkg.sha512",
+    "C:\\Users\\Athula\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.33\\microsoft.aspnetcore.app.ref.6.0.33.nupkg.sha512"
   ],
   "logs": []
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TR2v2PB1RxTWJGermaYro0/kQFRPcryxCewxVujKTakSKSnOqfzRiLV++H2uJCHJAY2fXmNqGchsnJQQSIoG3w==",
+  "dgSpecHash": "X6LdRx0vNns=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Athula\\Documents\\Projects\\ProfileMange\\ProfileManager.Data\\ProfileManager.Data.csproj",
+  "projectFilePath": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager.Data\\ProfileManager.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Athula\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Athula\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
@@ -46,7 +46,10 @@
     "C:\\Users\\Athula\\.nuget\\packages\\system.security.permissions\\4.7.0\\system.security.permissions.4.7.0.nupkg.sha512",
     "C:\\Users\\Athula\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512",
     "C:\\Users\\Athula\\.nuget\\packages\\system.text.encoding.codepages\\4.7.0\\system.text.encoding.codepages.4.7.0.nupkg.sha512",
-    "C:\\Users\\Athula\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
+    "C:\\Users\\Athula\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512",
+    "C:\\Users\\Athula\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.33\\microsoft.windowsdesktop.app.ref.6.0.33.nupkg.sha512",
+    "C:\\Users\\Athula\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.33\\microsoft.netcore.app.ref.6.0.33.nupkg.sha512",
+    "C:\\Users\\Athula\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.33\\microsoft.aspnetcore.app.ref.6.0.33.nupkg.sha512"
   ],
   "logs": []
 }
