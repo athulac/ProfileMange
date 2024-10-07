@@ -70,12 +70,13 @@
                    
                                     </div>
                                     <div class="mb-3">
-                                        <button id="btnFilter" class="btn btn-primary w-50">Filter</button>
+                                        <button id="btnFilter" class="btn btn-sm btn-primary w-50">Filter</button>
+                                        <a asp-controller="Home" asp-action="Index" id="btnFilterClear" class="btn btn-sm btn-outline-primary w-25">Clear</a>
 
 
                                     </div>
                               
-                                    <input type="text" value="@Model.Gender"/>
+       
                                 </div>
                             </div>
                         </div>
@@ -123,7 +124,7 @@
             // window.location = url
         }
 
-        function getFilters(isFilter = false) {
+        function getFilters(isFilter = false, pageNo = 1) {
             var gender = @Html.Raw(Json.Serialize(@Model.Gender));
             if (isFilter){
                 gender = $('input[name="btnGender"]:checked').val(); 
@@ -137,7 +138,7 @@
 
             var filter = {
                 page: {
-                    pagenumber: 1, pagesize: 2
+                    pagenumber: pageNo, pagesize: 2
                 }
             }
 
@@ -154,6 +155,7 @@
 
         $(document).ready(function () {
             $(window).on('load', function () {
+              
                 var filter = getFilters();
                 filterData(filter);
                 settingUpUrl(filter);
@@ -171,6 +173,11 @@
            
         });
 
+        function pagedData(pageNo){
+             var filter = getFilters(true, pageNo);
+             filterData(filter);
+             settingUpUrl(filter);
+        }
 
         function filterData(filterPar){
 
@@ -213,40 +220,40 @@
                     '<p class="small mb-0 w-100">' + value.enumNames.gender + '</p>' +
                     '</div>'+
                     '<div class="px-1 pb-2">' +
-                    '<p class="small text-muted mb-1">Gender</p>' +
+                    '<p class="small text-muted mb-1">Civil Status</p>' +
                     '<p class="small mb-0 w-100">' + value.enumNames.civilStatus + '</p>' +
                     '</div>' +
                     '<div class="px-1 pb-2">' +
-                    '<p class="small text-muted mb-1">Gender</p>' +
+                    '<p class="small text-muted mb-1">Age</p>' +
                     '<p class="small mb-0 w-100">' + value.age + '</p>' +
                     '</div>' +
                     '<div class="px-1 pb-2">' +
-                    '<p class="small text-muted mb-1">Gender</p>' +
+                    '<p class="small text-muted mb-1">Race</p>' +
                     '<p class="small mb-0 w-100">' + value.enumNames.race + '</p>' +
                     '</div>' +
                     '<div class="px-1 pb-2">' +
-                    '<p class="small text-muted mb-1">Gender</p>' +
+                    '<p class="small text-muted mb-1">Religion</p>' +
                     '<p class="small mb-0 w-100">' + value.enumNames.religion + '</p>' +
                     '</div>' +
                     '<div class="px-1 pb-2">' +
-                    '<p class="small text-muted mb-1">Gender</p>' +
+                    '<p class="small text-muted mb-1">Cast</p>' +
                     '<p class="small mb-0 w-100">' + value.enumNames.cast + '</p>' +
                     '</div>' +
                     '<div class="px-1 pb-2">' +
-                    '<p class="small text-muted mb-1">Gender</p>' +
+                    '<p class="small text-muted mb-1">City</p>' +
                     '<p class="small mb-0 w-100">' + value.enumNames.city + '</p>' +
                     '</div>' +
                     '<div class="px-1 pb-2">' +
-                    '<p class="small text-muted mb-1">Gender</p>' +
+                    '<p class="small text-muted mb-1">Country</p>' +
                     '<p class="small mb-0 w-100">' + value.enumNames.country + '</p>' +
                     '</div>' +
                     '<div class="px-1 pb-2">' +
-                    '<p class="small text-muted mb-1">Gender</p>' +
+                    '<p class="small text-muted mb-1">Published</p>' +
                     '<p class="small mb-0 w-100">' + value.createdTimeAgo + '</p>' +
                     '</div>' +
 
                     '<div class="col-4 col-xs-12 d-flex pt-1">'+
-                    '<a href="#" data-mdb-button-init data-mdb-ripple-init class="btn btn-sm btn-outline-primary me-1 flex-grow-1">Details</a>'+
+                    '<a href="home/details/'+value.id+'" data-mdb-button-init data-mdb-ripple-init class="btn btn-sm btn-outline-primary me-1 flex-grow-1">Details</a>'+
                     '<a href="#" data-mdb-button-init data-mdb-ripple-init class="btn btn-sm btn-primary flex-grow-1">Connect</a>'+                 
                     '</div>' +
 
@@ -272,12 +279,14 @@
                 if (i == response.data.currentPage) {
                     pageNos = pageNos +
                         '<li class="page-item active">' +
-                        '<a class="page-link" href="#">' + i + '</a>' +
+                        '<button class="page-link" onclick="pagedData('+i+')">' + i + '</button>' +
+                        // '<a class="page-link" href="#">' + i + '</a>' +
                         '</li>';
                 } else {
                     pageNos = pageNos +
                         '<li class="page-item">' +
-                        '<a class="page-link" href="#">' + i + '</a>' +
+                        '<button class="page-link" onclick="pagedData('+i+')">' + i + '</button>' +
+                        // '<a class="page-link" href="#">' + i + '</a>' +
                         '</li>';
                 }
             }
@@ -287,34 +296,38 @@
                 '<nav aria-label="Page navigation example">' +
                 '<ul class="pagination justify-content-center">' +
                 '<li class="page-item">' +
-                '<a class="page-link" href="#">' +
+                '<button class="page-link" onclick="pagedData(1)">' +
+                // '<a class="page-link" href="#">' +
                 '<span aria-hidden="true">&laquo;</span>' +
-                '</a>' +
+                '</button>' +
                 '</li>' +
 
                 (response.data.currentPage > 1 ?
                     '<li class="page-item">' +
-                    '<a class="page-link" href="">' +
+                    '<button class="page-link" onclick="pagedData(' + (response.data.currentPage - 1) + ')">' +
+                    // '<a class="page-link" href="">' +
                     '<span aria-hidden="true">&lsaquo;</span>' +
-                    '</a>' +
+                    '</button>' +
                     '</li>' : ''
                 ) +
 
                 (pageNos) +                                       
           
-                (response.data.currentPage > response.data.totalPages ?
+                (response.data.currentPage < response.data.totalPages ?
                     '<li class="page-item">' +
-                    '<a class="page-link" href="">' +
+                    '<button class="page-link" onclick="pagedData(' + (response.data.currentPage + 1) + ')">' +
+                    // '<a class="page-link" href="">' +
                     '<span aria-hidden="true">&rsaquo;</span>' +
-                    '</a>' +
+                    '</button>' +
                     '</li>' : ''
                 ) +
 
 
                 '<li class="page-item">' +
-                '<a class="page-link" href="#">' +
+                '<button class="page-link" onclick="pagedData(' + response.data.totalPages + ')">' +
+                // '<a class="page-link" href="#">' +
                 '<span aria-hidden="true">&raquo;</span>' +
-                '</a>' +
+                '</button>' +
                 '</li>' +
                 '</ul>' +
                 '</nav>';
