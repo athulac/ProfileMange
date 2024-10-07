@@ -25,7 +25,7 @@
                     var profile = (prfileService.GetByIdentityIdAsync(Guid.Parse(userId))).Result;
                     var email = @UserManager.GetUserName(User);
 
-                    @if (profile.Gender == ProfileManager.Common.Enums.GenderEnum.Female)
+                    if (profile.Gender == ProfileManager.Common.Enums.GenderEnum.Female)
                     {
                         <img src="~/images/woman.png" style="height:24px" class="avatar rounded-circle" alt="Avatar">
                     }

@@ -29,6 +29,21 @@
                                   <hr />
 
 
+@*                                   <div class="form-group mt-3">
+                                    <label asp-for="Gender" class="control-label col-md-2 mb-1"></label>
+                                    <div class="col-md-10 mb-3">
+                                        <div class="form-check form-check-inline">
+                                            <input asp-for="Gender" class="form-check-input" type="radio" id="inlineRadio1" value="Male">
+                                            <label class="form-check-label" for="inlineRadio1">Male</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input asp-for="Gender" class="form-check-input" type="radio" id="inlineRadio2" value="Female">
+                                            <label class="form-check-label" for="inlineRadio2">Female</label>
+                                        </div>
+                                        <span asp-validation-for="Gender" class="text-danger"></span>
+                                    </div>
+                                </div>*@
+
                                     <div class="mb-3">
                                         <label for="exampleFormControlInput1" class="form-label">Gender </label>
                                         
@@ -90,13 +105,13 @@
     <script>
 
         function ChangeUrl(title, url) {  
-        if (typeof(history.pushState) != "undefined") {  
-            var obj = { Title: title, Url: url };  
-            history.pushState(obj, obj.Title, obj.Url);  
-        } else {  
-            alert("Browser does not support HTML5.");  
+            if (typeof(history.pushState) != "undefined") {  
+                var obj = { Title: title, Url: url };  
+                history.pushState(obj, obj.Title, obj.Url);  
+            } else {  
+                alert("Browser does not support HTML5.");  
+            }  
         }  
-}  
 
         function settingUpUrl(filters){
 
@@ -108,9 +123,16 @@
             // window.location = url
         }
 
-        function getFilters() {
+        function getFilters(isFilter = false) {
+            var gender = @Html.Raw(Json.Serialize(@Model.Gender));
+            if (isFilter){
+                gender = $('input[name="btnGender"]:checked').val(); 
+            }
+                
+            //bind data for elements
+            $("input[name=btnGender][value='" + gender + "']").prop("checked", true);
+                
 
-            var gender = $('input[name="btnGender"]:checked').val();
             var genderCon = Number(gender ?? 4);
 
             var filter = {
@@ -126,22 +148,27 @@
             return filter;            
         }
 
+
+
+
+
         $(document).ready(function () {
-           
-            var gender = $('input[name="btnGender"]:checked').val();
-            alert(gender);
-
-            var filter = getFilters();
-            filterData(filter);
-            settingUpUrl(filter);
-
-            $("#btnFilter").click(function () {
-                
+            $(window).on('load', function () {
                 var filter = getFilters();
                 filterData(filter);
                 settingUpUrl(filter);
 
+                $("#btnFilter").click(function () {
+
+                    var filter = getFilters(true);
+                    filterData(filter);
+                    settingUpUrl(filter);
+
+                });
             });
+            
+
+           
         });
 
 
