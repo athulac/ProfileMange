@@ -1,4 +1,5 @@
-﻿using Microsoft.CodeAnalysis;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.CodeAnalysis;
 using ProfileManager.Common.Enums;
 using ProfileManager.Common.Paginate;
 using ProfileManager.Data.Models;
@@ -189,13 +190,20 @@ namespace ProfileManager.Services
 
         public async Task<Paginate<ProfileViewModel>> FilterAsync(FilterViewModel filter)
         {
-            var res = await profileRepository.GetAllAsync(filter.Page);
+            var resPaged = new Paginate<Profile>();
+            var data = await profileRepository.GetAllAsync();
+            //resPaged.Data = res.ToList();
+
             if (filter.Gender != null && filter.Gender != GenderEnum.All)
             {
-                res = await profileRepository.FilterAsync(filter.Page, x => x.Gender == filter.Gender);
+                data = data.Where(x => x.Gender == filter.Gender);
+            }
+            if (filter.District.HasValue)
+            {
+                data = data.Where(x => x.Distirct == filter.District);
             }
 
-            //res = await profileRepository.FilterAsync(filter.Page, x => (filter.Gender != null ? (x.Gender == filter.Gender) : x.Gender == GenderEnum.Male));
+            var res = await PagedList<Profile>.CreateAsync(data, filter.Page.PageNumber, filter.Page.PageSize);
 
             var resMapped = new Paginate<ProfileViewModel>()
             {
@@ -227,9 +235,7 @@ namespace ProfileManager.Services
                 }).ToList(),
             };
 
-
             return resMapped;
-
         }
     }
 

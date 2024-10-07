@@ -58,7 +58,19 @@
                                             </div>
                                                                    
                                     </div>
-                                    <div class="mb-3">
+
+                                    <div class="form-group mt-3">
+                                        <label asp-for="District" class="control-label col-md-2 mb-1"></label>
+                                        <div class="col-md-10">
+                                            <select id="drpDistrict" class="form-control" asp-for="District" asp-items="Html.GetEnumSelectList<ProfileManager.Common.Enums.DistrictEnum>()">
+                                                <option selected="selected" value="">Please select</option>
+                                            </select>
+                                            <span asp-validation-for="District" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+
+                                    @* <div class="mb-3">
                                         <label for="exampleFormControlInput1" class="form-label">District</label>
                                      
                                             <select class="form-select" aria-label="Select District">
@@ -66,13 +78,14 @@
                                                 <option value="1">One</option>
                                                 <option value="2">Two</option>
                                                 <option value="3">Three</option>
-                                            </select>
-                   
-                                    </div>
-                                    <div class="mb-3">
+                                            </select>                   
+                                    </div> *@
+
+
+
+                                    <div class="mb-3 mt-4">
                                         <button id="btnFilter" class="btn btn-sm btn-primary w-50">Filter</button>
                                         <a asp-controller="Home" asp-action="Index" id="btnFilterClear" class="btn btn-sm btn-outline-primary w-25">Clear</a>
-
 
                                     </div>
                               
@@ -126,15 +139,19 @@
 
         function getFilters(isFilter = false, pageNo = 1) {
             var gender = @Html.Raw(Json.Serialize(@Model.Gender));
+            var district = @Html.Raw(Json.Serialize(@Model.District));
             if (isFilter){
-                gender = $('input[name="btnGender"]:checked').val(); 
+                gender = $('input[name="btnGender"]:checked').val();
+                district = $('#drpDistrict option:selected').val();
             }
                 
             //bind data for elements
             $("input[name=btnGender][value='" + gender + "']").prop("checked", true);
+            $("#drpDistrict option[value='" + district + "']").prop('selected', true);
                 
 
             var genderCon = Number(gender ?? 4);
+            var districtCon = Number(district ?? 0);
 
             var filter = {
                 page: {
@@ -145,18 +162,19 @@
             if(filter != null){
                 filter["gender"] = genderCon;
             }
+            if (districtCon > 0) {
+                filter["district"] = districtCon;
+            }
             
             return filter;            
         }
 
 
-
-
-
         $(document).ready(function () {
             $(window).on('load', function () {
-              
-                var filter = getFilters();
+
+                var page = @Html.Raw(Json.Serialize(@Model.Page.PageNumber));
+                var filter = getFilters(false, page);
                 filterData(filter);
                 settingUpUrl(filter);
 
@@ -242,6 +260,10 @@
                     '<div class="px-1 pb-2">' +
                     '<p class="small text-muted mb-1">City</p>' +
                     '<p class="small mb-0 w-100">' + value.enumNames.city + '</p>' +
+                    '</div>' +
+                    '<div class="px-1 pb-2">' +
+                    '<p class="small text-muted mb-1">District</p>' +
+                    '<p class="small mb-0 w-100">' + value.enumNames.district + '</p>' +
                     '</div>' +
                     '<div class="px-1 pb-2">' +
                     '<p class="small text-muted mb-1">Country</p>' +

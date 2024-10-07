@@ -4,6 +4,7 @@ using ProfileManager.Data;
 using ProfileManager.Data.Models;
 using ProfileManager.ViewModels;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq.Expressions;
 using System.Runtime.ExceptionServices;
 
@@ -61,14 +62,17 @@ namespace ProfileManager.Repository
             return profile;
         }
 
-        public async Task<Paginate<Profile>> FilterAsync(PageData page, Expression<Func<Profile, bool>> expression)
+        public async Task<Paginate<Profile>> FilterAsync(Expression<Func<Profile, bool>> expression, [AllowNull]PageData? page)
         {
-            
-           var res = Find(expression);
-          
-            var resPaged = await PagedList<Profile>.CreateAsync(res, page.PageNumber, page.PageSize);
+            var res = Find(expression);
 
-            return resPaged;
+            if (page != null)
+            {
+                var resPaged = await PagedList<Profile>.CreateAsync(res, page.PageNumber, page.PageSize);
+                return resPaged;
+            }
+
+            return new Paginate<Profile> { Data = res.ToList() };
         }
 
         public async Task<Paginate<Profile>> GetAllAsync(PageData page)

@@ -74,12 +74,13 @@
 
  
                 <div class="form-group mt-3">
-                    <button id="login-submit" type="submit" class="w-50 btn btn-md btn-primary">Log in</button>
+                    <button id="login-submit" type="submit" class="w-25 btn btn-md btn-primary">Log in</button>
+                    <a class="btn btn-md btn-outline-success w-50" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Create New Account</a>
                 </div>                
                 <div>
                     <br />
-                    <a class="btn mb-2 btn-sm btn-danger" id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a><br />
-                    <a class="btn mb-2 btn-sm btn-primary" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a><br />
+                    <br />
+                    <a class="btn mb-2 btn-sm btn-danger" id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a><br />                   
                     <a class="btn btn-sm btn-success" id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a><br />
                 </div>
             </form>

@@ -123,6 +123,7 @@ namespace ProfileManager.Controllers
                 var pageSize = HttpUtility.ParseQueryString(parsedString)["page[pagesize]"];
 
                 var gender = HttpUtility.ParseQueryString(parsedString)["gender"];
+                var district = HttpUtility.ParseQueryString(parsedString)["district"];
 
                 PageData userParams = new PageData()
                 {
@@ -133,6 +134,7 @@ namespace ProfileManager.Controllers
                 FilterViewModel fil = new FilterViewModel();
                 fil.Page = userParams;
                 fil.Gender = (GenderEnum)Convert.ToInt32(gender);
+                fil.District = (DistrictEnum)Convert.ToInt32(district);
 
 
                 return View(fil);
@@ -164,6 +166,11 @@ namespace ProfileManager.Controllers
 
                 Gender = filter.Gender,
             };
+
+            if (filter.District.HasValue)
+            {
+                fm.District = filter.District;
+            }
 
             var res = await _profileServcie.FilterAsync(fm);
 
