@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.CodeAnalysis;
+using Org.BouncyCastle.Bcpg;
 using ProfileManager.Common.Enums;
 using ProfileManager.Common.Paginate;
 using ProfileManager.Data.Models;
 using ProfileManager.Repository;
 using ProfileManager.ViewModels;
+using System.Linq;
 
 namespace ProfileManager.Services
 {
@@ -188,11 +190,38 @@ namespace ProfileManager.Services
             return resMapped;
         }
 
+
+        public static bool CalYear (DateTime dob)
+        {
+            try
+            {
+                var dadif = DateTime.Today.Subtract(dob.Date);
+                int datesdf = Convert.ToInt32(DateTime.Today.Subtract(dob.Date).TotalDays);
+
+                int yrDiff = Convert.ToInt32(datesdf / 365);
+                if (yrDiff > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+          
+        }
+
         public async Task<Paginate<ProfileViewModel>> FilterAsync(FilterViewModel filter)
         {
             var resPaged = new Paginate<Profile>();
-            var data = await profileRepository.GetAllAsync();
+            var data = (await profileRepository.GetAllAsync());
             //resPaged.Data = res.ToList();
+
 
             if (filter.Gender != null && filter.Gender != GenderEnum.All)
             {
@@ -201,6 +230,28 @@ namespace ProfileManager.Services
             if (filter.District.HasValue)
             {
                 data = data.Where(x => x.Distirct == filter.District);
+            }
+            if (filter.AgeFrom > 0 && filter.AgeTo > 0)
+            {
+                foreach (var item in data)
+                {
+                    var ff = CalYear(item.BirthDate);
+                }
+
+                //var ffd = data.Where(x => CalYear(x.BirthDate));
+
+                //var ffdd = new List<Profile>(ffd);
+
+                
+                //if (resC.Any())
+                //{
+                //    data = data.Where(x => filter.AgeFrom <= CalYear(x.BirthDate) && filter.AgeTo >= CalYear(x.BirthDate));
+                //}
+            }
+
+            if (!data.Any())
+            {
+                return new Paginate<ProfileViewModel>() { Data = new List<ProfileViewModel>() };
             }
 
             var res = await PagedList<Profile>.CreateAsync(data, filter.Page.PageNumber, filter.Page.PageSize);

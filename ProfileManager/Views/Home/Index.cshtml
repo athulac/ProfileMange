@@ -68,6 +68,138 @@
                                             <span asp-validation-for="District" class="text-danger"></span>
                                         </div>
                                     </div>
+         
+                                    <div class="form-group row">
+                                        <label class="control-label mb-1" for="exampleFormControlSelect1">Age Between</label>
+                                        <div class="form-group col-4">
+                                            @* <label for="exampleFormControlSelect1">Example select</label> *@
+                                            <select class="form-control" id="selAgeFrom">                  
+                                                <option>0</option>
+                                                <option>20</option>
+                                                <option>21</option>
+                                                <option>22</option>
+                                                <option>23</option>
+                                                <option>24</option>
+                                                <option>25</option>
+                                                <option>26</option>
+                                                <option>27</option>
+                                                <option>28</option>
+                                                <option>29</option>
+                                                <option>30</option>
+                                                <option>31</option>
+                                                <option>32</option>
+                                                <option>33</option>
+                                                <option>34</option>
+                                                <option>35</option>
+                                                <option>36</option>
+                                                <option>37</option>
+                                                <option>38</option>
+                                                <option>39</option>
+                                                <option>40</option>
+                                                <option>41</option>
+                                                <option>42</option>
+                                                <option>43</option>
+                                                <option>44</option>
+                                                <option>45</option>
+                                                <option>46</option>
+                                                <option>47</option>
+                                                <option>48</option>
+                                                <option>49</option>
+                                                <option>50</option>
+                                                <option>50</option>
+                                                <option>51</option>
+                                                <option>52</option>
+                                                <option>53</option>
+                                                <option>54</option>
+                                                <option>55</option>
+                                                <option>56</option>
+                                                <option>57</option>
+                                                <option>58</option>
+                                                <option>59</option>
+                                                <option>60</option>
+                                                <option>61</option>
+                                                <option>62</option>
+                                                <option>63</option>
+                                                <option>64</option>
+                                                <option>65</option>
+                                                <option>66</option>
+                                                <option>67</option>
+                                                <option>68</option>
+                                                <option>69</option>
+                                                <option>70</option>
+                                                <option>71</option>
+                                                <option>72</option>
+                                                <option>73</option>
+                                                <option>74</option>
+                                                <option>75</option>                                               
+                                            </select>                            
+                                        </div>
+
+                                        <div class="form-group col-4">
+                                            @* <label for="exampleFormControlSelect1">Example select</label> *@
+                                            <select class="form-control" id="selAgeTo">
+                                                <option>0</option>
+                                                <option>20</option>
+                                                <option>21</option>
+                                                <option>22</option>
+                                                <option>23</option>
+                                                <option>24</option>
+                                                <option>25</option>
+                                                <option>26</option>
+                                                <option>27</option>
+                                                <option>28</option>
+                                                <option>29</option>
+                                                <option>30</option>
+                                                <option>31</option>
+                                                <option>32</option>
+                                                <option>33</option>
+                                                <option>34</option>
+                                                <option>35</option>
+                                                <option>36</option>
+                                                <option>37</option>
+                                                <option>38</option>
+                                                <option>39</option>
+                                                <option>40</option>
+                                                <option>41</option>
+                                                <option>42</option>
+                                                <option>43</option>
+                                                <option>44</option>
+                                                <option>45</option>
+                                                <option>46</option>
+                                                <option>47</option>
+                                                <option>48</option>
+                                                <option>49</option>
+                                                <option>50</option>
+                                                <option>50</option>
+                                                <option>51</option>
+                                                <option>52</option>
+                                                <option>53</option>
+                                                <option>54</option>
+                                                <option>55</option>
+                                                <option>56</option>
+                                                <option>57</option>
+                                                <option>58</option>
+                                                <option>59</option>
+                                                <option>60</option>
+                                                <option>61</option>
+                                                <option>62</option>
+                                                <option>63</option>
+                                                <option>64</option>
+                                                <option>65</option>
+                                                <option>66</option>
+                                                <option>67</option>
+                                                <option>68</option>
+                                                <option>69</option>
+                                                <option>70</option>
+                                                <option>71</option>
+                                                <option>72</option>
+                                                <option>73</option>
+                                                <option>74</option>
+                                                <option>75</option>
+                                            </select>                                           
+                                         </div>
+                                    </div>
+
 
 
                                     @* <div class="mb-3">
@@ -140,18 +272,26 @@
         function getFilters(isFilter = false, pageNo = 1) {
             var gender = @Html.Raw(Json.Serialize(@Model.Gender));
             var district = @Html.Raw(Json.Serialize(@Model.District));
+            var ageFrom = @Html.Raw(Json.Serialize(@Model.AgeFrom));
+            var ageTo = @Html.Raw(Json.Serialize(@Model.AgeTo));
             if (isFilter){
                 gender = $('input[name="btnGender"]:checked').val();
                 district = $('#drpDistrict option:selected').val();
+                ageFrom = $('#selAgeFrom option:selected').val();
+                ageTo = $('#selAgeTo option:selected').val();
             }
                 
             //bind data for elements
             $("input[name=btnGender][value='" + gender + "']").prop("checked", true);
             $("#drpDistrict option[value='" + district + "']").prop('selected', true);
-                
+            $("#selAgeFrom option[value='" + ageFrom + "']").prop('selected', true);
+            $("#selAgeTo option[value='" + ageTo + "']").prop('selected', true);
+    
 
             var genderCon = Number(gender ?? 4);
             var districtCon = Number(district ?? 0);
+            var ageFromCon = Number(ageFrom ?? 0);
+            var ageToCon = Number(ageTo ?? 0);
 
             var filter = {
                 page: {
@@ -164,6 +304,12 @@
             }
             if (districtCon > 0) {
                 filter["district"] = districtCon;
+            }
+            if (ageFromCon > 0) {
+                filter["ageFrom"] = ageFromCon;
+            }
+            if (ageToCon > 0) {
+                filter["ageTo"] = ageToCon;
             }
             
             return filter;            

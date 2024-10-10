@@ -164,12 +164,17 @@ namespace ProfileManager.Controllers
                     PageSize = filter.Page.PageSize,
                 },
 
-                Gender = filter.Gender,
+                Gender = filter.Gender
             };
 
             if (filter.District.HasValue)
             {
                 fm.District = filter.District;
+            }
+            if (filter.AgeFrom > 0 && filter.AgeTo > 0)//can add more logic for age filter
+            {
+                fm.AgeFrom = filter.AgeFrom;
+                fm.AgeTo = filter.AgeTo;
             }
 
             var res = await _profileServcie.FilterAsync(fm);
