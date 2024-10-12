@@ -1,0 +1,10 @@
+/.vs/ProfileManager/FileContentIndex/*.vsidx
+/.vs/ProjectEvaluation/*.bin
+/ProfileManager/bin/Debug/net6.0/*.dll
+/ProfileManager/bin/Debug/net6.0/runtimes/unix/lib/net6.0/*.dll
+/ProfileManager/bin/Debug/net6.0/runtimes/unix/lib/netcoreapp2.1/*.dll
+/ProfileManager/bin/Debug/net6.0/runtimes/win-arm64/native/*.dll
+/ProfileManager/bin/Debug/net6.0/runtimes/win-x64/native/*.dll
+/ProfileManager/bin/Debug/net6.0/runtimes/win-x86/native/*.dll
+/ProfileManager/bin/Debug/net6.0/runtimes/win/lib/net6.0/*.dll
+/ProfileManager/bin/Debug/net6.0/runtimes/win/lib/netcoreapp2.1/*.dll

@@ -107,4 +107,6 @@ namespace ProfileManager.Common.Enums
         YoungerBrother = 6,
         Twin = 7,
     }
+
+   
 }

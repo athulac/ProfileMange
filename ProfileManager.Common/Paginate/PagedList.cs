@@ -52,6 +52,33 @@ namespace ProfileManager.Common.Paginate
             }
       
         }
+
+        public static async Task<Paginate<T>> Create(List<T> source, int pageNumber, int pageSize)
+        {
+            try
+            {
+                var count = source.Count();
+                var items = source.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
+                //var items = await source.Skip((pageNumber) * pageSize).Take(pageSize).ToListAsync();
+
+                var result = new PagedList<T>(items, count, pageNumber, pageSize);
+                var resPag = new Paginate<T>
+                {
+                    Data = result,
+                    TotalCount = count,
+                    PageSize = pageSize,
+                    CurrentPage = pageNumber,
+                    TotalPages = (int)Math.Ceiling(count / (double)pageSize),
+                };
+                return resPag;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+
+        }
     }
 
     //public class Paginate<T>

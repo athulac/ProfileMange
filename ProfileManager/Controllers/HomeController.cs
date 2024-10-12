@@ -124,6 +124,18 @@ namespace ProfileManager.Controllers
 
                 var gender = HttpUtility.ParseQueryString(parsedString)["gender"];
                 var district = HttpUtility.ParseQueryString(parsedString)["district"];
+                var ageFrom = HttpUtility.ParseQueryString(parsedString)["ageFrom"];
+                var ageTo = HttpUtility.ParseQueryString(parsedString)["ageTo"];
+                var civilStatus = HttpUtility.ParseQueryString(parsedString)["civilStatus"];
+
+                var job = HttpUtility.ParseQueryString(parsedString)["job"];
+
+                var cast = HttpUtility.ParseQueryString(parsedString)["cast"];
+                var race = HttpUtility.ParseQueryString(parsedString)["race"];
+                var religion = HttpUtility.ParseQueryString(parsedString)["religion"];
+
+                var memberId = HttpUtility.ParseQueryString(parsedString)["memberId"];
+
 
                 PageData userParams = new PageData()
                 {
@@ -135,6 +147,17 @@ namespace ProfileManager.Controllers
                 fil.Page = userParams;
                 fil.Gender = (GenderEnum)Convert.ToInt32(gender);
                 fil.District = (DistrictEnum)Convert.ToInt32(district);
+                fil.AgeFrom = Convert.ToInt32(ageFrom);
+                fil.AgeTo = Convert.ToInt32(ageTo);
+                fil.CivilStatus = (CivilStatusEnum)Convert.ToInt32(civilStatus);
+
+                fil.Job = (JobEnum)Convert.ToInt32(job);
+
+                fil.Cast = (CastEnum)Convert.ToInt32(cast);
+                fil.Race = (RaceEnum)Convert.ToInt32(race);
+                fil.Religion = (ReligionEnum)Convert.ToInt32(religion);
+
+                fil.MemberId = memberId;
 
 
                 return View(fil);
@@ -176,21 +199,47 @@ namespace ProfileManager.Controllers
                 fm.AgeFrom = filter.AgeFrom;
                 fm.AgeTo = filter.AgeTo;
             }
+            if (filter.CivilStatus.HasValue)
+            {
+                fm.CivilStatus = filter.CivilStatus;
+            }
+
+            if (filter.Job.HasValue)
+            {
+                fm.Job = filter.Job;
+            }
+
+            if (filter.Cast.HasValue)
+            {
+                fm.Cast = filter.Cast;
+            }
+            if (filter.Race.HasValue)
+            {
+                fm.Race = filter.Race;
+            }
+            if (filter.Religion.HasValue)
+            {
+                fm.Religion = filter.Religion;
+            }
+
+            if (filter.MemberId != null)
+            {
+                fm.MemberId = filter.MemberId;
+            }
 
             var res = await _profileServcie.FilterAsync(fm);
 
             res.Data.ForEach(x => x.EnumNames = new ProfileEnumNames
             {
                 Gender = EnumExtensions.GetDisplayName(x.Gender),
-                Cast = EnumExtensions.GetDisplayName(x.Cast),
+                District = EnumExtensions.GetDisplayName(x.District),
                 CivilStatus = EnumExtensions.GetDisplayName(x.CivilStatus),
+                City = EnumExtensions.GetDisplayName(x.City),
+                Country = EnumExtensions.GetDisplayName(x.Country),
+                Job = EnumExtensions.GetDisplayName(x.Job),
                 Race = EnumExtensions.GetDisplayName(x.Race),
                 Religion = EnumExtensions.GetDisplayName(x.Religion),
-                Job = EnumExtensions.GetDisplayName(x.Job),
-
-                City = EnumExtensions.GetDisplayName(x.City),
-                District = EnumExtensions.GetDisplayName(x.District),
-                Country = EnumExtensions.GetDisplayName(x.Country),
+                Cast = EnumExtensions.GetDisplayName(x.Cast),
             });
             res.Data.ForEach(x => x.CreatedTimeAgo = TimeCal.AsTimeAgo(x.CreatedOn));
 

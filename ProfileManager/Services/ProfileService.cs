@@ -191,7 +191,7 @@ namespace ProfileManager.Services
         }
 
 
-        public static bool CalYear (DateTime dob)
+        public static bool CalYearAge (DateTime dob, int from, int to)
         {
             try
             {
@@ -199,7 +199,7 @@ namespace ProfileManager.Services
                 int datesdf = Convert.ToInt32(DateTime.Today.Subtract(dob.Date).TotalDays);
 
                 int yrDiff = Convert.ToInt32(datesdf / 365);
-                if (yrDiff > 0)
+                if (yrDiff >= from && yrDiff <= to)
                 {
                     return true;
                 }
@@ -219,42 +219,55 @@ namespace ProfileManager.Services
         public async Task<Paginate<ProfileViewModel>> FilterAsync(FilterViewModel filter)
         {
             var resPaged = new Paginate<Profile>();
-            var data = (await profileRepository.GetAllAsync());
-            //resPaged.Data = res.ToList();
-
+            var data = (await profileRepository.GetAllAsync()).ToList();
 
             if (filter.Gender != null && filter.Gender != GenderEnum.All)
             {
-                data = data.Where(x => x.Gender == filter.Gender);
+                data = data.Where(x => x.Gender == filter.Gender).ToList();
             }
             if (filter.District.HasValue)
             {
-                data = data.Where(x => x.Distirct == filter.District);
+                data = data.Where(x => x.Distirct == filter.District).ToList();
             }
             if (filter.AgeFrom > 0 && filter.AgeTo > 0)
             {
-                foreach (var item in data)
-                {
-                    var ff = CalYear(item.BirthDate);
-                }
-
-                //var ffd = data.Where(x => CalYear(x.BirthDate));
-
-                //var ffdd = new List<Profile>(ffd);
-
-                
-                //if (resC.Any())
-                //{
-                //    data = data.Where(x => filter.AgeFrom <= CalYear(x.BirthDate) && filter.AgeTo >= CalYear(x.BirthDate));
-                //}
+                data = data.Where(x => CalYearAge(x.BirthDate, filter.AgeFrom, filter.AgeTo)).ToList();
             }
+            if (filter.CivilStatus.HasValue)
+            {
+                data = data.Where(x => x.CivilStatus == filter.CivilStatus).ToList();
+            }
+
+            if (filter.Job.HasValue)
+            {
+                data = data.Where(x => x.Job == filter.Job).ToList();
+            }
+
+            if (filter.Cast.HasValue)
+            {
+                data = data.Where(x => x.Cast == filter.Cast).ToList();
+            }
+            if (filter.Race.HasValue)
+            {
+                data = data.Where(x => x.Race == filter.Race).ToList();
+            }
+            if (filter.Religion.HasValue)
+            {
+                data = data.Where(x => x.Religion == filter.Religion).ToList();
+            }
+
+            if (filter.MemberId != null)
+            {
+                data = data.Where(x => x.MemberId == filter.MemberId).ToList();
+            }
+
 
             if (!data.Any())
             {
                 return new Paginate<ProfileViewModel>() { Data = new List<ProfileViewModel>() };
             }
 
-            var res = await PagedList<Profile>.CreateAsync(data, filter.Page.PageNumber, filter.Page.PageSize);
+            var res = await PagedList<Profile>.Create(data, filter.Page.PageNumber, filter.Page.PageSize);
 
             var resMapped = new Paginate<ProfileViewModel>()
             {
