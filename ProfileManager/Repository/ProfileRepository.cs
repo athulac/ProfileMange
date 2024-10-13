@@ -12,7 +12,7 @@ namespace ProfileManager.Repository
 {
 
 
-    public class ProfileRepository : GenericRepository<Profile>, IProfileRepository
+    public class ProfileRepository : GenericRepository<Profile>, IProfileRepository/*, IDisposable*/
     {
         public ProfileRepository(ProfileManagerDataDbContext context) : base(context)
         {
@@ -57,8 +57,8 @@ namespace ProfileManager.Repository
 
         public async Task<Profile> ModifyAsync(Profile profile)
         {
-            Update(profile);
-            Save();
+            await UpdateAsync(profile);
+            await SaveAsync();
             return profile;
         }
 
@@ -90,5 +90,6 @@ namespace ProfileManager.Repository
         //    var res = Find(x => x.Id == grade.Id);
         //    return res.AsQueryable();
         //}
+
     }
 }

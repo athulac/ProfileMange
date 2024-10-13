@@ -1,8 +1,9 @@
 ﻿@page
-@model RegisterModel
+@model ProfileManager.Areas.Identity.Pages.Account.RegisterPersonalModel
 @{
-    ViewData["Title"] = "Register";
+    ViewData["Title"] = "Register - Personal";
 }
+
 
 
 <div class="row">
@@ -44,11 +45,12 @@
         <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
             <h2>Create a new account.</h2>
             <hr />
-    
+@* 
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group mt-3">
                 <label asp-for="Input.Email" class="control-label col-md-2 mb-1"></label>
                 <div class="col-md-10">
+
                     <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
                     <span asp-validation-for="Input.Email" class="text-danger"></span>
                 </div>
@@ -67,7 +69,9 @@
                     <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
                 </div>
             </div>
-@*             <hr/>
+            <hr/> *@
+
+            <input asp-for="Input.Profile.UserId" class="form-control" aria-required="false" />
 
             <div class="form-group mt-3">
                 <label asp-for="Input.Profile.FirstName" class="control-label col-md-2 mb-1"></label>
@@ -115,7 +119,7 @@
             </div>
 
 
-            <div class="form-group mt-3">
+          @*   <div class="form-group mt-3">
                 <label asp-for="Input.Profile.City" class="control-label col-md-2 mb-1"></label>
                 <div class="col-md-10">
                     <select class="form-control" asp-for="Input.Profile.City" asp-items="Html.GetEnumSelectList<ProfileManager.Common.Enums.CityEnum>()">
@@ -167,5 +171,5 @@
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
-}
 
+}

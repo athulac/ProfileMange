@@ -8,7 +8,7 @@ using System.Linq.Expressions;
 
 namespace ProfileManager.Repository
 {
-    public interface IProfileRepository
+    public interface IProfileRepository : IGenericRepository<Profile>
     {
         //Task<List<Student>> GetByGrade(Grade grade);
 

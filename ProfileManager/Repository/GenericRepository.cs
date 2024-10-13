@@ -2,30 +2,33 @@
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using ProfileManager.Data;
 using System.Linq.Expressions;
+using System.Reflection;
 
 namespace ProfileManager.Repository
 {
-    public class GenericRepository<T> : IGenericRepository<T> where T : class
+    public class GenericRepository<T> : /*IDisposable,*/ IGenericRepository<T> where T : class
     {
-        protected readonly ProfileManagerDataDbContext _context;
-        private DbSet<T> table = null;
+        protected readonly ProfileManagerDataDbContext _dbContext;
+        private DbSet<T> _dbSet = null;
 
         public GenericRepository(ProfileManagerDataDbContext context)
         {
-            _context = context;
-            table = _context.Set<T>();
+            _dbContext = context;
+            _dbSet = _dbContext.Set<T>();
         }
 
         public async Task<int> AddAsync(T entity)
         {
-            await _context.Set<T>().AddAsync(entity);
-            var res = _context.SaveChanges();
+            await _dbSet.AddAsync(entity);
+            //await _dbContext.Set<T>().AddAsync(entity);
+            var res = _dbContext.SaveChanges();
             return res;
         }
 
         public void AddRange(IEnumerable<T> entities)
         {
-            _context.Set<T>().AddRange(entities);
+            _dbSet.AddRange(entities);
+            //_dbContext.Set<T>().AddRange(entities);
         }
 
 
@@ -33,7 +36,8 @@ namespace ProfileManager.Repository
         {
             if (includes.Length > 0)
             {
-                IQueryable<T> query = _context.Set<T>().Where(expression).Include(includes[0]);
+                IQueryable<T> query = _dbSet.Where(expression).Include(includes[0]);
+                //IQueryable<T> query = _dbContext.Set<T>().Where(expression).Include(includes[0]);
                 foreach (var include in includes.Skip(1))
                 {
                     query = query.Include(include);
@@ -41,7 +45,8 @@ namespace ProfileManager.Repository
                 return query;
             }
 
-            var queryAll = _context.Set<T>().Where(expression);
+            var queryAll = _dbSet.Where(expression);
+            //var queryAll = _dbContext.Set<T>().Where(expression);
 
             return queryAll;
         }
@@ -51,7 +56,8 @@ namespace ProfileManager.Repository
         {
             if (includes.Length > 0)
             {
-                IQueryable<T> query = _context.Set<T>().Include(includes[0]);
+                IQueryable<T> query = _dbSet.Include(includes[0]);
+                //IQueryable<T> query = _dbContext.Set<T>().Include(includes[0]);
                 foreach (var include in includes.Skip(1))
                 {
                     query = query.Include(include);
@@ -59,35 +65,72 @@ namespace ProfileManager.Repository
                 return query;
             }
 
-            var queryAll = _context.Set<T>();
+            var queryAll = _dbSet;
+            //var queryAll = _dbContext.Set<T>();
 
             return queryAll;
         }
 
         public T GetById(Guid id)
         {
-            return _context.Set<T>().Find(id);
+            return _dbSet.Find(id);
+            //return _dbContext.Set<T>().Find(id);
         }
 
         public void Remove(T entity)
         {
-            _context.Set<T>().Remove(entity);
+            _dbContext.Set<T>().Remove(entity);
         }
 
         public void RemoveRange(IEnumerable<T> entities)
         {
-            _context.Set<T>().RemoveRange(entities);
+            _dbContext.Set<T>().RemoveRange(entities);
         }
 
-        public void Update(T obj)
+        public async Task UpdateAsync(T obj)
         {
-            table.Attach(obj);
-            _context.Entry(obj).State = EntityState.Modified;            
+            _dbSet.Attach(obj);
+            _dbContext.Entry(obj).State = EntityState.Modified;
+
+
+            var entry = _dbContext.Entry(obj);
+            Type type = typeof(T);
+            PropertyInfo[] properties = type.GetProperties();
+            foreach (PropertyInfo property in properties)
+            {
+                if (property.GetValue(obj, null) == null)
+                {
+                    entry.Property(property.Name).IsModified = false;
+                }
+            }
+
+
+            //await _dbContext.SaveChangesAsync();
         }
-        public void Save()
+        public async Task SaveAsync()
         {
-            _context.SaveChanges();
+            await _dbContext.SaveChangesAsync();
         }
 
+
+        //private bool disposed = false;
+
+        //protected virtual void Dispose(bool disposing)
+        //{
+        //    if (!this.disposed)
+        //    {
+        //        if (disposing)
+        //        {
+        //            _dbContext.Dispose();
+        //        }
+        //    }
+        //    this.disposed = true;
+        //}
+
+        //public void Dispose()
+        //{
+        //    Dispose(true);
+        //    GC.SuppressFinalize(this);
+        //}
     }
 }

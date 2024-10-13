@@ -45,8 +45,8 @@ namespace ProfileManager.Repository
 
         public async Task<Family> ModifyAsync(Family family)
         {
-            Update(family);
-            Save();
+            await UpdateAsync(family);
+            await SaveAsync();
             return family;
         }
 

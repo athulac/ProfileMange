@@ -6,6 +6,8 @@ using ProfileManager.Common.Paginate;
 using ProfileManager.Data.Models;
 using ProfileManager.Repository;
 using ProfileManager.ViewModels;
+using System.Diagnostics.Metrics;
+using System.Diagnostics;
 using System.Linq;
 
 namespace ProfileManager.Services
@@ -141,29 +143,51 @@ namespace ProfileManager.Services
 
         public async Task<ProfileViewModel> ModifyAsync(ProfileViewModel profileViewModel)
         {
-            var profileMapped = new Profile
-            {
-                Id = profileViewModel.Id,
-                UserId = profileViewModel.UserId,
-                MemberId = profileViewModel.MemberId,
-                FirstName = profileViewModel.FirstName,
-                LastName = profileViewModel.LastName,
-                BirthDate = profileViewModel.BirthDateTime,
+            var resPro = await profileRepository.GetAsync(profileViewModel.Id);
 
-                City = profileViewModel.City,
-                Distirct = profileViewModel.District,
-                Country = profileViewModel.Country,
+            //resPro.Id = profileViewModel.Id;
+            resPro.UserId = profileViewModel.UserId;
+            resPro.MemberId = profileViewModel.MemberId;
+            resPro.FirstName = profileViewModel.FirstName;
+            resPro.LastName = profileViewModel.LastName;
+            resPro.BirthDate = profileViewModel.BirthDateTime;
 
-                Gender = profileViewModel.Gender,
-                CivilStatus = profileViewModel.CivilStatus,
-                Cast = profileViewModel.Cast,
-                Race = profileViewModel.Race,
-                Religion = profileViewModel.Religion,
-                Job = profileViewModel.Job,
-                Introduction = profileViewModel.Introduction,               
-            };
+            resPro.City = profileViewModel.City;
+            resPro.Distirct = profileViewModel.District;
+            resPro.Country = profileViewModel.Country;
 
-            var res = await profileRepository.ModifyAsync(profileMapped);
+            resPro.Gender = profileViewModel.Gender;
+            resPro.CivilStatus = profileViewModel.CivilStatus;
+            resPro.Cast = profileViewModel.Cast;
+            resPro.Race = profileViewModel.Race;
+            resPro.Religion = profileViewModel.Religion;
+            resPro.Job = profileViewModel.Job;
+            resPro.Introduction = profileViewModel.Introduction;          
+
+
+            //var profileMapped = new Profile
+            //{
+            //    Id = profileViewModel.Id,
+            //    UserId = profileViewModel.UserId,
+            //    MemberId = profileViewModel.MemberId,
+            //    FirstName = profileViewModel.FirstName,
+            //    LastName = profileViewModel.LastName,
+            //    BirthDate = profileViewModel.BirthDateTime,
+
+            //    City = profileViewModel.City,
+            //    Distirct = profileViewModel.District,
+            //    Country = profileViewModel.Country,
+
+            //    Gender = profileViewModel.Gender,
+            //    CivilStatus = profileViewModel.CivilStatus,
+            //    Cast = profileViewModel.Cast,
+            //    Race = profileViewModel.Race,
+            //    Religion = profileViewModel.Religion,
+            //    Job = profileViewModel.Job,
+            //    Introduction = profileViewModel.Introduction,               
+            //};
+
+            var res = await profileRepository.ModifyAsync(resPro);
             var resMapped = new ProfileViewModel
             {
                 Id = res.Id,
@@ -185,6 +209,58 @@ namespace ProfileManager.Services
                 Job = res.Job,
                 Introduction = res.Introduction,
                 CreatedOn = res.CreatedOn,
+            };
+
+            return resMapped;
+        }
+
+        public async Task<ProfileViewModel> ModifyBaseUserIdAsync(ProfileViewModel profileViewModel)
+        {
+            var res = await GetByIdentityIdAsync(profileViewModel.UserId);
+                  
+
+            res.UserId = profileViewModel.UserId;
+            res.MemberId = profileViewModel.MemberId;
+            res.FirstName = profileViewModel.FirstName;
+            res.LastName = profileViewModel.LastName;
+            res.BirthDateTime = profileViewModel.BirthDateTime;
+            
+            res.City = profileViewModel.City;
+            res.District = profileViewModel.District;
+            res.Country = profileViewModel.Country;
+           
+            res.Gender = profileViewModel.Gender;
+            res.CivilStatus = profileViewModel.CivilStatus;
+            res.Cast = profileViewModel.Cast;
+            res.Race = profileViewModel.Race;
+            res.Religion = profileViewModel.Religion;
+            res.Job = profileViewModel.Job;
+            res.Introduction = profileViewModel.Introduction;
+            res.CreatedOn = profileViewModel.CreatedOn;
+            
+
+            var resMod = await ModifyAsync(res);
+            var resMapped = new ProfileViewModel
+            {
+                Id = resMod.Id,
+                UserId = resMod.UserId,
+                MemberId = resMod.MemberId,
+                FirstName = resMod.FirstName,
+                LastName = resMod.LastName,
+                BirthDateTime = resMod.BirthDateTime,
+
+                City = resMod.City,
+                District = resMod.District,
+                Country = resMod.Country,
+
+                Gender = resMod.Gender,
+                CivilStatus = resMod.CivilStatus,
+                Cast = resMod.Cast,
+                Race = resMod.Race,
+                Religion = resMod.Religion,
+                Job = resMod.Job,
+                Introduction = resMod.Introduction,
+                CreatedOn = resMod.CreatedOn,
             };
 
             return resMapped;

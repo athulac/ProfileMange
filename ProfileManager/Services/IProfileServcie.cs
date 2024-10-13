@@ -11,5 +11,7 @@ namespace ProfileManager.Services
         Task<ProfileViewModel> GetByIdentityIdAsync(Guid id);
         Task<ProfileViewModel> ModifyAsync(ProfileViewModel profile);
         Task<Paginate<ProfileViewModel>> FilterAsync(FilterViewModel filter);
+
+        Task<ProfileViewModel> ModifyBaseUserIdAsync(ProfileViewModel profileViewModel);
     }
 }
