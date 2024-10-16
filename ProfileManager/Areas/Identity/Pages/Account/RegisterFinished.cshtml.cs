@@ -24,13 +24,17 @@ namespace ProfileManager.Areas.Identity.Pages.Account
         private readonly IEmailService _emailService;
         private readonly IProfileServcie _profileServcie;
 
+        private IWebHostEnvironment Environment { get; set; }
+
         public RegisterFinishedModel(
          UserManager<ProfileManagerUser> userManager,
          IUserStore<ProfileManagerUser> userStore,
          SignInManager<ProfileManagerUser> signInManager,
          ILogger<RegisterModel> logger,
          IEmailService emailService,
-         IProfileServcie profileServcie)
+         IProfileServcie profileServcie,
+         IWebHostEnvironment environment
+         )
         {
             _userManager = userManager;
             _userStore = userStore;
@@ -39,6 +43,7 @@ namespace ProfileManager.Areas.Identity.Pages.Account
             _logger = logger;
             _emailService = emailService;
             _profileServcie = profileServcie;
+            this.Environment = environment;
         }
 
 
@@ -151,10 +156,12 @@ namespace ProfileManager.Areas.Identity.Pages.Account
 
                     //await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
                     //    $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
-                    await _emailService.SendEmailAsync(Input.Email, "Confirm your email",
-                        $"Please confirm your account by <a href='{callbackUrl}'>clicking here</a>.");
+                    //await _emailService.SendEmailAsync(Input.Email, "Confirm your email",
+                    //    $"Please confirm your account by <a href='{callbackUrl}'>clicking here</a>.");
+                    await _emailService.SendEmailAsync(Input.Email, "Confirm email", PopulateBody(Input.Profile.FirstName, "Confirm your email",
+                       callbackUrl, "Please confirm your account"));
 
-                    
+
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
@@ -201,6 +208,23 @@ namespace ProfileManager.Areas.Identity.Pages.Account
                 throw new NotSupportedException("The default UI requires a user store with email support.");
             }
             return (IUserEmailStore<ProfileManagerUser>)_userStore;
+        }
+
+
+        private string PopulateBody(string name, string title, string url, string description)
+        {
+            string body = string.Empty;
+            string path = Path.Combine(this.Environment.WebRootPath, "Template\\AccountConfirm.html");
+            //string path = Path.Combine(this.Environment.WebRootPath, "Template\\EmailTemplate.htm");
+            using (StreamReader reader = new StreamReader(path))
+            {
+                body = reader.ReadToEnd();
+            }
+            body = body.Replace("{UserName}", name);
+            body = body.Replace("{Title}", title);
+            body = body.Replace("{Url}", url);
+            body = body.Replace("{Description}", description);
+            return body;
         }
 
     }
