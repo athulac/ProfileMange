@@ -7,12 +7,12 @@ using System.Security.Claims;
 
 namespace ProfileManager.Pages
 {
-    public class FamilyModel : PageModel
+    public class RegisterFamilyModel : PageModel
     {
         private readonly IFamilyService _familyServcie;
         private readonly IProfileServcie _profileService;
 
-        public FamilyModel(IFamilyService familyServcie, IProfileServcie profileServcie)
+        public RegisterFamilyModel(IFamilyService familyServcie, IProfileServcie profileServcie)
         {
             _familyServcie = familyServcie;
             _profileService = profileServcie;
@@ -21,23 +21,30 @@ namespace ProfileManager.Pages
         [BindProperty]
         public ProfileViewModel Profile { get; set; }
 
-        public async Task OnGet()
+        public async Task OnGet(string user = null)
         {
-            ClaimsPrincipal currentUser = this.User;
-            Guid currUserId = Guid.Parse(currentUser.FindFirst(ClaimTypes.NameIdentifier).Value);
+            Profile.UserId = Guid.Parse(user);
 
-            ProfileViewModel profile = await _profileService.GetByIdentityIdAsync(currUserId);
-            this.Profile = profile;
+            //Input = new InputModel
+            //{
+            //    Profile = new ProfileViewModel { UserId = Guid.Parse(user) }
+            //};
 
-            List<FamilyViewModel> families = await _familyServcie.GetAllByIdentityIdAsync(currUserId);
-            if (families.Any(x => x.FamilyType == FamilyTypeEnum.Father))
-            {
-                profile.Father = families.FirstOrDefault(x => x.FamilyType == FamilyTypeEnum.Father);
-            }
-            if (families.Any(x => x.FamilyType == FamilyTypeEnum.Mother))
-            {
-                profile.Mother = families.FirstOrDefault(x => x.FamilyType == FamilyTypeEnum.Mother);
-            }
+            //ClaimsPrincipal currentUser = this.User;
+            //Guid currUserId = Guid.Parse(currentUser.FindFirst(ClaimTypes.NameIdentifier).Value);
+
+            //ProfileViewModel profile = await _profileService.GetByIdentityIdAsync(currUserId);
+            //this.Profile = profile;
+
+            //List<FamilyViewModel> families = await _familyServcie.GetAllByIdentityIdAsync(currUserId);
+            //if (families.Any(x => x.FamilyType == FamilyTypeEnum.Father))
+            //{
+            //    profile.Father = families.FirstOrDefault(x => x.FamilyType == FamilyTypeEnum.Father);
+            //}
+            //if (families.Any(x => x.FamilyType == FamilyTypeEnum.Mother))
+            //{
+            //    profile.Mother = families.FirstOrDefault(x => x.FamilyType == FamilyTypeEnum.Mother);
+            //}
 
 
         }
@@ -64,6 +71,9 @@ namespace ProfileManager.Pages
 
 
             return Redirect("~/Sibling");
+
+            //return RedirectToPage("RegisterFamily", new { email = Input.Email, returnUrl = returnUrl });
+
 
         }
     }

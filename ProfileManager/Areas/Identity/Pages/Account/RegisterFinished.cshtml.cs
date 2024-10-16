@@ -2,15 +2,19 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.WebUtilities;
 using ProfileManager.Areas.Identity.Data;
 using ProfileManager.Services;
 using ProfileManager.ViewModels;
 using System.ComponentModel.DataAnnotations;
+using System.Text;
+using System.Text.Encodings.Web;
 
 namespace ProfileManager.Areas.Identity.Pages.Account
 {
-    public class RegisterExtraModel : PageModel
+    public class RegisterFinishedModel : PageModel
     {
+
         private readonly SignInManager<ProfileManagerUser> _signInManager;
         private readonly UserManager<ProfileManagerUser> _userManager;
         private readonly IUserStore<ProfileManagerUser> _userStore;
@@ -20,13 +24,13 @@ namespace ProfileManager.Areas.Identity.Pages.Account
         private readonly IEmailService _emailService;
         private readonly IProfileServcie _profileServcie;
 
-        public RegisterExtraModel(
-           UserManager<ProfileManagerUser> userManager,
-           IUserStore<ProfileManagerUser> userStore,
-           SignInManager<ProfileManagerUser> signInManager,
-           ILogger<RegisterModel> logger,
-           IEmailService emailService,
-           IProfileServcie profileServcie)
+        public RegisterFinishedModel(
+         UserManager<ProfileManagerUser> userManager,
+         IUserStore<ProfileManagerUser> userStore,
+         SignInManager<ProfileManagerUser> signInManager,
+         ILogger<RegisterModel> logger,
+         IEmailService emailService,
+         IProfileServcie profileServcie)
         {
             _userManager = userManager;
             _userStore = userStore;
@@ -36,6 +40,7 @@ namespace ProfileManager.Areas.Identity.Pages.Account
             _emailService = emailService;
             _profileServcie = profileServcie;
         }
+
 
         [BindProperty]
         public InputModel Input { get; set; }
@@ -94,19 +99,32 @@ namespace ProfileManager.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
-            returnUrl ??= Url.Content("~/");
+            //returnUrl ??= Url.Content("~/");
+            returnUrl = Url.Content("~/");
             //ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (true)
             {
+                var curusrid = Input.Profile.UserId.ToString();
+
+                var currUser = await _userManager.FindByIdAsync(curusrid);
+
+                Input.Profile = await _profileServcie.GetByIdentityIdAsync(Input.Profile.UserId);
+
+                Input.Email = currUser.NormalizedUserName;
+
+                var user = currUser;
                 //var user = CreateUser();
 
-                //await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
-                //await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
+                await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
+                await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
 
                 //var result = await _userManager.CreateAsync(user, Input.Password);
 
                 if (true)
                 {
+
+                    //returnUrl = "/Account/RegisterConfirmation";
+
                     _logger.LogInformation("User created a new account with password.");
 
                     //var userId = await _userManager.GetUserIdAsync(user);
@@ -115,37 +133,40 @@ namespace ProfileManager.Areas.Identity.Pages.Account
                     //create profile
                     var prof = Input.Profile;
                     prof.UserId = userId;
-                    await _profileServcie.ModifyBaseUserIdAsync(prof);
+                    //await _profileServcie.ModifyBaseUserIdAsync(prof);
                     //if (resProf == 0)
                     //{
 
                     //}
 
-                    //var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                    //code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
-                    //var callbackUrl = Url.Page(
-                    //    "/Account/ConfirmEmail",
-                    //    pageHandler: null,
-                    //    values: new { area = "Identity", userId = userId, code = code, returnUrl = returnUrl },
-                    //    protocol: Request.Scheme);
-                    //callbackUrl.Replace("&amp;", "&");
+                    var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                    code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
+                    var callbackUrl = Url.Page(
+                        "/Account/ConfirmEmail",
+                        pageHandler: null,
+                        values: new { area = "Identity", userId = userId, code = code, returnUrl = returnUrl },
+                        protocol: Request.Scheme);
+                    callbackUrl.Replace("&amp;", "&");
+
 
                     //await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
                     //    $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
-                    //await _emailService.SendEmailAsync(Input.Email, "Confirm your email",
-                    //    $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                    await _emailService.SendEmailAsync(Input.Email, "Confirm your email",
+                        $"Please confirm your account by <a href='{callbackUrl}'>clicking here</a>.");
 
-                    //return RedirectToPage("RegisterFamily", new { email = Input.Email, returnUrl = returnUrl });
-                    return RedirectToPage("RegisterFamily", new { user = userId });
-                    //if (_userManager.Options.SignIn.RequireConfirmedAccount)
-                    //{
-                    //    return RedirectToPage("RegisterFamily", new { email = Input.Email, returnUrl = returnUrl });
-                    //}
-                    //else
-                    //{
-                    //    //await _signInManager.SignInAsync(user, isPersistent: false);
-                    //    return LocalRedirect(returnUrl);
-                    //}
+                    
+
+                    if (_userManager.Options.SignIn.RequireConfirmedAccount)
+                    {
+                        //return RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl = returnUrl });
+                        return Page();
+                    }
+                    else
+                    {
+                        await _signInManager.SignInAsync(user, isPersistent: false);
+                        return LocalRedirect(returnUrl);
+                    }                    
+                    
                 }
                 //foreach (var error in result.Errors)
                 //{

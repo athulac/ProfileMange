@@ -1,7 +1,133 @@
 ﻿@page
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @model ProfileManager.Areas.Identity.Pages.Account.RegisterFamilyModel
 @{
+     Layout = "_Layout";
+
+    ViewData["Title"] = "Complete Your Fmaily Details";
 }
 
 
-<h1>Family data</h1>
+
+
+@*@page
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@model ProfileManager.Pages.RegisterFamilyModel
+@{
+    Layout = "_Layout";
+
+    ViewData["Title"] = "Complete Your Fmaily Details";
+}*@
+
+
+<form id="registerFormFamily" method="post">
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+@*    @Html.HiddenFor(model => model.Profile.Id)
+    @Html.HiddenFor(model => model.Profile.UserId)*@
+    <h3>@ViewData["Title"]</h3>
+    
+
+    <br />
+    <hr />
+    <input asp-for="Profile.UserId" class="form-control" aria-required="false" />
+
+    <h4>Father</h4>
+    <div class="form-group mt-3">
+        <label asp-for="Profile.Father.Job" class="control-label col-md-2 mb-1"></label>
+        <div class="col-md-10">
+            <select class="form-control" asp-for="Profile.Father.Job" asp-items="Html.GetEnumSelectList<ProfileManager.Common.Enums.JobEnum>()">
+                <option selected="selected" value="">Please select</option>
+            </select>
+            <span asp-validation-for="Profile.Father.Job" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group mt-3">
+        <label asp-for="Profile.Father.Race" class="control-label col-md-2 mb-1"></label>
+        <div class="col-md-10">
+            <select class="form-control" asp-for="Profile.Father.Race" asp-items="Html.GetEnumSelectList<ProfileManager.Common.Enums.RaceEnum>()">
+                <option selected="selected" value="">Please select</option>
+            </select>
+            <span asp-validation-for="Profile.Father.Race" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group mt-3">
+        <label asp-for="Profile.Father.Cast" class="control-label col-md-2 mb-1"></label>
+        <div class="col-md-10">
+            <select class="form-control" asp-for="Profile.Father.Cast" asp-items="Html.GetEnumSelectList<ProfileManager.Common.Enums.CastEnum>()">
+                <option selected="selected" value="">Please select</option>
+            </select>
+            <span asp-validation-for="Profile.Father.Cast" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group mt-3">
+        <label asp-for="Profile.Father.Religion" class="control-label col-md-2 mb-1"></label>
+        <div class="col-md-10">
+            <select class="form-control" asp-for="Profile.Father.Religion" asp-items="Html.GetEnumSelectList<ProfileManager.Common.Enums.ReligionEnum>()">
+                <option selected="selected" value="">Please select</option>
+            </select>
+            <span asp-validation-for="Profile.Father.Religion" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group mt-3">
+        <label asp-for="Profile.Father.OtherDetails" class="control-label col-md-2 mb-1"></label>
+        <div class="col-md-10">
+            <input asp-for="Profile.Father.OtherDetails" class="form-control" aria-required="false" />
+            <span asp-validation-for="Profile.Father.OtherDetails" class="text-danger"></span>
+        </div>
+    </div>
+
+
+    <br />
+    <hr />
+    <h4>Mother</h4>
+    <div class="form-group mt-3">
+        <label asp-for="Profile.Mother.Job" class="control-label col-md-2 mb-1"></label>
+        <div class="col-md-10">
+            <select class="form-control" asp-for="Profile.Mother.Job" asp-items="Html.GetEnumSelectList<ProfileManager.Common.Enums.JobEnum>()">
+                <option selected="selected" value="">Please select</option>
+            </select>
+            <span asp-validation-for="Profile.Mother.Job" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group mt-3">
+        <label asp-for="Profile.Mother.Race" class="control-label col-md-2 mb-1"></label>
+        <div class="col-md-10">
+            <select class="form-control" asp-for="Profile.Mother.Race" asp-items="Html.GetEnumSelectList<ProfileManager.Common.Enums.RaceEnum>()">
+                <option selected="selected" value="">Please select</option>
+            </select>
+            <span asp-validation-for="Profile.Mother.Race" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group mt-3">
+        <label asp-for="Profile.Mother.Cast" class="control-label col-md-2 mb-1"></label>
+        <div class="col-md-10">
+            <select class="form-control" asp-for="Profile.Mother.Cast" asp-items="Html.GetEnumSelectList<ProfileManager.Common.Enums.CastEnum>()">
+                <option selected="selected" value="">Please select</option>
+            </select>
+            <span asp-validation-for="Profile.Mother.Cast" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group mt-3">
+        <label asp-for="Profile.Mother.Religion" class="control-label col-md-2 mb-1"></label>
+        <div class="col-md-10">
+            <select class="form-control" asp-for="Profile.Mother.Religion" asp-items="Html.GetEnumSelectList<ProfileManager.Common.Enums.ReligionEnum>()">
+                <option selected="selected" value="">Please select</option>
+            </select>
+            <span asp-validation-for="Profile.Mother.Religion" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group mt-3">
+        <label asp-for="Profile.Mother.OtherDetails" class="control-label col-md-2 mb-1"></label>
+        <div class="col-md-10">
+            <input asp-for="Profile.Mother.OtherDetails" class="form-control" aria-required="false" />
+            <span asp-validation-for="Profile.Mother.OtherDetails" class="text-danger"></span>
+        </div>
+    </div>
+
+
+    <a class="w-25 btn btn-md btn-primary mt-4 mb-4" href="~/Identity/Account/Manage">Back to Profile</a>
+    <button type="submit" class="w-25 btn btn-md btn-primary mt-4 mb-4">Next to Siblings Data</button>
+</form>

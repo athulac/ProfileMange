@@ -1,0 +1,96 @@
+﻿
+@page
+@model ProfileManager.Areas.Identity.Pages.Account.RegisterFinishedModel
+@{
+    ViewData["Title"] = "Register Finished";
+}
+
+
+
+
+
+
+<div class="row">
+
+    <div class="col-md-6 col-md-offset-2">
+        <section class="m-5 p-5">
+            <h3>Use another service to register.</h3>
+            <hr />
+            @{
+                if ((Model.ExternalLogins?.Count ?? 0) == 0)
+                {
+                    <div>
+                        <p>
+                            There are no external authentication services configured. See this <a href="https://go.microsoft.com/fwlink/?LinkID=532715">
+                                article
+                                about setting up this ASP.NET application to support logging in via external services
+                            </a>.
+                        </p>
+                    </div>
+                }
+                else
+                {
+                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                        <div>
+                            <p>
+                                @foreach (var provider in Model.ExternalLogins!)
+                                {
+                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                }
+                            </p>
+                        </div>
+                    </form>
+                }
+            }
+        </section>
+    </div>
+
+
+    <div class="col-md-4">
+        <h1>@ViewData["Title"]</h1>
+        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+            <h2>Register Finished</h2>
+            <hr />
+
+            <input asp-for="Input.Profile.UserId" class="form-control" aria-required="false" />
+
+@*
+            <div class="form-group mt-3">
+                <label asp-for="Input.Profile.City" class="control-label col-md-2 mb-1"></label>
+                <div class="col-md-10">
+                    <select class="form-control" asp-for="Input.Profile.City" asp-items="Html.GetEnumSelectList<ProfileManager.Common.Enums.CityEnum>()">
+                        <option selected="selected" value="">Please select</option>
+                    </select>
+                    <span asp-validation-for="Input.Profile.City" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group mt-3">
+                <label asp-for="Input.Profile.District" class="control-label col-md-2 mb-1"></label>
+                <div class="col-md-10">
+                    <select class="form-control" asp-for="Input.Profile.District" asp-items="Html.GetEnumSelectList<ProfileManager.Common.Enums.DistrictEnum>()">
+                        <option selected="selected" value="">Please select</option>
+                    </select>
+                    <span asp-validation-for="Input.Profile.District" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group mt-3">
+                <label asp-for="Input.Profile.Country" class="control-label col-md-2 mb-1"></label>
+                <div class="col-md-10">
+                    <select class="form-control" asp-for="Input.Profile.Country" asp-items="Html.GetEnumSelectList<ProfileManager.Common.Enums.CountryEnum>()">
+                        <option selected="selected" value="">Please select</option>
+                    </select>
+                    <span asp-validation-for="Input.Profile.Country" class="text-danger"></span>
+                </div>
+            </div>*@
+
+
+            <br />
+
+            <a class="w-50 btn btn-md btn-info mt-4" asp-area="" asp-controller="Home" asp-action="Index">Profile List</a>
+            <br />
+
+            <button id="registerSubmit" type="submit" class="w-50 btn btn-md btn-primary mt-4">Register Finished</button>
+        </form>
+    </div>
+
+</div>
