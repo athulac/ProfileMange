@@ -214,6 +214,23 @@ namespace ProfileManager.Services
             return resMapped;
         }
 
+        public async Task<ProfileViewModel> AddOrModifyAsync(ProfileViewModel profileViewModel)
+        {
+            if (profileViewModel.Id != null)
+            {
+                var resPro = await profileRepository.GetAsync(profileViewModel.Id);
+                if (resPro?.Id != null)
+                {
+                    var res = await ModifyAsync(profileViewModel);
+                    return res;
+                }
+            }
+          
+
+            await CreateAsync(profileViewModel);
+            return profileViewModel;
+        }
+
         public async Task<ProfileViewModel> ModifyBaseUserIdAsync(ProfileViewModel profileViewModel)
         {
             var res = await GetByIdentityIdAsync(profileViewModel.UserId);

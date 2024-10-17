@@ -13,5 +13,7 @@ namespace ProfileManager.Services
         Task<Paginate<ProfileViewModel>> FilterAsync(FilterViewModel filter);
 
         Task<ProfileViewModel> ModifyBaseUserIdAsync(ProfileViewModel profileViewModel);
+
+        Task<ProfileViewModel> AddOrModifyAsync(ProfileViewModel profileViewModel);
     }
 }

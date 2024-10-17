@@ -11,7 +11,7 @@ namespace ProfileManager.Repository
         void AddRange(IEnumerable<T> entities);
         void Remove(T entity);
         void RemoveRange(IEnumerable<T> entities);
-        Task UpdateAsync(T obj);
+        Task UpdateAsync(T obj, bool exceptNull = true);
         Task SaveAsync();
     }
 }

@@ -87,23 +87,33 @@ namespace ProfileManager.Repository
             _dbContext.Set<T>().RemoveRange(entities);
         }
 
-        public async Task UpdateAsync(T obj)
+        public async Task UpdateAsync(T obj, bool exceptNull = true)
         {
             _dbSet.Attach(obj);
             _dbContext.Entry(obj).State = EntityState.Modified;
 
-
-            var entry = _dbContext.Entry(obj);
-            Type type = typeof(T);
-            PropertyInfo[] properties = type.GetProperties();
-            foreach (PropertyInfo property in properties)
+            if (exceptNull)
             {
-                if (property.GetValue(obj, null) == null)
+                var entry = _dbContext.Entry(obj);
+                Type type = typeof(T);
+                PropertyInfo[] properties = type.GetProperties();
+                foreach (PropertyInfo property in properties)
                 {
-                    entry.Property(property.Name).IsModified = false;
+                    if (property.PropertyType.IsEnum)
+                    {
+                        if ((int)entry.Property(property.Name).CurrentValue == 0)
+                        {
+                            entry.Property(property.Name).IsModified = false;
+                        }
+                        
+                    }
+                    if (property.GetValue(obj, null) == null)
+                    {
+                        entry.Property(property.Name).IsModified = false;
+                    }
                 }
             }
-
+         
 
             //await _dbContext.SaveChangesAsync();
         }

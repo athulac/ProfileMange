@@ -86,9 +86,12 @@ namespace ProfileManager.Areas.Identity.Pages.Account
             ReturnUrl = user;
             //ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
 
+            var res = await _profileServcie.GetByIdentityIdAsync(Guid.Parse(user));
+
             Input = new InputModel
             {
-                Profile = new ProfileViewModel { UserId = Guid.Parse(user) }
+                //Profile = new ProfileViewModel { UserId = Guid.Parse(user) }
+                Profile = res
             };
 
             return Page();
@@ -117,9 +120,17 @@ namespace ProfileManager.Areas.Identity.Pages.Account
 
                     //create profile
                     var prof = Input.Profile;
-                    prof.UserId = userId;
-                    int resProf = await _profileServcie.CreateAsync(prof);
-                    if (resProf == 0)
+                    //prof.UserId = userId;
+
+                    var respro = await _profileServcie.GetByIdentityIdAsync(userId);
+                    if (respro != null)
+                    {
+                        prof.Id = respro.Id;
+                    }
+     
+
+                    var resProf = await _profileServcie.AddOrModifyAsync(prof);
+                    if (resProf != null)
                     {
 
                     }
