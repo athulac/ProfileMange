@@ -77,49 +77,92 @@
             <input asp-for="Input.Profile.UserId" class="form-control" aria-required="false" />
 
             @* <div class="form-group mt-3">
-                <label asp-for="Input.Profile.FirstName" class="control-label col-md-2 mb-1"></label>
+            <label asp-for="Input.Profile.FirstName" class="control-label col-md-2 mb-1"></label>
+            <div class="col-md-10">
+            <input asp-for="Input.Profile.FirstName" class="form-control" aria-required="false" />
+            <span asp-validation-for="Input.Profile.FirstName" class="text-danger"></span>
+            </div>
+            </div>
+            <div class="form-group mt-3">
+            <label asp-for="Input.Profile.LastName" class="control-label col-md-2 mb-1"></label>
+            <div class="col-md-10">
+            <input asp-for="Input.Profile.LastName" class="form-control" aria-required="false" />
+            <span asp-validation-for="Input.Profile.LastName" class="text-danger"></span>
+            </div>
+            </div>
+            <div class="form-group mt-3">
+            <label asp-for="Input.Profile.Gender" class="control-label col-md-2 mb-1"></label>
+            <div class="col-md-10 mb-3">
+            <div class="form-check form-check-inline">
+            <input asp-for="Input.Profile.Gender" class="form-check-input" type="radio" id="inlineRadio1" value="Male">
+            <label class="form-check-label" for="inlineRadio1">Male</label>
+            </div>
+            <div class="form-check form-check-inline">
+            <input asp-for="Input.Profile.Gender" class="form-check-input" type="radio" id="inlineRadio2" value="Female">
+            <label class="form-check-label" for="inlineRadio2">Female</label>
+            </div>
+            <span asp-validation-for="Input.Profile.Gender" class="text-danger"></span>
+            </div>
+            </div>
+            <div class="form-group mt-3">
+            <label asp-for="Input.Profile.BirthDateTime" class="control-label col-md-3 mb-1"></label>
+            <div class="col-md-10 mb-3">
+            <input type="text" asp-for="Input.Profile.BirthDateTime" class="form-control" id="datepicker" />
+            <span asp-validation-for="Input.Profile.BirthDateTime" class="text-danger"></span>
+            </div>
+            </div>
+            <div class="form-group mt-3">
+            <label asp-for="Input.Profile.CivilStatus" class="control-label col-md-2 mb-1"></label>
+            <div class="col-md-10">
+            <select class="form-control" asp-for="Input.Profile.CivilStatus" asp-items="Html.GetEnumSelectList<ProfileManager.Common.Enums.CivilStatusEnum>()">
+            <option selected="selected" value="">Please select</option>
+            </select>
+            <span asp-validation-for="Input.Profile.CivilStatus" class="text-danger"></span>
+            </div>
+            </div> *@
+
+
+
+
+
+            <div class="form-group mt-3">
+                <label asp-for="Input.Profile.Job" class="control-label col-md-3 mb-1"></label>
                 <div class="col-md-10">
-                    <input asp-for="Input.Profile.FirstName" class="form-control" aria-required="false" />
-                    <span asp-validation-for="Input.Profile.FirstName" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="form-group mt-3">
-                <label asp-for="Input.Profile.LastName" class="control-label col-md-2 mb-1"></label>
-                <div class="col-md-10">
-                    <input asp-for="Input.Profile.LastName" class="form-control" aria-required="false" />
-                    <span asp-validation-for="Input.Profile.LastName" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="form-group mt-3">
-                <label asp-for="Input.Profile.Gender" class="control-label col-md-2 mb-1"></label>
-                <div class="col-md-10 mb-3">
-                    <div class="form-check form-check-inline">
-                        <input asp-for="Input.Profile.Gender" class="form-check-input" type="radio" id="inlineRadio1" value="Male">
-                        <label class="form-check-label" for="inlineRadio1">Male</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input asp-for="Input.Profile.Gender" class="form-check-input" type="radio" id="inlineRadio2" value="Female">
-                        <label class="form-check-label" for="inlineRadio2">Female</label>
-                    </div>
-                    <span asp-validation-for="Input.Profile.Gender" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="form-group mt-3">
-                <label asp-for="Input.Profile.BirthDateTime" class="control-label col-md-3 mb-1"></label>
-                <div class="col-md-10 mb-3">
-                    <input type="text" asp-for="Input.Profile.BirthDateTime" class="form-control" id="datepicker" />
-                    <span asp-validation-for="Input.Profile.BirthDateTime" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="form-group mt-3">
-                <label asp-for="Input.Profile.CivilStatus" class="control-label col-md-2 mb-1"></label>
-                <div class="col-md-10">
-                    <select class="form-control" asp-for="Input.Profile.CivilStatus" asp-items="Html.GetEnumSelectList<ProfileManager.Common.Enums.CivilStatusEnum>()">
+                    <select class="form-control" asp-for="Input.Profile.Job" asp-items="Html.GetEnumSelectList<ProfileManager.Common.Enums.JobEnum>()">
                         <option selected="selected" value="">Please select</option>
                     </select>
-                    <span asp-validation-for="Input.Profile.CivilStatus" class="text-danger"></span>
+                    <span asp-validation-for="Input.Profile.Job" class="text-danger"></span>
                 </div>
-            </div> *@
+            </div>
+            <div class="form-group mt-3 required">
+                <label asp-for="Input.Profile.Cast" class="control-label col-md-3 mb-1"></label>
+                <div class="col-md-10">
+                    <select class="form-control" asp-for="Input.Profile.Cast" asp-items="Html.GetEnumSelectList<ProfileManager.Common.Enums.CastEnum>()">
+                        <option selected="selected" value="">Please select</option>
+                    </select>
+                    <span asp-validation-for="Input.Profile.Cast" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group mt-3 required">
+                <label asp-for="Input.Profile.Race" class="control-label col-md-3 mb-1"></label>
+                <div class="col-md-10">
+                    <select class="form-control" asp-for="Input.Profile.Race" asp-items="Html.GetEnumSelectList<ProfileManager.Common.Enums.RaceEnum>()">
+                        <option selected="selected" value="">Please select</option>
+                    </select>
+                    <span asp-validation-for="Input.Profile.Race" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group mt-3 required">
+                <label asp-for="Input.Profile.Religion" class="control-label col-md-3 mb-1"></label>
+                <div class="col-md-10">
+                    <select class="form-control" asp-for="Input.Profile.Religion" asp-items="Html.GetEnumSelectList<ProfileManager.Common.Enums.ReligionEnum>()">
+                        <option selected="selected" value="">Please select</option>
+                    </select>
+                    <span asp-validation-for="Input.Profile.Religion" class="text-danger"></span>
+                </div>
+            </div>
+
+
 
 
             <div class="form-group mt-3">
@@ -151,7 +194,10 @@
             </div>
 
 
-            <button id="registerSubmit" type="submit" class="w-25 btn btn-md btn-primary mt-4">Register</button>
+            @* <button id="registerSubmit" type="submit" class="w-25 btn btn-md btn-primary mt-4">Next</button> *@
+
+            <a class="w-25 btn btn-outline-dark mt-4 mb-4" href="~/Identity/Account/RegisterPersonal">Back</a>
+            <button type="submit" class="w-25 btn btn-md btn-primary mt-4 mb-4">Next</button>
         </form>
     </div>
 

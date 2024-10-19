@@ -108,5 +108,11 @@ namespace ProfileManager.Common.Enums
         Twin = 7,
     }
 
+
+    public enum FamilyBasicTypeEnum
+    {
+        Parent = 1,
+        Sibling = 2,
+    }
    
 }

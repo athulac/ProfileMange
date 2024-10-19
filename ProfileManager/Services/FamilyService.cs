@@ -1,4 +1,6 @@
-﻿using ProfileManager.Data.Models;
+﻿using Microsoft.Extensions.FileSystemGlobbing;
+using ProfileManager.Common.Enums;
+using ProfileManager.Data.Models;
 using ProfileManager.Repository;
 using ProfileManager.ViewModels;
 
@@ -32,6 +34,78 @@ namespace ProfileManager.Services
             res = await familyRepository.CreateAsync(family);
 
             return res;
+        }
+
+        public async Task<FamilyViewModel> CreateOrModifyAsync(FamilyViewModel familyViewModel, FamilyBasicTypeEnum familyBasicType)
+        {
+            var resExist = await familyRepository.GetAllByIdentityIdAsync(familyViewModel.UserId);
+            var resParents = resExist.Where(x => x.FamilyType == FamilyTypeEnum.Father || x.FamilyType == FamilyTypeEnum.Mother);
+            var resSiblings = resExist.Where(x => x.FamilyType == FamilyTypeEnum.YoungerSister || x.FamilyType == FamilyTypeEnum.ElderSister ||
+                               x.FamilyType == FamilyTypeEnum.YoungerBrother || x.FamilyType == FamilyTypeEnum.ElderBrother);
+
+            if (familyBasicType == FamilyBasicTypeEnum.Parent)
+            {
+                if (resParents.Any())
+                {
+                    var hasParent = resParents.Any(x => x.FamilyType == familyViewModel.FamilyType);
+                    if (hasParent)
+                    {
+                        var father = resParents.First(x => x.FamilyType == familyViewModel.FamilyType);
+                        father.UserId = familyViewModel.UserId;
+                        father.FamilyType = familyViewModel.FamilyType;
+                        father.Job = familyViewModel.Job;
+                        father.OtherDetails = familyViewModel.OtherDetails;
+            
+                        father.Religion = familyViewModel.Religion;
+                        father.Cast = familyViewModel.Cast;
+                        father.Race = familyViewModel.Race;
+
+                        await familyRepository.ModifyAsync(father);
+
+                        return new FamilyViewModel();
+                    }
+                }
+            }
+            else//siblings
+            {
+                if (resSiblings.Any())
+                {
+                    var hasSibling = resSiblings.Any(x => x.FamilyType == familyViewModel.FamilyType && x.Id == familyViewModel.Id);
+                    if (hasSibling)
+                    { 
+                        var sibling = resSiblings.First(x => x.FamilyType == familyViewModel.FamilyType && x.Id == familyViewModel.Id);
+
+                        sibling.UserId = familyViewModel.UserId;
+                        sibling.FamilyType = familyViewModel.FamilyType;
+                        sibling.Job = familyViewModel.Job;
+                        sibling.OtherDetails = familyViewModel.OtherDetails;
+                 
+                        sibling.Religion = familyViewModel.Religion;
+                        sibling.Cast = familyViewModel.Cast;
+                        sibling.Race = familyViewModel.Race;
+
+                        await familyRepository.ModifyAsync(sibling);
+
+                        return new FamilyViewModel();
+                    }
+                }
+            }
+            
+            Family family = new Family
+            {
+                Id = Guid.NewGuid(),
+                UserId = familyViewModel.UserId,
+                FamilyType = familyViewModel.FamilyType,
+                Job = familyViewModel.Job,
+                OtherDetails = familyViewModel.OtherDetails,
+
+                Religion = familyViewModel.Religion,
+                Cast = familyViewModel.Cast,
+                Race = familyViewModel.Race,
+            };
+            await familyRepository.CreateAsync(family);
+
+            return new FamilyViewModel();
         }
 
         public async Task<List<FamilyViewModel>> GetAllAsync()
@@ -134,6 +208,7 @@ namespace ProfileManager.Services
                 Id = res.Id,
                 UserId = res.UserId,
                 FamilyType = res.FamilyType,
+                SiblingType = (SiblingTypeEnum)res.FamilyType,
                 Job = res.Job,
                 OtherDetails = res.OtherDetails,
 
@@ -144,5 +219,7 @@ namespace ProfileManager.Services
 
             return resMapped.ToList();
         }
+
+  
     }
 }

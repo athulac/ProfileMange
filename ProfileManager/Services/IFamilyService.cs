@@ -1,4 +1,5 @@
-﻿using ProfileManager.ViewModels;
+﻿using ProfileManager.Common.Enums;
+using ProfileManager.ViewModels;
 
 namespace ProfileManager.Services
 {
@@ -10,5 +11,8 @@ namespace ProfileManager.Services
         Task<FamilyViewModel> GetByIdentityIdAsync(Guid id);
         Task<FamilyViewModel> ModifyAsync(FamilyViewModel familyViewModel);
         Task<List<FamilyViewModel>> GetAllByIdentityIdAsync(Guid id);
+
+        //Task<FamilyViewModel> CreateOrModifyAsync(FamilyViewModel familyViewModel);
+        Task<FamilyViewModel> CreateOrModifyAsync(FamilyViewModel familyViewModel, FamilyBasicTypeEnum familyBasicType);
     }
 }

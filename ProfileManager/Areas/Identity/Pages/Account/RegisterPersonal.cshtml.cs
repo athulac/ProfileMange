@@ -87,12 +87,21 @@ namespace ProfileManager.Areas.Identity.Pages.Account
             //ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
 
             var res = await _profileServcie.GetByIdentityIdAsync(Guid.Parse(user));
-
-            Input = new InputModel
+            if (res != null)
             {
-                //Profile = new ProfileViewModel { UserId = Guid.Parse(user) }
-                Profile = res
-            };
+                Input = new InputModel
+                {
+                    //Profile = new ProfileViewModel { UserId = Guid.Parse(user) }
+                    Profile = res
+                };
+            }
+            else
+            {
+                Input = new InputModel
+                {
+                    Profile = new ProfileViewModel { UserId = Guid.Parse(user) } 
+                };
+            }
 
             return Page();
 

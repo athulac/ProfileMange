@@ -26,26 +26,33 @@ namespace ProfileManager.Areas.Identity.Pages.Account
         public async Task<IActionResult> OnGetAsync(string user = null)
         {
             //ClaimsPrincipal currentUser = this.User;
-            //Guid currUserId = Guid.Parse(currentUser.FindFirst(ClaimTypes.NameIdentifier).Value);
+            Guid currUserId = Guid.Parse(user);
 
-            //ProfileViewModel profile = await _profileService.GetByIdentityIdAsync(currUserId);
-            //this.Profile = profile;
-
-            //List<FamilyViewModel> families = await _familyServcie.GetAllByIdentityIdAsync(currUserId);
-            //if (families.Any(x => x.FamilyType == FamilyTypeEnum.Father))
-            //{
-            //    profile.Father = families.FirstOrDefault(x => x.FamilyType == FamilyTypeEnum.Father);
-            //}
-            //if (families.Any(x => x.FamilyType == FamilyTypeEnum.Mother))
-            //{
-            //    profile.Mother = families.FirstOrDefault(x => x.FamilyType == FamilyTypeEnum.Mother);
-            //}
-
-
-            Profile = new ProfileViewModel
+            ProfileViewModel profile = await _profileService.GetByIdentityIdAsync(currUserId);
+            if (profile == null)
             {
-                UserId = Guid.Parse(user)
-            };
+                return null;
+            }
+
+            this.Profile = profile;
+
+            List<FamilyViewModel> families = await _familyServcie.GetAllByIdentityIdAsync(currUserId);
+            if (families.Any(x => x.FamilyType == FamilyTypeEnum.Father))
+            {
+                profile.Father = families.FirstOrDefault(x => x.FamilyType == FamilyTypeEnum.Father);
+            }
+            if (families.Any(x => x.FamilyType == FamilyTypeEnum.Mother))
+            {
+                profile.Mother = families.FirstOrDefault(x => x.FamilyType == FamilyTypeEnum.Mother);
+            }
+
+            profile.UserId = Guid.Parse(user);
+
+
+            //Profile = new ProfileViewModel
+            //{
+            //    UserId = Guid.Parse(user)
+            //};
 
             return Page();
 
@@ -66,8 +73,9 @@ namespace ProfileManager.Areas.Identity.Pages.Account
             profile.Father.UserId = currUserId;
             profile.Mother.UserId = currUserId;
 
-            var resf = await _familyServcie.CreateAsync(profile.Father);
-            var resm = await _familyServcie.CreateAsync(profile.Mother);
+
+            var resf = await _familyServcie.CreateOrModifyAsync(profile.Father, FamilyBasicTypeEnum.Parent);
+            var resm = await _familyServcie.CreateOrModifyAsync(profile.Mother, FamilyBasicTypeEnum.Parent);
 
 
             List<FamilyViewModel> families = await _familyServcie.GetAllByIdentityIdAsync(currUserId);
@@ -75,10 +83,8 @@ namespace ProfileManager.Areas.Identity.Pages.Account
             profile.Mother = families.FirstOrDefault(x => x.FamilyType == FamilyTypeEnum.Mother);
 
 
-
             //return Redirect("~/RegisterSiblings");
             return RedirectToPage("RegisterSiblings", new { user = userId });
-
         }
 
     }

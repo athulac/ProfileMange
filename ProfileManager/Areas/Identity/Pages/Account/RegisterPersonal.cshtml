@@ -75,21 +75,21 @@
             @*<input asp-for="Input.Profile.Id" class="form-control" aria-required="false" />*@
 
             <div class="form-group mt-3">
-                <label asp-for="Input.Profile.FirstName" class="control-label col-md-2 mb-1"></label>
+                <label asp-for="Input.Profile.FirstName" class="control-label col-md-3 mb-1"></label>
                 <div class="col-md-10">
                     <input asp-for="Input.Profile.FirstName" class="form-control" aria-required="false" />
                     <span asp-validation-for="Input.Profile.FirstName" class="text-danger"></span>
                 </div>
             </div>
             <div class="form-group mt-3">
-                <label asp-for="Input.Profile.LastName" class="control-label col-md-2 mb-1"></label>
+                <label asp-for="Input.Profile.LastName" class="control-label col-md-3 mb-1"></label>
                 <div class="col-md-10">
                     <input asp-for="Input.Profile.LastName" class="form-control" aria-required="false" />
                     <span asp-validation-for="Input.Profile.LastName" class="text-danger"></span>
                 </div>
             </div>
             <div class="form-group mt-3">
-                <label asp-for="Input.Profile.Gender" class="control-label col-md-2 mb-1"></label>
+                <label asp-for="Input.Profile.Gender" class="control-label col-md-3 mb-1"></label>
                 <div class="col-md-10 mb-3">
                     <div class="form-check form-check-inline">
                         <input asp-for="Input.Profile.Gender" class="form-check-input" type="radio" id="inlineRadio1" value="Male">
@@ -110,7 +110,7 @@
                 </div>
             </div>
             <div class="form-group mt-3">
-                <label asp-for="Input.Profile.CivilStatus" class="control-label col-md-2 mb-1"></label>
+                <label asp-for="Input.Profile.CivilStatus" class="control-label col-md-3 mb-1"></label>
                 <div class="col-md-10">
                     <select class="form-control" asp-for="Input.Profile.CivilStatus" asp-items="Html.GetEnumSelectList<ProfileManager.Common.Enums.CivilStatusEnum>()">
                         <option selected="selected" value="">Please select</option>
@@ -149,7 +149,10 @@
             </div> *@
 
 
-            <button id="registerSubmit" type="submit" class="w-25 btn btn-md btn-primary mt-4">Register</button>
+            @* <button id="registerSubmit" type="submit" class="w-25 btn btn-md btn-primary mt-4">Next</button> *@
+
+            <a class="w-25 btn btn-outline-dark mt-4 mb-4" href="~/Identity/Account/Login">Back</a>
+            <button type="submit" class="w-25 btn btn-md btn-primary mt-4 mb-4">Next</button>
         </form>
     </div>
    

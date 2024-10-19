@@ -52,10 +52,12 @@ namespace ProfileManager.Areas.Identity.Pages.Account
                                                            x.FamilyType == FamilyTypeEnum.YoungerBrother || x.FamilyType == FamilyTypeEnum.ElderBrother).ToList()?[2];
             }
 
-            Profile = new ProfileViewModel
-            {
-                UserId = Guid.Parse(user)
-            };
+            profile.UserId = Guid.Parse(user);
+
+            //Profile = new ProfileViewModel
+            //{
+            //    UserId = Guid.Parse(user)
+            //};
 
             return Page();
         }
@@ -78,9 +80,9 @@ namespace ProfileManager.Areas.Identity.Pages.Account
             profile.SiblingThree.UserId = currUserId;
 
 
-            var ressa = await _familyServcie.CreateAsync(profile.SiblingOne);
-            var ressb = await _familyServcie.CreateAsync(profile.SiblingTwo);
-            var ressc = await _familyServcie.CreateAsync(profile.SiblingThree);
+            var ressa = await _familyServcie.CreateOrModifyAsync(profile.SiblingOne, FamilyBasicTypeEnum.Sibling);
+            var ressb = await _familyServcie.CreateOrModifyAsync(profile.SiblingTwo, FamilyBasicTypeEnum.Sibling);
+            var ressc = await _familyServcie.CreateOrModifyAsync(profile.SiblingThree, FamilyBasicTypeEnum.Sibling);
 
 
             List<FamilyViewModel> families = await _familyServcie.GetAllByIdentityIdAsync(currUserId);

@@ -115,6 +115,10 @@ namespace ProfileManager.Services
         public async Task<ProfileViewModel> GetByIdentityIdAsync(Guid id)
         {
             var res = await profileRepository.GetByIdentityIdAsync(id);
+            if (res == null)
+            {
+                return null;
+            }
             var resMapped = new ProfileViewModel
             {
                 Id = res.Id,
