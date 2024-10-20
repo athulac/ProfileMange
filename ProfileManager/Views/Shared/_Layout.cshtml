@@ -15,9 +15,9 @@
 </head>
 <body>
     <header>
-        <nav class="navbar fixed-top navbar-light bg-light navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3" style="background: linear-gradient(180deg, #aaa, #fff) !important;">
+        <nav class="navbar fixed-top navbar-light bg-light navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3" style="background: linear-gradient(180deg, #afe9ff, #fff) !important;">
             @*<nav class="navbar fixed-top navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">*@
-            <div class="container-fluid" >
+            <div class="container" >
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ProfileManager</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -27,6 +27,184 @@
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Profile List</a>
+                        </li>
+
+                          <li class="nav-item">
+                            <div class="card mx-1">
+                                <div class="card-body p-1">
+                                    @* <p class="card-title">Gender</p> *@
+                                
+                                    <div class="">
+                                        @* <span class="badge text-dark bg-transparent">Gender</span> *@
+
+                                        <button class="btn btn-sm p-0" style="background: #c7539d54;">
+                                            <img src="/images/woman.png" alt="Generic placeholder image" class="img-fluid" style="width: 30px; border-radius: 45px; padding: 0px; ">
+                                        </button>
+
+                                        <button class="btn btn-sm p-0" style="background: #7b53c754;">
+                                            <img src="/images/man.png" alt="Generic placeholder image" class="img-fluid" style="width: 30px; border-radius: 45px; padding: 0px; ">
+                                        </button>
+
+                                    </div>                                   
+                                </div>
+                            </div>
+
+                        </li>
+
+
+                        <li class="nav-item">
+                            <div class="card mx-1" style="width:150px">
+                                <div class="card-body p-1">
+                                    @* <p class="card-title">District</p> *@
+
+              @*                       <span class="badge text-dark bg-transparent">Dark</span> *@
+                                                                  
+                                            <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                                <option selected="selected" value="">Select District</option>
+                                                <option>1fdfdfdfdf</option>
+                                                <option>2dfdfdfdfdf</option>
+                                                <option>3dfdfdfdff</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                            </select>
+
+                                </div>
+                            </div>
+
+                        </li>
+
+
+                        <li class="nav-item">
+                            <div class="card mx-1" style="width:150px">
+                                <div class="card-body p-1">
+                                    <span class="badge text-dark bg-transparent">Age</span>
+
+                                    <select class="form-control form-control-sm d-unset w-25" id="selAgeFrom">
+                                        <option value="0">0</option>
+                                        <option value="20">20</option>
+                                        <option value="21">21</option>
+                                        <option value="22">22</option>
+                                        <option value="23">23</option>
+                                        <option value="24">24</option>
+                                        <option value="25">25</option>
+                                        <option value="26">26</option>
+                                        <option value="27">27</option>
+                                        <option value="28">28</option>
+                                        <option value="29">29</option>
+                                        <option value="30">30</option>
+                                        <option value="31">31</option>
+                                        <option value="32">32</option>
+                                        <option value="33">33</option>
+                                        <option value="34">34</option>
+                                        <option value="35">35</option>
+                                        <option value="36">36</option>
+                                        <option value="37">37</option>
+                                        <option value="38">38</option>
+                                        <option value="39">39</option>
+                                        <option value="40">40</option>
+                                        <option value="41">41</option>
+                                        <option value="42">42</option>
+                                        <option value="43">43</option>
+                                        <option value="44">44</option>
+                                        <option value="45">45</option>
+                                        <option value="46">46</option>
+                                        <option value="47">47</option>
+                                        <option value="48">48</option>
+                                        <option value="49">49</option>
+                                        <option value="50">50</option>
+                                        <option value="50">50</option>
+                                        <option value="51">51</option>
+                                        <option value="52">52</option>
+                                        <option value="53">53</option>
+                                        <option value="54">54</option>
+                                        <option value="55">55</option>
+                                        <option value="56">56</option>
+                                        <option value="57">57</option>
+                                        <option value="58">58</option>
+                                        <option value="59">59</option>
+                                        <option value="60">60</option>
+                                        <option value="61">61</option>
+                                        <option value="62">62</option>
+                                        <option value="63">63</option>
+                                        <option value="64">64</option>
+                                        <option value="65">65</option>
+                                        <option value="66">66</option>
+                                        <option value="67">67</option>
+                                        <option value="68">68</option>
+                                        <option value="69">69</option>
+                                        <option value="70">70</option>
+                                        <option value="71">71</option>
+                                        <option value="72">72</option>
+                                        <option value="73">73</option>
+                                        <option value="74">74</option>
+                                        <option value="75">75</option>
+                                    </select>
+                                    -
+                                    <select class="form-control form-control-sm d-unset w-25" id="selAgeFrom">
+                                        <option value="0">0</option>
+                                        <option value="20">20</option>
+                                        <option value="21">21</option>
+                                        <option value="22">22</option>
+                                        <option value="23">23</option>
+                                        <option value="24">24</option>
+                                        <option value="25">25</option>
+                                        <option value="26">26</option>
+                                        <option value="27">27</option>
+                                        <option value="28">28</option>
+                                        <option value="29">29</option>
+                                        <option value="30">30</option>
+                                        <option value="31">31</option>
+                                        <option value="32">32</option>
+                                        <option value="33">33</option>
+                                        <option value="34">34</option>
+                                        <option value="35">35</option>
+                                        <option value="36">36</option>
+                                        <option value="37">37</option>
+                                        <option value="38">38</option>
+                                        <option value="39">39</option>
+                                        <option value="40">40</option>
+                                        <option value="41">41</option>
+                                        <option value="42">42</option>
+                                        <option value="43">43</option>
+                                        <option value="44">44</option>
+                                        <option value="45">45</option>
+                                        <option value="46">46</option>
+                                        <option value="47">47</option>
+                                        <option value="48">48</option>
+                                        <option value="49">49</option>
+                                        <option value="50">50</option>
+                                        <option value="50">50</option>
+                                        <option value="51">51</option>
+                                        <option value="52">52</option>
+                                        <option value="53">53</option>
+                                        <option value="54">54</option>
+                                        <option value="55">55</option>
+                                        <option value="56">56</option>
+                                        <option value="57">57</option>
+                                        <option value="58">58</option>
+                                        <option value="59">59</option>
+                                        <option value="60">60</option>
+                                        <option value="61">61</option>
+                                        <option value="62">62</option>
+                                        <option value="63">63</option>
+                                        <option value="64">64</option>
+                                        <option value="65">65</option>
+                                        <option value="66">66</option>
+                                        <option value="67">67</option>
+                                        <option value="68">68</option>
+                                        <option value="69">69</option>
+                                        <option value="70">70</option>
+                                        <option value="71">71</option>
+                                        <option value="72">72</option>
+                                        <option value="73">73</option>
+                                        <option value="74">74</option>
+                                        <option value="75">75</option>
+                                    </select>
+
+
+                                </div>
+                            </div>
+
                         </li>
                  
                        @*  <li>

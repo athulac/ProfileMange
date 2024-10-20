@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager\\ProfileManager.csproj": {}
+    "C:\\Users\\Athula\\Source\\Repos\\ProfileMange\\ProfileManager\\ProfileManager.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager.Common\\ProfileManager.Common.csproj": {
+    "C:\\Users\\Athula\\Source\\Repos\\ProfileMange\\ProfileManager.Common\\ProfileManager.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager.Common\\ProfileManager.Common.csproj",
+        "projectUniqueName": "C:\\Users\\Athula\\Source\\Repos\\ProfileMange\\ProfileManager.Common\\ProfileManager.Common.csproj",
         "projectName": "ProfileManager.Common",
-        "projectPath": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager.Common\\ProfileManager.Common.csproj",
+        "projectPath": "C:\\Users\\Athula\\Source\\Repos\\ProfileMange\\ProfileManager.Common\\ProfileManager.Common.csproj",
         "packagesPath": "C:\\Users\\Athula\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager.Common\\obj\\",
+        "outputPath": "C:\\Users\\Athula\\Source\\Repos\\ProfileMange\\ProfileManager.Common\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Athula\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -85,14 +85,14 @@
         }
       }
     },
-    "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager.Data\\ProfileManager.Data.csproj": {
+    "C:\\Users\\Athula\\Source\\Repos\\ProfileMange\\ProfileManager.Data\\ProfileManager.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager.Data\\ProfileManager.Data.csproj",
+        "projectUniqueName": "C:\\Users\\Athula\\Source\\Repos\\ProfileMange\\ProfileManager.Data\\ProfileManager.Data.csproj",
         "projectName": "ProfileManager.Data",
-        "projectPath": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager.Data\\ProfileManager.Data.csproj",
+        "projectPath": "C:\\Users\\Athula\\Source\\Repos\\ProfileMange\\ProfileManager.Data\\ProfileManager.Data.csproj",
         "packagesPath": "C:\\Users\\Athula\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager.Data\\obj\\",
+        "outputPath": "C:\\Users\\Athula\\Source\\Repos\\ProfileMange\\ProfileManager.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Athula\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -110,8 +110,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager.Common\\ProfileManager.Common.csproj": {
-                "projectPath": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager.Common\\ProfileManager.Common.csproj"
+              "C:\\Users\\Athula\\Source\\Repos\\ProfileMange\\ProfileManager.Common\\ProfileManager.Common.csproj": {
+                "projectPath": "C:\\Users\\Athula\\Source\\Repos\\ProfileMange\\ProfileManager.Common\\ProfileManager.Common.csproj"
               }
             }
           }
@@ -180,14 +180,14 @@
         }
       }
     },
-    "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager\\ProfileManager.csproj": {
+    "C:\\Users\\Athula\\Source\\Repos\\ProfileMange\\ProfileManager\\ProfileManager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager\\ProfileManager.csproj",
+        "projectUniqueName": "C:\\Users\\Athula\\Source\\Repos\\ProfileMange\\ProfileManager\\ProfileManager.csproj",
         "projectName": "ProfileManager",
-        "projectPath": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager\\ProfileManager.csproj",
+        "projectPath": "C:\\Users\\Athula\\Source\\Repos\\ProfileMange\\ProfileManager\\ProfileManager.csproj",
         "packagesPath": "C:\\Users\\Athula\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager\\obj\\",
+        "outputPath": "C:\\Users\\Athula\\Source\\Repos\\ProfileMange\\ProfileManager\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Athula\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -205,11 +205,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager.Common\\ProfileManager.Common.csproj": {
-                "projectPath": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager.Common\\ProfileManager.Common.csproj"
+              "C:\\Users\\Athula\\Source\\Repos\\ProfileMange\\ProfileManager.Common\\ProfileManager.Common.csproj": {
+                "projectPath": "C:\\Users\\Athula\\Source\\Repos\\ProfileMange\\ProfileManager.Common\\ProfileManager.Common.csproj"
               },
-              "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager.Data\\ProfileManager.Data.csproj": {
-                "projectPath": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager.Data\\ProfileManager.Data.csproj"
+              "C:\\Users\\Athula\\Source\\Repos\\ProfileMange\\ProfileManager.Data\\ProfileManager.Data.csproj": {
+                "projectPath": "C:\\Users\\Athula\\Source\\Repos\\ProfileMange\\ProfileManager.Data\\ProfileManager.Data.csproj"
               }
             }
           }

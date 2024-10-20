@@ -15,6 +15,12 @@
     var pageSize = Configuration["Pagnation:PageSize"];
 }
 
+<script type="text/javascript">
+
+    var pageSizeJs = @Html.Raw(pageSize);
+
+</script>
+
 <section class="h-100 gradient-custom-2">
     <div class="container h-100">
         <div class="row d-flex justify-content-center">
@@ -25,38 +31,44 @@
                         <div class="col-12 col-md-12">
                             <div class="card" style="border-radius: 15px;">
                                 <div class="card-body p-3">
-                                  <h3>Filter</h3>
-                                  <hr />
+                                    <h3>Filter</h3>
+                                    <hr />
 
 
-@*                                   <div class="form-group mt-3">
+                                    @*                                   <div class="form-group mt-3">
                                     <label asp-for="Gender" class="control-label col-md-2 mb-1"></label>
                                     <div class="col-md-10 mb-3">
-                                        <div class="form-check form-check-inline">
-                                            <input asp-for="Gender" class="form-check-input" type="radio" id="inlineRadio1" value="Male">
-                                            <label class="form-check-label" for="inlineRadio1">Male</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input asp-for="Gender" class="form-check-input" type="radio" id="inlineRadio2" value="Female">
-                                            <label class="form-check-label" for="inlineRadio2">Female</label>
-                                        </div>
-                                        <span asp-validation-for="Gender" class="text-danger"></span>
+                                    <div class="form-check form-check-inline">
+                                    <input asp-for="Gender" class="form-check-input" type="radio" id="inlineRadio1" value="Male">
+                                    <label class="form-check-label" for="inlineRadio1">Male</label>
                                     </div>
-                                </div>*@
+                                    <div class="form-check form-check-inline">
+                                    <input asp-for="Gender" class="form-check-input" type="radio" id="inlineRadio2" value="Female">
+                                    <label class="form-check-label" for="inlineRadio2">Female</label>
+                                    </div>
+                                    <span asp-validation-for="Gender" class="text-danger"></span>
+                                    </div>
+                                    </div>*@
 
                                     <div class="mb-3">
-                                        <label for="exampleFormControlInput1" class="form-label">Gender </label>
-                                        
-                                            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                                            <input asp-for="Gender" class="btn-check" type="radio" name="btnGender" id="btnradio1" autocomplete="off" value="1">
-                                                @* <input type="radio" class="btn-check" name="btnGender" id="btnradio1" autocomplete="off" value="1"> *@
-                                                <label class="btn btn-outline-primary" for="btnradio1">Male</label>
+                                        <label for="exampleFormControlInput1" class="control-label col-md-2 mb-1">Gender </label>
 
+                                        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                            
                                             <input asp-for="Gender" class="btn-check" type="radio" name="btnGender" id="btnradio3" autocomplete="off" value="2">
-                                                @* <input type="radio" class="btn-check" name="btnGender" id="btnradio3" autocomplete="off" value="2"> *@
-                                                <label class="btn btn-outline-primary" for="btnradio3">Female</label>
-                                            </div>
-                                                                   
+                                            @* <input type="radio" class="btn-check" name="btnGender" id="btnradio3" autocomplete="off" value="2"> *@
+                                            <label class="btn btn-outline-secondary" for="btnradio3" style="">
+                                                <img b-p1urj81ovk="" src="/images/woman.png" alt="Generic placeholder image" class="img-fluid p-1" style="background-color:#fff; border-radius: 60px; width: 60px; height:60px;">
+                                            </label>
+
+                                            <input asp-for="Gender" class="btn-check" type="radio" name="btnGender" id="btnradio1" autocomplete="off" value="1">
+                                            @* <input type="radio" class="btn-check" name="btnGender" id="btnradio1" autocomplete="off" value="1"> *@
+                                            <label class="btn btn-outline-secondary" for="btnradio1" style="" >
+                                                <img b-p1urj81ovk="" src="/images/man.png" alt="Generic placeholder image" class="img-fluid p-1" style="background-color:#fff; border-radius: 60px; width: 60px; height:60px;">
+                                            </label>
+
+                                        </div>
+
                                     </div>
 
                                     <div class="form-group mt-3">
@@ -68,12 +80,12 @@
                                             <span asp-validation-for="District" class="text-danger"></span>
                                         </div>
                                     </div>
-         
+
                                     <div class="form-group row">
                                         <label class="control-label mb-1" for="exampleFormControlSelect1">Age Between</label>
                                         <div class="form-group col-4">
                                             @* <label for="exampleFormControlSelect1">Example select</label> *@
-                                            <select class="form-control" id="selAgeFrom">                  
+                                            <select class="form-control" id="selAgeFrom">
                                                 <option value="0">0</option>
                                                 <option value="20">20</option>
                                                 <option value="21">21</option>
@@ -131,8 +143,8 @@
                                                 <option value="72">72</option>
                                                 <option value="73">73</option>
                                                 <option value="74">74</option>
-                                                <option value="75">75</option>                                               
-                                            </select>                            
+                                                <option value="75">75</option>
+                                            </select>
                                         </div>
 
                                         <div class="form-group col-4">
@@ -196,11 +208,11 @@
                                                 <option value="73">73</option>
                                                 <option value="74">74</option>
                                                 <option value="75">75</option>
-                                            </select>                                           
-                                         </div>
+                                            </select>
+                                        </div>
                                     </div>
 
-                                   <div class="form-group mt-3">
+                                    <div class="form-group mt-3">
                                         <label asp-for="CivilStatus" class="control-label col-md-12 mb-1"></label>
                                         <div class="col-md-10">
                                             <select id="selCivilStatus" class="form-control" asp-for="CivilStatus" asp-items="Html.GetEnumSelectList<ProfileManager.Common.Enums.CivilStatusEnum>()">
@@ -250,7 +262,7 @@
 
                                     <div class="form-group mt-3">
                                         <label asp-for="MemberId" class="control-label col-md-12 mb-1"></label>
-                                        <div class="col-md-10">                                           
+                                        <div class="col-md-10">
                                             <input id="txtMemberId" class="form-control" asp-for="MemberId" type="text" />
                                             <span asp-validation-for="MemberId" class="text-danger"></span>
                                         </div>
@@ -258,14 +270,14 @@
 
 
                                     @* <div class="mb-3">
-                                        <label for="exampleFormControlInput1" class="form-label">District</label>
-                                     
-                                            <select class="form-select" aria-label="Select District">
-                                                <option selected>Open this select menu</option>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
-                                            </select>                   
+                                    <label for="exampleFormControlInput1" class="form-label">District</label>
+
+                                    <select class="form-select" aria-label="Select District">
+                                    <option selected>Open this select menu</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                    </select>
                                     </div> *@
 
 
@@ -274,8 +286,8 @@
                                         <button id="btnFilter" class="btn btn-sm btn-primary w-50">Filter</button>
                                         <a asp-controller="Home" asp-action="Index" id="btnFilterClear" class="btn btn-sm btn-outline-primary w-25">Clear</a>
 
-                                    </div>                              
-       
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -299,121 +311,122 @@
 
 
 
-@section Scripts{
+@section Scripts {
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="~/js/ProfileList.js" asp-append-version="true"></script>   
+    <script src="~/js/ProfileList.js" asp-append-version="true"></script>
 
     <script>
-             function getFilters(isFilter = false, pageNo = 1) {
-                var gender = @Html.Raw(Json.Serialize(@Model.Gender));
-                var district = @Html.Raw(Json.Serialize(@Model.District));
-                var ageFrom = @Html.Raw(Json.Serialize(@Model.AgeFrom));
-                var ageTo = @Html.Raw(Json.Serialize(@Model.AgeTo));
-                var civilStatus = @Html.Raw(Json.Serialize(@Model.CivilStatus));
+        function getFilters(isFilter = false, pageNo = 1) {
+            var gender = @Html.Raw(Json.Serialize(@Model.Gender));
+            var district = @Html.Raw(Json.Serialize(@Model.District));
+            var ageFrom = @Html.Raw(Json.Serialize(@Model.AgeFrom));
+            var ageTo = @Html.Raw(Json.Serialize(@Model.AgeTo));
+            var civilStatus = @Html.Raw(Json.Serialize(@Model.CivilStatus));
 
-                var job = @Html.Raw(Json.Serialize(@Model.Job));
+            var job = @Html.Raw(Json.Serialize(@Model.Job));
 
-                var cast = @Html.Raw(Json.Serialize(@Model.Cast));
-                var race = @Html.Raw(Json.Serialize(@Model.Race));
-                var religion = @Html.Raw(Json.Serialize(@Model.Religion));
+            var cast = @Html.Raw(Json.Serialize(@Model.Cast));
+            var race = @Html.Raw(Json.Serialize(@Model.Race));
+            var religion = @Html.Raw(Json.Serialize(@Model.Religion));
 
-                var memberId = @Html.Raw(Json.Serialize(@Model.MemberId));
-
-
-                if (isFilter){
-                    gender = $('input[name="btnGender"]:checked').val();
-                    district = $('#drpDistrict option:selected').val();
-                    ageFrom = $('#selAgeFrom option:selected').val();
-                    ageTo = $('#selAgeTo option:selected').val();
-                    civilStatus = $('#selCivilStatus option:selected').val();
-
-                    job = $('#selJob option:selected').val();
-
-                    cast = $('#selCast option:selected').val();
-                    race = $('#selRace option:selected').val();
-                    religion = $('#selReligion option:selected').val();
-
-                    memberId = $('#txtMemberId').text();
-
-                }
+            var memberId = @Html.Raw(Json.Serialize(@Model.MemberId));
 
 
-                //bind data for elements
-                $("input[name=btnGender][value='" + gender + "']").prop("checked", true);
-                $("#drpDistrict option[value='" + district + "']").prop('selected', true);
-                $("#selAgeFrom option[value='" + ageFrom + "']").prop('selected', true);
-                $("#selAgeTo option[value='" + ageTo + "']").prop('selected', true);
-                $("#selCivilStatus option[value='" + civilStatus + "']").prop('selected', true);
+            if (isFilter) {
+                gender = $('input[name="btnGender"]:checked').val();
+                district = $('#drpDistrict option:selected').val();
+                ageFrom = $('#selAgeFrom option:selected').val();
+                ageTo = $('#selAgeTo option:selected').val();
+                civilStatus = $('#selCivilStatus option:selected').val();
 
-                $("#selJob option[value='" + job + "']").prop('selected', true);
+                job = $('#selJob option:selected').val();
 
-                $("#selCast option[value='" + cast + "']").prop('selected', true);
-                $("#selRace option[value='" + race + "']").prop('selected', true);
-                $("#selReligion option[value='" + religion + "']").prop('selected', true);
+                cast = $('#selCast option:selected').val();
+                race = $('#selRace option:selected').val();
+                religion = $('#selReligion option:selected').val();
 
-                $("#txtMemberId").text(memberId);
+                memberId = $('#txtMemberId').text();
 
-
-                var genderCon = Number(gender ?? 4);
-                var districtCon = Number(district ?? 0);
-                var ageFromCon = Number(ageFrom ?? 0);
-                var ageToCon = Number(ageTo ?? 0);
-                var civilStatusCon = Number(civilStatus ?? 0);
-
-                var jobCon = Number(job ?? 0);
-
-                var castCon = Number(cast ?? 0);
-                var raceCon = Number(race ?? 0);
-                var religionCon = Number(religion ?? 0);
-
-                var memberIdCon = memberId;
-
-
-                var filter = {
-                    page: {
-                        pagenumber: pageNo, pagesize: 2
-                    }
-                }
-
-                if(filter != null){
-                    filter["gender"] = genderCon;
-                }
-                if (districtCon > 0) {
-                    filter["district"] = districtCon;
-                }
-                if (ageFromCon > 0) {
-                    filter["ageFrom"] = ageFromCon;
-                }
-                if (ageToCon > 0) {
-                    filter["ageTo"] = ageToCon;
-                }
-                    if (civilStatusCon > 0) {
-                    filter["civilStatus"] = civilStatusCon;
-                }
-
-                if (jobCon > 0) {
-                    filter["job"] = jobCon;
-                }
-
-                if (castCon > 0) {
-                    filter["cast"] = castCon;
-                }
-                if (raceCon > 0) {
-                    filter["race"] = raceCon;
-                }
-                if (religionCon > 0) {
-                    filter["religion"] = religionCon;
-                }
-
-                if (memberIdCon != null) {
-                    filter["memberId"] = memberIdCon;
-                }
-
-                return filter;            
             }
 
 
-          $(document).ready(function () {
+            //bind data for elements
+            $("input[name=btnGender][value='" + gender + "']").prop("checked", true);
+            $("#drpDistrict option[value='" + district + "']").prop('selected', true);
+            $("#selAgeFrom option[value='" + ageFrom + "']").prop('selected', true);
+            $("#selAgeTo option[value='" + ageTo + "']").prop('selected', true);
+            $("#selCivilStatus option[value='" + civilStatus + "']").prop('selected', true);
+
+            $("#selJob option[value='" + job + "']").prop('selected', true);
+
+            $("#selCast option[value='" + cast + "']").prop('selected', true);
+            $("#selRace option[value='" + race + "']").prop('selected', true);
+            $("#selReligion option[value='" + religion + "']").prop('selected', true);
+
+            $("#txtMemberId").text(memberId);
+
+
+            var genderCon = Number(gender ?? 4);
+            var districtCon = Number(district ?? 0);
+            var ageFromCon = Number(ageFrom ?? 0);
+            var ageToCon = Number(ageTo ?? 0);
+            var civilStatusCon = Number(civilStatus ?? 0);
+
+            var jobCon = Number(job ?? 0);
+
+            var castCon = Number(cast ?? 0);
+            var raceCon = Number(race ?? 0);
+            var religionCon = Number(religion ?? 0);
+
+            var memberIdCon = memberId;
+
+
+
+            var filter = {
+                page: {
+                    pagenumber: pageNo, pagesize: 3
+                }
+            }
+
+            if (filter != null) {
+                filter["gender"] = genderCon;
+            }
+            if (districtCon > 0) {
+                filter["district"] = districtCon;
+            }
+            if (ageFromCon > 0) {
+                filter["ageFrom"] = ageFromCon;
+            }
+            if (ageToCon > 0) {
+                filter["ageTo"] = ageToCon;
+            }
+            if (civilStatusCon > 0) {
+                filter["civilStatus"] = civilStatusCon;
+            }
+
+            if (jobCon > 0) {
+                filter["job"] = jobCon;
+            }
+
+            if (castCon > 0) {
+                filter["cast"] = castCon;
+            }
+            if (raceCon > 0) {
+                filter["race"] = raceCon;
+            }
+            if (religionCon > 0) {
+                filter["religion"] = religionCon;
+            }
+
+            if (memberIdCon != null && memberId != '') {
+                filter["memberId"] = memberIdCon;
+            }
+
+            return filter;
+        }
+
+
+        $(document).ready(function () {
             $(window).on('load', function () {
 
                 var page = @Html.Raw(Json.Serialize(@Model.Page.PageNumber));
@@ -429,11 +442,10 @@
 
                 });
             });
-           
+
         });
 
     </script>
 }
 
 
- 

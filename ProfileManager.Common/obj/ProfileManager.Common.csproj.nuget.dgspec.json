@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager.Common\\ProfileManager.Common.csproj": {}
+    "C:\\Users\\Athula\\Source\\Repos\\ProfileMange\\ProfileManager.Common\\ProfileManager.Common.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager.Common\\ProfileManager.Common.csproj": {
+    "C:\\Users\\Athula\\Source\\Repos\\ProfileMange\\ProfileManager.Common\\ProfileManager.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager.Common\\ProfileManager.Common.csproj",
+        "projectUniqueName": "C:\\Users\\Athula\\Source\\Repos\\ProfileMange\\ProfileManager.Common\\ProfileManager.Common.csproj",
         "projectName": "ProfileManager.Common",
-        "projectPath": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager.Common\\ProfileManager.Common.csproj",
+        "projectPath": "C:\\Users\\Athula\\Source\\Repos\\ProfileMange\\ProfileManager.Common\\ProfileManager.Common.csproj",
         "packagesPath": "C:\\Users\\Athula\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager.Common\\obj\\",
+        "outputPath": "C:\\Users\\Athula\\Source\\Repos\\ProfileMange\\ProfileManager.Common\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Athula\\AppData\\Roaming\\NuGet\\NuGet.Config",

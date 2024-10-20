@@ -50,6 +50,18 @@ body {
 
 
 
+.bg-transparent{
+    background-color: transparent !important;
+}
+
+
+.d-unset{
+    display: unset !important;
+}
+
+.bg-dark-trans {
+    background-color: #00000086 !important;
+}
 
 
 

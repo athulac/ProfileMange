@@ -163,7 +163,7 @@ namespace ProfileManager.Controllers
                 return View(fil);
             }
 
-            PageData pageData = new PageData() { PageNumber = 1, PageSize = 2 };
+            PageData pageData = new PageData() { PageNumber = 1, PageSize = 3 };
             FilterViewModel filterModel = new FilterViewModel()
             {
                 Page = pageData,
