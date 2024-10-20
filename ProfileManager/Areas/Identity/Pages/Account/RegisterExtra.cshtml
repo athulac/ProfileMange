@@ -9,121 +9,26 @@
 
 <div class="row">
 
-    <div class="col-md-6 col-md-offset-2">
-        <section class="m-5 p-5">
-            <h3>Use another service to register.</h3>
-            <hr />
-            @{
-                if ((Model.ExternalLogins?.Count ?? 0) == 0)
-                {
-                    <div>
-                        <p>
-                            There are no external authentication services configured. See this <a href="https://go.microsoft.com/fwlink/?LinkID=532715">
-                                article
-                                about setting up this ASP.NET application to support logging in via external services
-                            </a>.
-                        </p>
-                    </div>
-                }
-                else
-                {
-                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
-                        <div>
-                            <p>
-                                @foreach (var provider in Model.ExternalLogins!)
-                                {
-                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
-                                }
-                            </p>
-                        </div>
-                    </form>
-                }
-            }
-        </section>
+    <div class="col-md-1" style=""></div>
+
+    <div class="col-md-6">
+        <div class="px-2" style="padding-top:30%">
+            <center>
+                <h3>Add more details</h3>
+                <hr />
+                <p>
+                    Please add more details for your account.
+                </p>
+            </center>
+        </div>
     </div>
 
 
     <div class="col-md-4">
-        <h1>@ViewData["Title"]</h1>
-        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
-            <h2>Create a new account.</h2>
-            <hr />
-            @*
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group mt-3">
-            <label asp-for="Input.Email" class="control-label col-md-2 mb-1"></label>
-            <div class="col-md-10">
+        
+        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post"> 
 
-            <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
-            <span asp-validation-for="Input.Email" class="text-danger"></span>
-            </div>
-            </div>
-            <div class="form-group mt-3">
-            <label asp-for="Input.Password" class="control-label col-md-2 mb-1"></label>
-            <div class="col-md-10">
-            <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" />
-            <span asp-validation-for="Input.Password" class="text-danger"></span>
-            </div>
-            </div>
-            <div class="form-group mt-3">
-            <label asp-for="Input.ConfirmPassword" class="control-label col-md-12 mb-1"></label>
-            <div class="col-md-10">
-            <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" />
-            <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
-            </div>
-            </div>
-            <hr/> *@
-
-            <input asp-for="Input.Profile.UserId" class="form-control" aria-required="false" />
-
-            @* <div class="form-group mt-3">
-            <label asp-for="Input.Profile.FirstName" class="control-label col-md-2 mb-1"></label>
-            <div class="col-md-10">
-            <input asp-for="Input.Profile.FirstName" class="form-control" aria-required="false" />
-            <span asp-validation-for="Input.Profile.FirstName" class="text-danger"></span>
-            </div>
-            </div>
-            <div class="form-group mt-3">
-            <label asp-for="Input.Profile.LastName" class="control-label col-md-2 mb-1"></label>
-            <div class="col-md-10">
-            <input asp-for="Input.Profile.LastName" class="form-control" aria-required="false" />
-            <span asp-validation-for="Input.Profile.LastName" class="text-danger"></span>
-            </div>
-            </div>
-            <div class="form-group mt-3">
-            <label asp-for="Input.Profile.Gender" class="control-label col-md-2 mb-1"></label>
-            <div class="col-md-10 mb-3">
-            <div class="form-check form-check-inline">
-            <input asp-for="Input.Profile.Gender" class="form-check-input" type="radio" id="inlineRadio1" value="Male">
-            <label class="form-check-label" for="inlineRadio1">Male</label>
-            </div>
-            <div class="form-check form-check-inline">
-            <input asp-for="Input.Profile.Gender" class="form-check-input" type="radio" id="inlineRadio2" value="Female">
-            <label class="form-check-label" for="inlineRadio2">Female</label>
-            </div>
-            <span asp-validation-for="Input.Profile.Gender" class="text-danger"></span>
-            </div>
-            </div>
-            <div class="form-group mt-3">
-            <label asp-for="Input.Profile.BirthDateTime" class="control-label col-md-3 mb-1"></label>
-            <div class="col-md-10 mb-3">
-            <input type="text" asp-for="Input.Profile.BirthDateTime" class="form-control" id="datepicker" />
-            <span asp-validation-for="Input.Profile.BirthDateTime" class="text-danger"></span>
-            </div>
-            </div>
-            <div class="form-group mt-3">
-            <label asp-for="Input.Profile.CivilStatus" class="control-label col-md-2 mb-1"></label>
-            <div class="col-md-10">
-            <select class="form-control" asp-for="Input.Profile.CivilStatus" asp-items="Html.GetEnumSelectList<ProfileManager.Common.Enums.CivilStatusEnum>()">
-            <option selected="selected" value="">Please select</option>
-            </select>
-            <span asp-validation-for="Input.Profile.CivilStatus" class="text-danger"></span>
-            </div>
-            </div> *@
-
-
-
-
+            <input type="hidden" asp-for="Input.Profile.UserId" class="form-control" aria-required="false" />
 
             <div class="form-group mt-3">
                 <label asp-for="Input.Profile.Job" class="control-label col-md-3 mb-1"></label>
@@ -196,8 +101,8 @@
 
             @* <button id="registerSubmit" type="submit" class="w-25 btn btn-md btn-primary mt-4">Next</button> *@
 
-            <a class="w-25 btn btn-outline-dark mt-4 mb-4" href="~/Identity/Account/RegisterPersonal">Back</a>
-            <button type="submit" class="w-25 btn btn-md btn-primary mt-4 mb-4">Next</button>
+            <a class="w-25 btn btn-outline-dark my-5" href='javascript:history.go(-1)'>Back</a>
+            <button type="submit" class="w-25 btn btn-md btn-primary my-5">Next</button>
         </form>
     </div>
 

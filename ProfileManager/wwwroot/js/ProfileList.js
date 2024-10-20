@@ -54,8 +54,8 @@
                     '<div class="d-flex">'+
                     '<div class="flex-shrink-1">'+
                     (value.enumNames.gender == 'Male' ? 
-                        '<img src="/images/man.png" alt = "Generic placeholder image" class="img-fluid" style = "width: 180px; border-radius: 10px;" >':
-                        '<img src="/images/woman.png" alt = "Generic placeholder image" class="img-fluid" style = "width: 180px; border-radius: 10px;" >'
+                        '<img src="/images/man.png" alt = "Generic placeholder image" class="img-fluid" style = "width: 90px; border-radius: 45px; padding: 4px; background: #7b53c754;" >':
+                        '<img src="/images/woman.png" alt = "Generic placeholder image" class="img-fluid" style = "width: 90px; border-radius: 45px; padding: 4px; background: #c7539d54;" >'
                     )+
                     '</div>'+
                 
@@ -104,14 +104,15 @@
                     '<div class="px-1 pb-2">' +
                     '<p class="small text-muted mb-1">Published</p>' +
                     '<p class="small mb-0 w-100">' + value.createdTimeAgo + '</p>' +
-                    '</div>' +
-
-                    '<div class="col-4 col-xs-12 d-flex pt-1">'+
-                    '<a href="home/details/'+value.id+'" data-mdb-button-init data-mdb-ripple-init class="btn btn-sm btn-outline-primary me-1 flex-grow-1">Details</a>'+
-                    '<a href="#" data-mdb-button-init data-mdb-ripple-init class="btn btn-sm btn-primary flex-grow-1">Connect</a>'+                 
-                    '</div>' +
+                    '</div>' +                 
 
                     '</div>' +
+
+                    '<div class="col-4 col-xs-12 d-flex pt-1">' +
+                    '<a href="home/details/' + value.id + '" data-mdb-button-init data-mdb-ripple-init class="btn btn-sm btn-outline-primary me-1 flex-grow-1">Details</a>' +
+                    '<a href="#" data-mdb-button-init data-mdb-ripple-init class="btn btn-sm btn-primary flex-grow-1">Connect</a>' +
+                    '</div>' +
+
                     '</div>' +
                     '</div>' +
                     '</div>' +

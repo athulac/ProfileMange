@@ -97,6 +97,8 @@ namespace ProfileManager.Areas.Identity.Pages.Account
                 Profile = new ProfileViewModel { UserId = Guid.Parse(user) }
             };
 
+            await OnPostAsync();
+
             return Page();
 
         }

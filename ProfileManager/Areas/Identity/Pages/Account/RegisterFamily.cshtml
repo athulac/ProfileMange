@@ -8,26 +8,30 @@
 
 
 <div class="row">
-    <div class="col-md-6 col-md-offset-2">
-        <section class="m-5 p-5">
-            <h3>Use another service to register.</h3>
-            <hr />
-            
-        </section>
+
+    <div class="col-md-1" style=""></div>
+  
+    <div class="col-md-6">
+        <div class="px-2" style="padding-top:25%">
+            <center>
+                <h3>Add your paretns details</h3>
+                <hr />
+                <p>
+                    Please add your parents details to complete profile.
+                </p>
+            </center>
+           
+        </div>
     </div>
+
 
     <div class="col-md-4">
 
         <form id="registerFormFamily" method="post">
 
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-            <h3>@ViewData["Title"]</h3>
-
-
-            <br />
-            <hr />
-            <input asp-for="Profile.UserId" class="form-control" aria-required="false" />
+           
+            <input type="hidden" asp-for="Profile.UserId" class="form-control" aria-required="false" />
 
             <h4>Father</h4>
             <div class="form-group mt-3">
@@ -76,7 +80,7 @@
 
 
             <br />
-            <hr />
+        
             <h4>Mother</h4>
             <div class="form-group mt-3">
                 <label asp-for="Profile.Mother.Job" class="control-label col-md-2 mb-1"></label>
@@ -123,13 +127,13 @@
             </div>
 
 
-            <a class="w-25 btn btn-outline-dark mt-4 mb-4" href="~/Identity/Account/RegisterExtra">Back</a>
-            <button type="submit" class="w-25 btn btn-md btn-primary mt-4 mb-4">Next</button>
+            <a class="w-25 btn btn-outline-dark my-5" href='javascript:history.go(-1)'>Back</a>
+            <button type="submit" class="w-25 btn btn-md btn-primary my-5">Next</button>
         </form>
 
-
-
     </div>
+
+    <div class="col-md-1" style=""></div>
 </div>
 
 

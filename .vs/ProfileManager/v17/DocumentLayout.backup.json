@@ -3,56 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F8FA2C80-548F-4D88-808E-3225BA0EC908}|ProfileManager\\ProfileManager.csproj|c:\\users\\athula\\source\\repos\\profilemange\\profilemanager\\services\\familyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F8FA2C80-548F-4D88-808E-3225BA0EC908}|ProfileManager\\ProfileManager.csproj|solutionrelative:profilemanager\\services\\familyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F8FA2C80-548F-4D88-808E-3225BA0EC908}|ProfileManager\\ProfileManager.csproj|c:\\users\\athula\\source\\repos\\profilemange\\profilemanager\\wwwroot\\js\\profilelist.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{F8FA2C80-548F-4D88-808E-3225BA0EC908}|ProfileManager\\ProfileManager.csproj|solutionrelative:profilemanager\\wwwroot\\js\\profilelist.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F8FA2C80-548F-4D88-808E-3225BA0EC908}|ProfileManager\\ProfileManager.csproj|c:\\users\\athula\\source\\repos\\profilemange\\profilemanager\\areas\\identity\\pages\\account\\registersiblings.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F8FA2C80-548F-4D88-808E-3225BA0EC908}|ProfileManager\\ProfileManager.csproj|solutionrelative:profilemanager\\areas\\identity\\pages\\account\\registersiblings.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F8FA2C80-548F-4D88-808E-3225BA0EC908}|ProfileManager\\ProfileManager.csproj|c:\\users\\athula\\source\\repos\\profilemange\\profilemanager\\services\\ifamilyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F8FA2C80-548F-4D88-808E-3225BA0EC908}|ProfileManager\\ProfileManager.csproj|solutionrelative:profilemanager\\services\\ifamilyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F8FA2C80-548F-4D88-808E-3225BA0EC908}|ProfileManager\\ProfileManager.csproj|c:\\users\\athula\\source\\repos\\profilemange\\profilemanager\\areas\\identity\\pages\\account\\registerfamily.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F8FA2C80-548F-4D88-808E-3225BA0EC908}|ProfileManager\\ProfileManager.csproj|solutionrelative:profilemanager\\areas\\identity\\pages\\account\\registerfamily.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F8FA2C80-548F-4D88-808E-3225BA0EC908}|ProfileManager\\ProfileManager.csproj|c:\\users\\athula\\source\\repos\\profilemange\\profilemanager\\areas\\identity\\pages\\account\\registerfamily.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F8FA2C80-548F-4D88-808E-3225BA0EC908}|ProfileManager\\ProfileManager.csproj|solutionrelative:profilemanager\\areas\\identity\\pages\\account\\registerfamily.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C4E04C56-96E3-4941-9AE0-72F17888A43B}|ProfileManager.Common\\ProfileManager.Common.csproj|c:\\users\\athula\\source\\repos\\profilemange\\profilemanager.common\\enums\\allenums.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C4E04C56-96E3-4941-9AE0-72F17888A43B}|ProfileManager.Common\\ProfileManager.Common.csproj|solutionrelative:profilemanager.common\\enums\\allenums.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F8FA2C80-548F-4D88-808E-3225BA0EC908}|ProfileManager\\ProfileManager.csproj|c:\\users\\athula\\source\\repos\\profilemange\\profilemanager\\areas\\identity\\pages\\account\\registersiblings.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F8FA2C80-548F-4D88-808E-3225BA0EC908}|ProfileManager\\ProfileManager.csproj|solutionrelative:profilemanager\\areas\\identity\\pages\\account\\registersiblings.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F8FA2C80-548F-4D88-808E-3225BA0EC908}|ProfileManager\\ProfileManager.csproj|c:\\users\\athula\\source\\repos\\profilemange\\profilemanager\\areas\\identity\\pages\\account\\registerextra.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F8FA2C80-548F-4D88-808E-3225BA0EC908}|ProfileManager\\ProfileManager.csproj|solutionrelative:profilemanager\\areas\\identity\\pages\\account\\registerextra.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F8FA2C80-548F-4D88-808E-3225BA0EC908}|ProfileManager\\ProfileManager.csproj|c:\\users\\athula\\source\\repos\\profilemange\\profilemanager\\areas\\identity\\pages\\account\\registerextra.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F8FA2C80-548F-4D88-808E-3225BA0EC908}|ProfileManager\\ProfileManager.csproj|solutionrelative:profilemanager\\areas\\identity\\pages\\account\\registerextra.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F8FA2C80-548F-4D88-808E-3225BA0EC908}|ProfileManager\\ProfileManager.csproj|c:\\users\\athula\\source\\repos\\profilemange\\profilemanager\\areas\\identity\\pages\\account\\registerpersonal.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F8FA2C80-548F-4D88-808E-3225BA0EC908}|ProfileManager\\ProfileManager.csproj|solutionrelative:profilemanager\\areas\\identity\\pages\\account\\registerpersonal.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F8FA2C80-548F-4D88-808E-3225BA0EC908}|ProfileManager\\ProfileManager.csproj|c:\\users\\athula\\source\\repos\\profilemange\\profilemanager\\areas\\identity\\pages\\account\\registerpersonal.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F8FA2C80-548F-4D88-808E-3225BA0EC908}|ProfileManager\\ProfileManager.csproj|solutionrelative:profilemanager\\areas\\identity\\pages\\account\\registerpersonal.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F8FA2C80-548F-4D88-808E-3225BA0EC908}|ProfileManager\\ProfileManager.csproj|c:\\users\\athula\\source\\repos\\profilemange\\profilemanager\\areas\\identity\\pages\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F8FA2C80-548F-4D88-808E-3225BA0EC908}|ProfileManager\\ProfileManager.csproj|solutionrelative:profilemanager\\areas\\identity\\pages\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F8FA2C80-548F-4D88-808E-3225BA0EC908}|ProfileManager\\ProfileManager.csproj|c:\\users\\athula\\source\\repos\\profilemange\\profilemanager\\areas\\identity\\pages\\account\\register.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F8FA2C80-548F-4D88-808E-3225BA0EC908}|ProfileManager\\ProfileManager.csproj|solutionrelative:profilemanager\\areas\\identity\\pages\\account\\register.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F8FA2C80-548F-4D88-808E-3225BA0EC908}|ProfileManager\\ProfileManager.csproj|c:\\users\\athula\\source\\repos\\profilemange\\profilemanager\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F8FA2C80-548F-4D88-808E-3225BA0EC908}|ProfileManager\\ProfileManager.csproj|solutionrelative:profilemanager\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -61,182 +17,33 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 77,
+          "DockedWidth": 153,
           "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "RegisterSiblings.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager\\Areas\\Identity\\Pages\\Account\\RegisterSiblings.cshtml.cs",
-              "RelativeDocumentMoniker": "ProfileManager\\Areas\\Identity\\Pages\\Account\\RegisterSiblings.cshtml.cs",
-              "ToolTip": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager\\Areas\\Identity\\Pages\\Account\\RegisterSiblings.cshtml.cs",
-              "RelativeToolTip": "ProfileManager\\Areas\\Identity\\Pages\\Account\\RegisterSiblings.cshtml.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAqwDQAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-19T15:03:22.604Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "AllEnums.cs",
-              "DocumentMoniker": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager.Common\\Enums\\AllEnums.cs",
-              "RelativeDocumentMoniker": "ProfileManager.Common\\Enums\\AllEnums.cs",
-              "ToolTip": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager.Common\\Enums\\AllEnums.cs",
-              "RelativeToolTip": "ProfileManager.Common\\Enums\\AllEnums.cs",
-              "ViewState": "AgIAAFQAAAAAAAAAAAAIwG4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-19T17:24:09.938Z",
-              "EditorCaption": ""
-            }
-          ]
-        },
-        {
-          "DockedWidth": 440,
-          "SelectedChildIndex": 1,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "RegisterFamily.cshtml",
-              "DocumentMoniker": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager\\Areas\\Identity\\Pages\\Account\\RegisterFamily.cshtml",
-              "RelativeDocumentMoniker": "ProfileManager\\Areas\\Identity\\Pages\\Account\\RegisterFamily.cshtml",
-              "ToolTip": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager\\Areas\\Identity\\Pages\\Account\\RegisterFamily.cshtml",
-              "RelativeToolTip": "ProfileManager\\Areas\\Identity\\Pages\\Account\\RegisterFamily.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAABCAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-19T16:44:01.373Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "FamilyService.cs",
-              "DocumentMoniker": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager\\Services\\FamilyService.cs",
-              "RelativeDocumentMoniker": "ProfileManager\\Services\\FamilyService.cs",
-              "ToolTip": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager\\Services\\FamilyService.cs",
-              "RelativeToolTip": "ProfileManager\\Services\\FamilyService.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAmwGsAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-19T16:44:46.796Z",
+              "Title": "ProfileList.js",
+              "DocumentMoniker": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager\\wwwroot\\js\\ProfileList.js",
+              "RelativeDocumentMoniker": "ProfileManager\\wwwroot\\js\\ProfileList.js",
+              "ToolTip": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager\\wwwroot\\js\\ProfileList.js",
+              "RelativeToolTip": "ProfileManager\\wwwroot\\js\\ProfileList.js",
+              "ViewState": "AgIAACIAAAAAAAAAAAA5wD4AAACwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-10-20T05:22:22.656Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "IFamilyService.cs",
-              "DocumentMoniker": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager\\Services\\IFamilyService.cs",
-              "RelativeDocumentMoniker": "ProfileManager\\Services\\IFamilyService.cs",
-              "ToolTip": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager\\Services\\IFamilyService.cs",
-              "RelativeToolTip": "ProfileManager\\Services\\IFamilyService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwA8AAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-19T17:37:10.084Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "RegisterSiblings.cshtml",
-              "DocumentMoniker": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager\\Areas\\Identity\\Pages\\Account\\RegisterSiblings.cshtml",
-              "RelativeDocumentMoniker": "ProfileManager\\Areas\\Identity\\Pages\\Account\\RegisterSiblings.cshtml",
-              "ToolTip": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager\\Areas\\Identity\\Pages\\Account\\RegisterSiblings.cshtml",
-              "RelativeToolTip": "ProfileManager\\Areas\\Identity\\Pages\\Account\\RegisterSiblings.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAA/AAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "ProfileManager\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "ProfileManager\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAJ4BAAAAAAAAAAAAABgAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-19T16:58:38.345Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "RegisterFamily.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager\\Areas\\Identity\\Pages\\Account\\RegisterFamily.cshtml.cs",
-              "RelativeDocumentMoniker": "ProfileManager\\Areas\\Identity\\Pages\\Account\\RegisterFamily.cshtml.cs",
-              "ToolTip": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager\\Areas\\Identity\\Pages\\Account\\RegisterFamily.cshtml.cs",
-              "RelativeToolTip": "ProfileManager\\Areas\\Identity\\Pages\\Account\\RegisterFamily.cshtml.cs",
-              "ViewState": "AgIAADYAAAAAAAAAAAAYwEwAAAA/AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-19T16:44:46.779Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "RegisterExtra.cshtml",
-              "DocumentMoniker": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager\\Areas\\Identity\\Pages\\Account\\RegisterExtra.cshtml",
-              "RelativeDocumentMoniker": "ProfileManager\\Areas\\Identity\\Pages\\Account\\RegisterExtra.cshtml",
-              "ToolTip": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager\\Areas\\Identity\\Pages\\Account\\RegisterExtra.cshtml",
-              "RelativeToolTip": "ProfileManager\\Areas\\Identity\\Pages\\Account\\RegisterExtra.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-13T01:46:23.813Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Register.cshtml",
-              "DocumentMoniker": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
-              "RelativeDocumentMoniker": "ProfileManager\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
-              "ToolTip": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
-              "RelativeToolTip": "ProfileManager\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
-              "ViewState": "AgIAAIQAAAAAAAAAAAAAAJIAAAByAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-12T23:52:29.215Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "RegisterExtra.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager\\Areas\\Identity\\Pages\\Account\\RegisterExtra.cshtml.cs",
-              "RelativeDocumentMoniker": "ProfileManager\\Areas\\Identity\\Pages\\Account\\RegisterExtra.cshtml.cs",
-              "ToolTip": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager\\Areas\\Identity\\Pages\\Account\\RegisterExtra.cshtml.cs",
-              "RelativeToolTip": "ProfileManager\\Areas\\Identity\\Pages\\Account\\RegisterExtra.cshtml.cs",
-              "ViewState": "AgIAADYAAAAAAAAAAIA8wFAAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T01:48:07.357Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "RegisterPersonal.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager\\Areas\\Identity\\Pages\\Account\\RegisterPersonal.cshtml.cs",
-              "RelativeDocumentMoniker": "ProfileManager\\Areas\\Identity\\Pages\\Account\\RegisterPersonal.cshtml.cs",
-              "ToolTip": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager\\Areas\\Identity\\Pages\\Account\\RegisterPersonal.cshtml.cs",
-              "RelativeToolTip": "ProfileManager\\Areas\\Identity\\Pages\\Account\\RegisterPersonal.cshtml.cs",
-              "ViewState": "AgIAAEIAAAAAAAAAAAAvwFQAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T00:28:24.119Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Register.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
-              "RelativeDocumentMoniker": "ProfileManager\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
-              "ToolTip": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
-              "RelativeToolTip": "ProfileManager\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
-              "ViewState": "AgIAALsAAAAAAAAAAAASwIgAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T12:52:24.572Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "RegisterPersonal.cshtml",
-              "DocumentMoniker": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager\\Areas\\Identity\\Pages\\Account\\RegisterPersonal.cshtml",
-              "RelativeDocumentMoniker": "ProfileManager\\Areas\\Identity\\Pages\\Account\\RegisterPersonal.cshtml",
-              "ToolTip": "C:\\Users\\Athula\\source\\repos\\ProfileMange\\ProfileManager\\Areas\\Identity\\Pages\\Account\\RegisterPersonal.cshtml",
-              "RelativeToolTip": "ProfileManager\\Areas\\Identity\\Pages\\Account\\RegisterPersonal.cshtml",
-              "ViewState": "AgIAAHwAAAAAAAAAAAAUwJkAAABZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-13T00:16:53.844Z",
+              "WhenOpened": "2024-10-20T05:21:30.254Z",
               "EditorCaption": ""
             }
           ]

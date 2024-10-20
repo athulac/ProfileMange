@@ -6,45 +6,27 @@
 
 
 
-<div class="row">
+<div class="row" style="">
+    <div class="col-md-1" style=""></div>
 
-     <div class="col-md-6 col-md-offset-2">
-        <section class="m-5 p-5">
-            <h3>Use another service to register.</h3>
-            <hr />
-            @{
-                if ((Model.ExternalLogins?.Count ?? 0) == 0)
-                {
-                    <div>
-                        <p>
-                            There are no external authentication services configured. See this <a href="https://go.microsoft.com/fwlink/?LinkID=532715">article
-                            about setting up this ASP.NET application to support logging in via external services</a>.
-                        </p>
-                    </div>
-                }
-                else
-                {
-                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
-                        <div>
-                            <p>
-                                @foreach (var provider in Model.ExternalLogins!)
-                                {
-                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
-                                }
-                            </p>
-                        </div>
-                    </form>
-                }
-            }
-        </section>
+    <div class="col-md-6">
+        <div class="px-2" style="padding-top:25%">
+            <center>
+                <h3>Add your personal details</h3>
+                <hr />
+                <p>
+                    Please add your personal details to complete profile.
+                </p>
+            </center>
+           
+        </div>
     </div>
 
 
     <div class="col-md-4">
-        <h1>@ViewData["Title"]</h1>
+
         <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
-            <h2>Create a new account.</h2>
-            <hr />
+
 @* 
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group mt-3">
@@ -71,8 +53,7 @@
             </div>
             <hr/> *@
 
-            <input asp-for="Input.Profile.UserId" class="form-control" aria-required="false" />
-            @*<input asp-for="Input.Profile.Id" class="form-control" aria-required="false" />*@
+            <input type="hidden" asp-for="Input.Profile.UserId" class="form-control" aria-required="false" />
 
             <div class="form-group mt-3">
                 <label asp-for="Input.Profile.FirstName" class="control-label col-md-3 mb-1"></label>
@@ -151,10 +132,12 @@
 
             @* <button id="registerSubmit" type="submit" class="w-25 btn btn-md btn-primary mt-4">Next</button> *@
 
-            <a class="w-25 btn btn-outline-dark mt-4 mb-4" href="~/Identity/Account/Login">Back</a>
-            <button type="submit" class="w-25 btn btn-md btn-primary mt-4 mb-4">Next</button>
+            <a class="w-25 btn btn-outline-dark my-5" href='javascript:history.go(-1)'>Back</a>
+            <button type="submit" class="w-25 btn btn-md btn-primary my-5">Next</button>
         </form>
     </div>
+
+    <div class="col-md-1" style=""></div>
    
 </div>
 

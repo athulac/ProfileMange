@@ -9,35 +9,29 @@
 
 <div class="row">
 
-    <div class="col-md-6 col-md-offset-2">
-        <section class="m-5 p-5">
-            <h3>Use another service to register.</h3>
-            <hr />
+    <div class="col-md-1" style=""></div>
 
-        </section>
+    <div class="col-md-6">
+        <div class="px-2" style="padding-top:25%">
+            <center>
+                <h3>Add your siblings details</h3>
+                <hr />
+                <p>
+                    Please add your brothers and sisters details to complete profile.
+                </p>
+            </center>
+
+        </div>
     </div>
-
 
     <div class="col-md-4">
         <form id="registerFormSiblings" method="post">
-
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-            @*    @Html.HiddenFor(model => model.Profile.Id)
-            @Html.HiddenFor(model => model.Profile.UserId)*@
-
-            <h3>@ViewData["Title"]</h3>
-
-
-            <br />
-            <hr />
-
-            <input asp-for="Profile.UserId" class="form-control" aria-required="false" />
-            <input asp-for="Profile.SiblingOne.Id" class="form-control" aria-required="false" />
-            <input asp-for="Profile.SiblingTwo.Id" class="form-control" aria-required="false" />
-            <input asp-for="Profile.SiblingThree.Id" class="form-control" aria-required="false" />
-
-            <h4>Sibling</h4>
+            
+            <input type="hidden" asp-for="Profile.UserId" class="form-control" aria-required="false" />
+            <input type="hidden" asp-for="Profile.SiblingOne.Id" class="form-control" aria-required="false" />
+            <input type="hidden" asp-for="Profile.SiblingTwo.Id" class="form-control" aria-required="false" />
+            <input type="hidden" asp-for="Profile.SiblingThree.Id" class="form-control" aria-required="false" />
+                       
             <div class="form-group mt-3">
                 <label asp-for="Profile.SiblingOne.SiblingType" class="control-label col-md-2 mb-1"></label>
                 <div class="col-md-10">
@@ -93,7 +87,7 @@
 
 
             <br />
-            <hr>
+    
             <h4>Sibling</h4>
             <div class="form-group mt-3">
                 <label asp-for="Profile.SiblingTwo.SiblingType" class="control-label col-md-2 mb-1"></label>
@@ -150,7 +144,7 @@
 
 
             <br />
-            <hr>
+ 
             <h4>Sibling</h4>
             <div class="form-group mt-3">
                 <label asp-for="Profile.SiblingThree.SiblingType" class="control-label col-md-2 mb-1"></label>
@@ -206,13 +200,13 @@
             </div>
 
 
-            @* <button type="submit" class="w-25 btn btn-md btn-primary mt-4 mb-4">Finish</button> *@
-
-            <a class="w-25 btn btn-outline-dark mt-4 mb-4" href="~/Identity/Account/RegisterFamily">Back</a>
-            <button type="submit" class="w-25 btn btn-md btn-primary mt-4 mb-4">Finish</button>
+            <a class="w-25 btn btn-outline-dark my-5" href='javascript:history.go(-1)'>Back</a>
+            <button type="submit" class="w-25 btn btn-md btn-primary my-5">Next</button>
 
         </form>
     </div>
+
+    <div class="col-md-1" style=""></div>
 </div>
 
 
